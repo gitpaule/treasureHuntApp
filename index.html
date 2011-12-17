@@ -20,7 +20,7 @@
   <link rel="apple-touch-startup-image" href="img/l/splash.png">
 
   <meta http-equiv="cleartype" content="on">
-  <link rel="stylesheet" href="js/lib/dojo/dojox/mobile/themes/custom/custom.css">
+  <link rel="stylesheet" href="js/lib/dojox/mobile/themes/custom/custom.css">
 
    <script>
 	var dojoConfig = {
@@ -28,17 +28,17 @@
 		parseOnLoad: false,
 		baseUrl: 'js/',
 		packages: [
-		        { name: 'dojo', location: 'lib/dojo/dojo' },
-		        { name: 'dijit', location: 'lib/dojo/dijit' },
-		        { name: 'dojox', location: 'lib/dojo/dojox' },
+		        { name: 'dojo', location: 'lib/dojo' },
+		        { name: 'dijit', location: 'lib/dijit' },
+		        { name: 'dojox', location: 'lib/dojox' },
 		        { name: 'app', location: 'app' },
 		    ]
 	};
   </script>
-  <script src="js/lib/dojo/dojo/dojo.js"></script>
+  <script src="js/lib/dojo/dojo.js"></script>
   <script>
   		viewCache =  [];
-		require(['app/controller/Main', "dojox/mobile/parser"],  function (Main, parser) {
+		require(['app/controller/Main',  "dojox/mobile/parser", "dojox/mobile/CheckBox", "dojox/mobile/RoundRectList","dojox/mobile/ListItem","dojox/mobile/Switch"],  function (Main, parser) {
 				//parse all widgets on page
 			   parser.parse();
 			   setTimeout(Main.setStartPage, 200);
@@ -52,6 +52,7 @@
 	<div data-dojo-type="dojox.mobile.View"  id="setupView" >
     	<h1 data-dojo-type="dojox.mobile.Heading" data-dojo-props="fixed: 'top'">Explore Fingal Challenge</h1>
         <h2 data-dojo-type="dojox.mobile.RoundRectCategory">Setup</h2>
+		
         <div dojoType="dojox.mobile.RoundRect" shadow="true">			
 				<div>
 					<div>
@@ -60,14 +61,33 @@
 					<div>
 						<label for="input2">Test2</label><input data-dojo-type="dojox.mobile.TextBox" id="input2" data-dojo-props="selectOnClick:'true', placeHolder:'enter something'">
 					</div>
+					<div data-dojo-type="dojox.mobile.ListItem" data-dojo-props="moveTo:'activityListView'">
+						
+					</div>
 					<div>
-						<input type="submit"  id="startGameBtn" data-dojo-type="dojox.mobile.Button" value="Submit"/>
+						<input type="submit"  id="startGameBtn" data-dojo-type="dojox.mobile.Button" value="Submit" data-dojo-props="onClick:function(){window.alert('bla!')}"/>
 					</div>
 				</div>
 			</div>
     </div>
 	<div data-dojo-type="dojox.mobile.ScrollableView" id="activityListView">
-		<ul data-dojo-type="dojox.mobile.RoundRectList" id="activityList"></ul>
+		<ul data-dojo-type="dojox.mobile.RoundRectList" id="activityList">
+ 
+			<li data-dojo-type="dojox.mobile.ListItem" >
+				<label for="lookAtTowerCheck">Look at the tower.</label>
+				<div data-dojo-type="dojox.mobile.CheckBox" id="lookAtTowerCheck"></div>
+			</li>
+	 
+			<li data-dojo-type="dojox.mobile.ListItem">
+				What year was the tower built?
+				<label for="towerInput">What year was the tower built?</label><input data-dojo-type="dojox.mobile.TextBox" id="towerInput" data-dojo-props="selectOnClick:'true', placeHolder:'enter year'">
+			</li>
+	 
+			<li data-dojo-type="dojox.mobile.ListItem">
+				List item 3
+			</li>
+		
+		</ul>
 	</div>
 	
 </div>
