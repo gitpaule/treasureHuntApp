@@ -20,7 +20,7 @@
   <link rel="apple-touch-startup-image" href="img/l/splash.png">
 
   <meta http-equiv="cleartype" content="on">
-  <link rel="stylesheet" href="js/lib/dojo/dojox/mobile/themes/custom/custom.css">
+  <link rel="stylesheet" href="js/lib/dojox/mobile/themes/custom/custom.css">
 
    <script>
 	var dojoConfig = {
@@ -28,14 +28,14 @@
 		parseOnLoad: false,
 		baseUrl: 'js/',
 		packages: [
-		        { name: 'dojo', location: 'lib/dojo/dojo' },
-		        { name: 'dijit', location: 'lib/dojo/dijit' },
-		        { name: 'dojox', location: 'lib/dojo/dojox' },
+		        { name: 'dojo', location: 'lib/dojo' },
+		        { name: 'dijit', location: 'lib/dijit' },
+		        { name: 'dojox', location: 'lib/dojox' },
 		        { name: 'app', location: 'app' },
 		    ]
 	};
   </script>
-  <script src="js/lib/dojo/dojo/dojo.js"></script>
+  <script src="js/lib/dojo/dojo.js"></script>
   <script>
   		viewCache =  [];
 		require(['app/controller/Main', "dojox/mobile/parser"],  function (Main, parser) {
@@ -49,6 +49,7 @@
 <body>
 
 <div id="contentContainer" style="display: none">
+
 	<div data-dojo-type="dojox.mobile.View"  id="setupView" >
     	<h1 data-dojo-type="dojox.mobile.Heading" data-dojo-props="fixed: 'top'">Explore Fingal Challenge</h1>
         <h2 data-dojo-type="dojox.mobile.RoundRectCategory">Setup</h2>
