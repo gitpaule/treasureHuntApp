@@ -1,0 +1,76 @@
+<!doctype html>
+
+<head>
+  <meta charset="utf-8">
+
+  <title>Explore Fingal</title>
+
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/h/apple-touch-icon.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/m/apple-touch-icon.png">
+  <link rel="apple-touch-icon-precomposed" href="img/l/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="img/l/apple-touch-icon.png">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <script>(function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")</script>
+  <link rel="apple-touch-startup-image" href="img/l/splash.png">
+
+  <meta http-equiv="cleartype" content="on">
+  <link rel="stylesheet" href="js/lib/dojo/dojox/mobile/themes/custom/custom.css">
+
+   <script>
+	var dojoConfig = {
+		async:true,
+		parseOnLoad: false,
+		baseUrl: 'js/',
+		packages: [
+		        { name: 'dojo', location: 'lib/dojo/dojo' },
+		        { name: 'dijit', location: 'lib/dojo/dijit' },
+		        { name: 'dojox', location: 'lib/dojo/dojox' },
+		        { name: 'app', location: 'app' },
+		    ]
+	};
+  </script>
+  <script src="js/lib/dojo/dojo/dojo.js"></script>
+  <script>
+  		viewCache =  [];
+		require(['app/controller/Main', "dojox/mobile/parser"],  function (Main, parser) {
+				//parse all widgets on page
+			   parser.parse();
+			   setTimeout(Main.setStartPage, 200);
+	    });
+   </script>
+</head>
+
+<body>
+
+<div id="contentContainer" style="display: none">
+	<div data-dojo-type="dojox.mobile.View"  id="setupView" >
+    	<h1 data-dojo-type="dojox.mobile.Heading" data-dojo-props="fixed: 'top'">Explore Fingal Challenge</h1>
+        <h2 data-dojo-type="dojox.mobile.RoundRectCategory">Setup</h2>
+        <div dojoType="dojox.mobile.RoundRect" shadow="true">			
+				<div>
+					<div>
+						<label for="input1">Test1</label><input data-dojo-type="dojox.mobile.TextBox" id="input1" data-dojo-props="selectOnClick:'true', placeHolder:'enter something'">
+					</div>
+					<div>
+						<label for="input2">Test2</label><input data-dojo-type="dojox.mobile.TextBox" id="input2" data-dojo-props="selectOnClick:'true', placeHolder:'enter something'">
+					</div>
+					<div>
+						<input type="submit"  id="startGameBtn" data-dojo-type="dojox.mobile.Button" value="Submit"/>
+					</div>
+				</div>
+			</div>
+    </div>
+	<div data-dojo-type="dojox.mobile.ScrollableView" id="activityListView">
+		<ul data-dojo-type="dojox.mobile.RoundRectList" id="activityList"></ul>
+	</div>
+	
+</div>
+
+</body>
+</html>
