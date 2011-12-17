@@ -12,15 +12,14 @@ define(['dojo/_base/declare',
         	activityRectList: null,
         	activityStore: null,
         	
-        	constructor: function(/*Object*/ args){
-        		//mix in mobile view
-        	    declare.safeMixin(this, args);
+        	constructor: function(view){
+        		this.view = view;
         	},
         	
         	// summary:
 			//		Initialise the store 
         	//
-        	populateList: function(activityListJson){
+        	populateData: function(activityListJson){
         		this.activityRectList = registry.byId('activityList');
         		for ( var idx = 0; idx < activityListJson.length; idx++) {
         			var item = activityListJson[idx];
@@ -28,6 +27,10 @@ define(['dojo/_base/declare',
         			this.activityRectList.addChild(li);
 				}
         	}, 
+        	
+        	setupEventHandlers: function(view){
+        		
+        	},
         	
         	show: function(initialLoad){
         		this.view.show(initialLoad);
