@@ -21,7 +21,8 @@
 
   <meta http-equiv="cleartype" content="on">
   <link href="js/lib/dojox/mobile/themes/iphone/iphone.css" rel="stylesheet"></link>
-  <link rel="stylesheet" href="js/lib/dojox/mobile/themes/custom/custom.css">
+  <link rel="stylesheet" href="js/lib/dojox/mobile/themes/custom/custom.css"></link>
+  <link rel="stylesheet" href="css/appStyles.css"></link>
 
    <script>
 	var dojoConfig = {
@@ -39,7 +40,8 @@
   <script src="js/lib/dojo/dojo.js"></script>
   <script>
   		viewCache =  [];
-		require(['app/controller/Main',  "dojox/mobile/parser", "dojox/mobile/RadioButton", "dojox/mobile/CheckBox", "dojox/mobile/RoundRectList","dojox/mobile/ListItem","dojox/mobile/Switch"],  function (Main, parser) {
+		require(['app/controller/Main',
+				"dojox/mobile/parser"],  function (Main, parser) {
 				//parse all widgets on page
 			   parser.parse();
 			   setTimeout(Main.setStartPage, 200);
@@ -72,6 +74,11 @@
 				</div>
 			</div>
     </div>
+    <div data-dojo-type="dojox.mobile.ScrollableView" id="taskListView">
+    		<img src="http://blog.discoverireland.com/wp-content/uploads/2011/11/ChristmasInIreland_Farmleigh-550x366.jpg" alt="farmleigh photo" style="padding: 10px; float: left;" id="taskListViewImage"/>
+			<h1 id="taskListViewTitle">Tasks for Farmleigh House</h1>
+    </div>
+    
 	<div data-dojo-type="dojox.mobile.ScrollableView" id="activityListView">
 		<div>
 			<img src="http://blog.discoverireland.com/wp-content/uploads/2011/11/ChristmasInIreland_Farmleigh-550x366.jpg" height="175px" width="183px" alt="farmleigh photo" style="padding: 10px; float: left;"/>
