@@ -20,6 +20,7 @@
   <link rel="apple-touch-startup-image" href="img/l/splash.png">
 
   <meta http-equiv="cleartype" content="on">
+  <link href="js/lib/dojox/mobile/themes/iphone/iphone.css" rel="stylesheet"></link>
   <link rel="stylesheet" href="js/lib/dojox/mobile/themes/custom/custom.css">
 
    <script>
@@ -28,17 +29,17 @@
 		parseOnLoad: false,
 		baseUrl: 'js/',
 		packages: [
-		        { name: 'dojo', location: 'lib/dojo' },
-		        { name: 'dijit', location: 'lib/dijit' },
-		        { name: 'dojox', location: 'lib/dojox' },
-		        { name: 'app', location: 'app' },
-		    ]
+		    { name: 'dojo', location: 'lib/dojo' },
+		    { name: 'dijit', location: 'lib/dijit' },
+		    { name: 'dojox', location: 'lib/dojox' },
+		    { name: 'app', location: 'app' },
+		]
 	};
   </script>
   <script src="js/lib/dojo/dojo.js"></script>
   <script>
   		viewCache =  [];
-		require(['app/controller/Main',  "dojox/mobile/parser", "dojox/mobile/CheckBox", "dojox/mobile/RoundRectList","dojox/mobile/ListItem","dojox/mobile/Switch"],  function (Main, parser) {
+		require(['app/controller/Main',  "dojox/mobile/parser", "dojox/mobile/RadioButton", "dojox/mobile/CheckBox", "dojox/mobile/RoundRectList","dojox/mobile/ListItem","dojox/mobile/Switch"],  function (Main, parser) {
 				//parse all widgets on page
 			   parser.parse();
 			   setTimeout(Main.setStartPage, 200);
@@ -72,23 +73,32 @@
 			</div>
     </div>
 	<div data-dojo-type="dojox.mobile.ScrollableView" id="activityListView">
-		<ul data-dojo-type="dojox.mobile.RoundRectList" id="activityList">
- 
-			<li data-dojo-type="dojox.mobile.ListItem" >
-				<label for="lookAtTowerCheck">Look at the tower.</label>
-				<div data-dojo-type="dojox.mobile.CheckBox" id="lookAtTowerCheck"></div>
-			</li>
-	 
-			<li data-dojo-type="dojox.mobile.ListItem">
-				What year was the tower built?
-				<label for="towerInput">What year was the tower built?</label><input data-dojo-type="dojox.mobile.TextBox" id="towerInput" data-dojo-props="selectOnClick:'true', placeHolder:'enter year'">
-			</li>
-	 
-			<li data-dojo-type="dojox.mobile.ListItem">
-				List item 3
-			</li>
-		
-		</ul>
+		<div>
+			<img src="http://blog.discoverireland.com/wp-content/uploads/2011/11/ChristmasInIreland_Farmleigh-550x366.jpg" height="175px" width="183px" alt="farmleigh photo" style="padding: 10px; float: left;"/>
+			<h1 float:left;>Tasks for Farmleigh House</h1>
+		</div>
+		<div data-dojo-type="dojox.mobile.RoundRect" style="clear: both;">
+			<h3> Who founded Farmleigh House? </h3>
+			<input data-dojo-type="dojox.mobile.RadioButton" id="peterFarmleigh">
+			<label for="peterFarmleigh">Peter Farmleigh</label><br/>
+			
+			<input data-dojo-type="dojox.mobile.RadioButton" id="peterFrampton">
+			<label for="peterFrampton">Peter Frampton</label><br/>
+			
+			<input data-dojo-type="dojox.mobile.RadioButton" id="thomasFarmleigh">
+			<label for="thomasFarmleigh">Thomas Farmleigh</label><br/>
+		</div>
+		<div data-dojo-type="dojox.mobile.RoundRect">
+			<h3> What were the chairs in the lobby used for? </h3>
+			<input data-dojo-type="dojox.mobile.RadioButton" id="intimidation">
+			<label for="intimidation">Intimidating Debtors</label><br/>
+			
+			<input data-dojo-type="dojox.mobile.RadioButton" id="relax">
+			<label for="relax">Relaxing after a long hunt</label><br/>
+			
+			<input data-dojo-type="dojox.mobile.RadioButton" id="poker">
+			<label for="poker">Smoking and Poker playing</label><br/>
+		</div>
 	</div>
 	
 </div>
