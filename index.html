@@ -38,10 +38,12 @@
   <script src="js/lib/dojo/dojo.js"></script>
   <script>
   		viewCache =  [];
-		require(['app/controller/Main', "dojox/mobile/parser"],  function (Main, parser) {
+  		progressIndicator = null;
+		require(['app/controller/Main', "dojox/mobile/parser", 'dojox/mobile/ProgressIndicator'],  function (Main, parser, progressIndicator) {
 				//parse all widgets on page
 			   parser.parse();
 			   setTimeout(Main.setStartPage, 200);
+			   progressIndicator = progressIndicator.getInstance();
 	    });
    </script>
 </head>
