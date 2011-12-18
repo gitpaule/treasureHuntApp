@@ -4,7 +4,7 @@ define([ 'dojo/_base/Deferred',
          'dojo/dom',
          'dijit/registry', 
          'app/views/ActivityList',
-         'app/views/Setup',
+         'app/views/Setup',,
          'dojox/mobile/parser',
          'dojox/mobile/View',
          'dojox/mobile/ScrollableView',
@@ -40,14 +40,14 @@ define([ 'dojo/_base/Deferred',
         		}
         		cachedActivitiesData = localStorage.getItem("fingalActivityChallenge");
         		if (cachedActivitiesData){
-        			activityMobileView = registry.byId('activityListView');
+        			var activityMobileView = registry.byId('activityListView');
         			viewCache.activityList = new ActivityList(activityMobileView);
         			viewCache.activityList.populateData(cachedActivitiesData);
 	    			viewCache.activityList.setupEventHandlers(activityMobileView);
 	    			viewCache.activityList.show();
         		}
         		else{
-        			setupMobileView = registry.byId('setupView');
+        			var setupMobileView = registry.byId('setupView');
         			viewCache.setup = new Setup(setupMobileView);
         			viewCache.setup.setupEventHandlers(setupMobileView);
         			viewCache.setup.show(true);

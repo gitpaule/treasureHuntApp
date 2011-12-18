@@ -39,10 +39,16 @@
   <script src="js/lib/dojo/dojo.js"></script>
   <script>
   		viewCache =  [];
+<<<<<<< HEAD
+  		progressIndicator = null;
+		require(['app/controller/Main', "dojox/mobile/parser", 'dojox/mobile/ProgressIndicator'],  function (Main, parser, progressIndicator) {
+=======
 		require(['app/controller/Main',  "dojox/mobile/parser", "dojox/mobile/RadioButton", "dojox/mobile/CheckBox", "dojox/mobile/RoundRectList","dojox/mobile/ListItem","dojox/mobile/Switch"],  function (Main, parser) {
+>>>>>>> upstream/master
 				//parse all widgets on page
 			   parser.parse();
 			   setTimeout(Main.setStartPage, 200);
+			   progressIndicator = progressIndicator.getInstance();
 	    });
    </script>
 </head>
