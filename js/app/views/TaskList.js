@@ -70,7 +70,7 @@ define(['dojo/_base/declare',
     				var taskWidget;
     				taskWidget = new RoundRect();
     				
-    				taskWidget.containerNode.innerHTML()
+    				taskWidget.containerNode.innerHTML = "<h3>"+task.title+"</h3>";
     				
     				//(domConstruct.create("h3", {innerHTML: task.title}), taskWidget, "first");
     				if(task.type === "radio"){
@@ -79,7 +79,7 @@ define(['dojo/_base/declare',
     						taskWidget.addChild(new RadioButton({label: option}), taskWidget, "last");
     					})
     				}
-    				
+    				domConstruct.place(taskWidget, "taskListViewTaskContainer", "last");
     			});
         	},
         	
