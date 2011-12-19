@@ -42,6 +42,7 @@ define([ 'dojo/_base/Deferred',
         			activityMobileView, 
         			setupMobileView,
         			taskListView;
+        			
         		this.contentNode = dom.byId('content');
         		if (!window.localStorage){
         			console.error("Browser not supported");
@@ -93,5 +94,4 @@ define([ 'dojo/_base/Deferred',
 	}
         	
 });
-
 

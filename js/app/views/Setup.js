@@ -1,8 +1,9 @@
 define(['dojo/_base/declare',
         'dijit/registry', 
+        'dojo/_base/lang', 
         'dojo/on', 
         'dojo/_base/xhr', 
-        'dojox/mobile/ProgressIndicator'], function (declare, registry, on, xhr, ProgressIndicator) {
+        'app/views/ActivityList', ], function (declare, registry, lang, on, xhr, ActivityList) {
 	
 	// module:
 	//		views/ActivityList
@@ -17,7 +18,7 @@ define(['dojo/_base/declare',
         	},
         	
         	setupEventHandlers: function(view){
-        		on(registry.byId('startGameBtn').domNode, "click", this.generateActivities);
+        		on(registry.byId('startGameBtn').domNode, "click", lang.hitch(this, this.generateActivities));
         	},
         	
         	show: function(){
@@ -25,20 +26,16 @@ define(['dojo/_base/declare',
         	}, 
         	
         	generateActivities: function(formValues){
-        		var prog = ProgressIndicator.getInstance();
-				dojo.body().appendChild(prog.domNode);
-				prog.start();
+        		var slideEef = this.view.performTransition("activityListView", 1, "slide");
         		xhr.get({
         			url:"js/dummydata/sampleActivityData.json",
         			handleAs:"json",
-        			load: function(data){
-                			activityMobileView = registry.byId('activityListView');
+        			load: lang.hitch(this, function(data){
+                			var activityMobileView = registry.byId('activityListView');
                 			viewCache.activityList = new ActivityList(activityMobileView);
                 			viewCache.activityList.populateData(data);
         	    			viewCache.activityList.setupEventHandlers(activityMobileView);
-        	    			this.performTransition("activityListView", 1, "slide");
-        	    			prog.stop();
-        			}
+        			})
         		});
         	}
     });
