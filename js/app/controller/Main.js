@@ -77,17 +77,15 @@ define([ 'dojo/_base/Deferred',
         		
         		cachedActivitiesData = localStorage.getItem("fingalActivityChallenge");
         		if (cachedActivitiesData){
-        			activityMobileView = registry.byId('activityListView');
-        			viewCache.activityList = new ActivityList(activityMobileView);
+        			viewCache.activityList = new ActivityList();
         			viewCache.activityList.populateData(cachedActivitiesData);
-	    			viewCache.activityList.setupEventHandlers(activityMobileView);
+	    			viewCache.activityList.setupEventHandlers();
 	    			viewCache.activityList.show();
         		}
         		else{
-        			setupMobileView = registry.byId('setupView');
-        			viewCache.setup = new Setup(setupMobileView);
-        			viewCache.setup.setupEventHandlers(setupMobileView);
-        			viewCache.setup.show(true);
+				viewCache.setup = new Setup();
+        			viewCache.setup.setupEventHandlers();
+        			viewCache.setup.show();
         		}
         		dom.byId('contentContainer').style.display = 'block';
         	}

@@ -19,8 +19,8 @@ define(['dojo/_base/declare',
         	imageNode: null,
         	titleNode: null,
         	
-        	constructor: function(view){
-        		this.view = view;
+        	constructor: function(){
+        		this.view = registry.byId('taskListView');
         	},
         	
         	// summary:

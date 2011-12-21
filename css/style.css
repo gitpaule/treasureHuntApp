@@ -1,0 +1,24 @@
+@import url("../js/lib/dojox/mobile/themes/custom/base.css");
+
+/* common styles */
+@import url("../js/lib/dojox/mobile/themes/common/domButtons.css");
+/*@import url("../common/FixedSplitter.css");
+@import url("../common/SpinWheel.css");*/
+@import url("../js/lib/dojox/mobile/themes/common/transitions.css");
+
+/* widget styles */
+@import url("../js/lib/dojox/mobile/themes/custom/Button.css");
+/* @import url("Carousel.css"); */
+@import url("../js/lib/dojox/mobile/themes/custom/CheckBox.css");
+/* @import url("ComboBox.css"); */
+/* @import url("IconContainer.css"); */
+/* @import url("Opener.css"); */
+@import url("../js/lib/dojox/mobile/themes/custom/PageIndicator.css");
+@import url("../js/lib/dojox/mobile/themes/custom/RadioButton.css");
+/* @import url("Slider.css"); */
+@import url("../js/lib/dojox/mobile/themes/custom/TabBar.css");
+@import url("../js/lib/dojox/mobile/themes/custom/TextArea.css");
+@import url("../js/lib/dojox/mobile/themes/custom/TextBox.css");
+/*@import url("ToggleButton.css");*/
+
+@import url("appStyles.css");
