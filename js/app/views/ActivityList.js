@@ -1,10 +1,12 @@
 define(['dojo/_base/declare',
         'dijit/registry', 
         'dojo/_base/lang', 
+        'dojo/on',
         'dojo/_base/Deferred',
         'dojo/_base/xhr', 
         'dojox/mobile/ListItem', 
-        'app/views/TaskList'], function (declare, registry, lang, Deferred, xhr, ListItem, TaskList) {
+        'app/views/TaskList',
+         'app/views/Map'], function (declare, registry, lang, on, Deferred, xhr, ListItem, TaskList, Map) {
 	
 	// module:
 	//		views/ActivityList
@@ -18,6 +20,7 @@ define(['dojo/_base/declare',
         	
         	constructor: function(){
         		this.view = registry.byId('activityListView');
+        		this._setupEventHandlers();
         	},
         	
         	// summary:
@@ -75,6 +78,19 @@ define(['dojo/_base/declare',
         	show: function(){
         		this.view.show(initialLoad);
 				this.view.selected = true;
+        	}, 
+        	
+			_setupEventHandlers: function(view){
+        		var mapBtn = registry.byId('activityListView_mapBtn');
+        		if(!viewCache.mapView){
+        			viewCache.mapView = new Map();
+        		}
+				on(mapBtn.domNode, 'click', this._showMapView);
+        	},
+        	
+        	_showMapView: function(){
+				viewCache.mapView.populateData(this);
+        		viewCache.mapView.show();
         	}
     });
 });

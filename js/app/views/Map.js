@@ -13,14 +13,17 @@ define(['dojo/_base/declare',
 			
         view: null,
 		map: null,
-		tilesloadedPromise: new Deferred(),
+		listBtn: null,
+		previousView: null,
         	
 
 		constructor: function() {
-			this.view = registry.byId('setupView');
+			this.view = registry.byId('mapView');
+			this._setupEventHandlers();
+			
 			var mapOptions = {
 				zoom : 15,
-				center : new google.maps.LatLng(37.20084, -93.28121),
+				center : new google.maps.LatLng(53.38250, -6.24916),
 				mapTypeId : google.maps.MapTypeId.ROADMAP,
 				sensor : true
 			};
@@ -33,8 +36,18 @@ define(['dojo/_base/declare',
 			this.view.show();
 		}, 
 		
-		populateMapData: function(data) {
-
+		populateData: function(view, data) {
+			if(this.previousView !== view){
+				this.previousView = view
+				if(this.btnHandle){
+					this.btnHandle.pause();
+				}
+				this.btnHandle = on(this.listBtn.domNode, 'click', this.previousView.show);
+			}
+		},
+		
+		_setupEventHandlers: function(){
+			this.listBtn = registry.byId('mapView_listBtn');
 		}
 
     });

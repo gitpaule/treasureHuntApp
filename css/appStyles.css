@@ -6,3 +6,11 @@ img.taskTitleImage{
 #taskListView h1{
 	float:left;
 }
+.tabBar{
+	margin: auto;
+}
+/* temporary */
+#map_canvas{
+	width: 300px;
+	height: 300px;
+}

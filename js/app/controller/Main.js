@@ -6,6 +6,7 @@ define([ 'dojo/_base/Deferred',
          'app/views/ActivityList',
          'app/views/Setup',
          'app/views/TaskList',
+         'app/views/Map',
          'dojox/mobile/parser',
          'dojox/mobile/View',
          'dojox/mobile/ScrollableView',
@@ -22,7 +23,7 @@ define([ 'dojo/_base/Deferred',
          'dojox/mobile/RoundRectList',
          'dojox/mobile/ListItem',
          'dojox/mobile/Switch',
-         'dojo/domReady!'], function ( Deferred, lang, djson, dom, registry, ActivityList, Setup, TaskList) {
+         'dojo/domReady!'], function ( Deferred, lang, djson, dom, registry, ActivityList, Setup, TaskList, Map) {
 	
 	// module:
 	//		controller/Main
@@ -79,13 +80,11 @@ define([ 'dojo/_base/Deferred',
         		if (cachedActivitiesData){
         			viewCache.activityList = new ActivityList();
         			viewCache.activityList.populateData(cachedActivitiesData);
-	    			viewCache.activityList.setupEventHandlers();
 	    			viewCache.activityList.show();
         		}
         		else{
-				viewCache.setup = new Setup();
-        			viewCache.setup.setupEventHandlers();
-        			viewCache.setup.show();
+					viewCache.setup = new Setup();
+					viewCache.setup.show();
         		}
         		dom.byId('contentContainer').style.display = 'block';
         	}

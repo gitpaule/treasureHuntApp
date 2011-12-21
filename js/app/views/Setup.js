@@ -15,10 +15,11 @@ define(['dojo/_base/declare',
         	
         	constructor: function(){
         		this.view = registry.byId('setupView');
+        		this._setupEventHandlers();
         	},
         	
-        	setupEventHandlers: function(){
-        		on(registry.byId('startGameBtn').domNode, "click", lang.hitch(this, this.generateActivities));
+        	_setupEventHandlers: function(){
+        		registry.byId('startGameBtn').on("Click", lang.hitch(this, this.generateActivities));
         	},
         	
         	show: function(){
