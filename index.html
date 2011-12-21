@@ -59,17 +59,19 @@
 
 <body>
 	<div id="contentContainer" style="display: none">
-		<div data-dojo-type="dojox.mobile.View"  id="mapView">
+		
+		<div data-dojo-type="dojox.mobile.ScrollableView"  id="mapView">
 			<h1 data-dojo-type="dojox.mobile.Heading" data-dojo-props="fixed: 'top'">Explore Fingal Challenge</h1>
 			<div id="map_canvas"></div>
-			<h1 data-dojo-type="dojox.mobile.Heading" data-dojo-props="fixed: 'bottom'">
-				<ul data-dojo-type="dojox.mobile.TabBar" class="tabBar" class="tabBar" data-dojo-props="barType:'segmentedControl'">
-					<li data-dojo-type="dojox.mobile.TabBarButton" data-dojo-props="selected:'true'">Map</li>
+			<h1 dojoType="dojox.mobile.Heading" id="mapView_footer" fixed="bottom">
+				<ul data-dojo-type="dojox.mobile.TabBar" class="tabBar" data-dojo-props="barType:'segmentedControl'">
+					<li data-dojo-type="dojox.mobile.TabBarButton">Map</li>
 					<li data-dojo-type="dojox.mobile.TabBarButton" id="mapView_listBtn">List</li>
 				</ul>
 			</h1>
 		</div>
-	<div data-dojo-type="dojox.mobile.View"  id="setupView" >
+		
+		<div data-dojo-type="dojox.mobile.View"  id="setupView" >
 			<h1 data-dojo-type="dojox.mobile.Heading" data-dojo-props="fixed: 'top'">Explore Fingal Challenge</h1>
 			<h2 data-dojo-type="dojox.mobile.RoundRectCategory">Setup</h2>
 			<div dojoType="dojox.mobile.RoundRect" shadow="true">
@@ -89,16 +91,18 @@
 				</div>
 			</div>
 		</div>
+		
 		<div data-dojo-type="dojox.mobile.ScrollableView" id="activityListView">
 			<h1 data-dojo-type="dojox.mobile.Heading" data-dojo-props="fixed: 'top'">Explore Fingal Challenge</h1>
 			<ul data-dojo-type="dojox.mobile.RoundRectList" id="activityList"></ul>
-			<h1 data-dojo-type="dojox.mobile.Heading" data-dojo-props="fixed: 'bottom'">
+			<h1 dojoType="dojox.mobile.Heading" fixed="bottom">
 				<ul data-dojo-type="dojox.mobile.TabBar" class="tabBar" data-dojo-props="barType:'segmentedControl'">
 					<li data-dojo-type="dojox.mobile.TabBarButton" id="activityListView_mapBtn">Map</li>
 					<li data-dojo-type="dojox.mobile.TabBarButton" data-dojo-props="selected:'true'">List</li>
 				</ul>
 			</h1>
 		</div>
+		
 		<div data-dojo-type="dojox.mobile.ScrollableView" id="taskListView">
 			<h1 data-dojo-type="dojox.mobile.Heading" data-dojo-props="fixed: 'top'">Explore Fingal Challenge</h1>
 			<div>
@@ -129,7 +133,7 @@
 				<label for="poker">Smoking and Poker playing</label>
 				<br/>
 			</div>
-			<h1 data-dojo-type="dojox.mobile.Heading" data-dojo-props="fixed: 'bottom'">
+			<h1 dojoType="dojox.mobile.Heading" fixed="bottom">
 				<ul data-dojo-type="dojox.mobile.TabBar" class="tabBar" data-dojo-props="barType:'segmentedControl'">
 					<li data-dojo-type="dojox.mobile.TabBarButton" id="taskListView_mapBtn">Map</li>
 					<li data-dojo-type="dojox.mobile.TabBarButton" data-dojo-props="selected:'true'">List</li>
