@@ -3,7 +3,8 @@ define(['dojo/_base/declare',
         'dijit/registry', 
 		'dojo/dom',
         'dojo/on',
-        'dojo/_base/lang' ], function (declare, Deferred, registry, dom, on, lang) {
+        'dojo/_base/lang',
+        'dojo/_base/window' ], function (declare, Deferred, registry, dom, on, lang, win) {
 	
 	// module:
 	//		views/Map
@@ -35,6 +36,11 @@ define(['dojo/_base/declare',
 		show: function() {
 			this.view.show();
 			registry.byId('mapView_footer').resize();
+			
+			google.maps.event.trigger(this.map, 'resize');
+	        var mapCanvas = dom.byId("map_canvas");
+	        var vs = win.getBox();
+	        mapCanvas.style.height = vs.h+"px";
 		}, 
 		
 		populateData: function(view, data) {
