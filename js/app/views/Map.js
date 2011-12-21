@@ -34,6 +34,7 @@ define(['dojo/_base/declare',
         
 		show: function() {
 			this.view.show();
+			registry.byId('mapView_footer').resize();
 		}, 
 		
 		populateData: function(view, data) {
@@ -42,7 +43,7 @@ define(['dojo/_base/declare',
 				if(this.btnHandle){
 					this.btnHandle.pause();
 				}
-				this.btnHandle = on(this.listBtn.domNode, 'click', this.previousView.show);
+				this.btnHandle = this.listBtn.on('Click', lang.hitch(this.previousView, this.previousView.show));
 			}
 		},
 		

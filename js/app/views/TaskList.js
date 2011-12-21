@@ -94,7 +94,7 @@ define(['dojo/_base/declare',
         		if(!viewCache.mapView){
         			viewCache.mapView = new Map();
         		}
-				on(mapBtn.domNode, 'click', lang(this, this._showMapView));
+				on(mapBtn.domNode, 'click', this._showMapView);
         	},
         	
         	_showMapView: function(){

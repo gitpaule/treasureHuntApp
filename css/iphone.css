@@ -1,0 +1,24 @@
+@import url("../js/lib/dojox/mobile/themes/iphone/base.css");
+
+/* common styles */
+@import url("../js/lib/dojox/mobile/themes/iphone/common/domButtons.css");
+/*@import url("../js/lib/dojox/mobile/themes/iphone/common/FixedSplitter.css");
+@import url("../js/lib/dojox/mobile/themes/iphone/common/SpinWheel.css");*/
+@import url("../js/lib/dojox/mobile/themes/iphone/common/transitions.css");
+
+/* widget styles */
+@import url("../js/lib/dojox/mobile/themes/iphone/Button.css");
+/*@import url("Carousel.css");*/
+@import url("../js/lib/dojox/mobile/themes/iphone/CheckBox.css");
+@import url("../js/lib/dojox/mobile/themes/iphone/ComboBox.css");
+/*@import url("IconContainer.css");
+@import url("Opener.css");
+@import url("PageIndicator.css");*/
+@import url("../js/lib/dojox/mobile/themes/iphone/RadioButton.css");
+/*@import url("Slider.css");*/
+@import url("../js/lib/dojox/mobile/themes/iphone/TabBar.css");
+@import url("../js/lib/dojox/mobile/themes/iphone/TextArea.css");
+@import url("../js/lib/dojox/mobile/themes/iphone/TextBox.css");
+/*@import url("ToggleButton.css");*/
+
+@import url("appStyles.css");
