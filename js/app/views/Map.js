@@ -39,8 +39,8 @@ define(['dojo/_base/declare',
 			
 			google.maps.event.trigger(this.map, 'resize');
 	        var mapCanvas = dom.byId("map_canvas");
-	        var vs = win.getBox();
-	        mapCanvas.style.height = vs.h+"px";
+	        //var vs = win.getBox();
+	        mapCanvas.style.height = "300px";
 		}, 
 		
 		populateData: function(view, data) {
