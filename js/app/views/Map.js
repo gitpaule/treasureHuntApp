@@ -4,7 +4,8 @@ define(['dojo/_base/declare',
 		'dojo/dom',
         'dojo/on',
         'dojo/_base/lang',
-        'dojo/_base/window' ], function (declare, Deferred, registry, dom, on, lang, win) {
+        'dojo/window',
+        'dojo/query'], function (declare, Deferred, registry, dom, on, lang, win, query) {
 	
 	// module:
 	//		views/Map
@@ -29,18 +30,17 @@ define(['dojo/_base/declare',
 				sensor : true
 			};
 			this.map = new google.maps.Map(dom.byId("map_canvas"), mapOptions);
-
+			
+			on(window, (dojo.global.onorientationchange !== undefined && !dojo.isAndroid)
+					? "onorientationchange" : "onresize", this.fixHeight);
 		},
 
         
 		show: function() {
 			this.view.show();
+	        this.fixHeight();
+	        
 			registry.byId('mapView_footer').resize();
-			
-			google.maps.event.trigger(this.map, 'resize');
-	        var mapCanvas = dom.byId("map_canvas");
-	        //var vs = win.getBox();
-	        mapCanvas.style.height = "300px";
 		}, 
 		
 		populateData: function(view, data) {
@@ -55,8 +55,20 @@ define(['dojo/_base/declare',
 		
 		_setupEventHandlers: function(){
 			this.listBtn = registry.byId('mapView_listBtn');
+		},
+		
+		fixHeight: function()
+		{
+			alert('fixHeight');
+			var vs = win.getBox();
+			var mapCanvas = dom.byId("map_canvas");
+			var mapView = query("#mapView .mblScrollableViewContainer");
+			
+	        var vs = win.getBox();
+	        mapView[0].style.height = (vs.h)+'px';
+	        
+			google.maps.event.trigger(this.map, 'resize');
 		}
-
     });
 });
 
