@@ -85,8 +85,8 @@ define(['dojo/_base/declare',
     			});
         	},
         	
-        	show: function(initialLoad){
-        		this.view.show(initialLoad);
+        	show: function(){
+        		this.view.show();
         	},
         	
         	_setupEventHandlers: function(view){
@@ -94,7 +94,7 @@ define(['dojo/_base/declare',
         		if(!viewCache.mapView){
         			viewCache.mapView = new Map();
         		}
-				on(mapBtn.domNode, 'click', this._showMapView);
+				mapBtn.on('Click', lang.hitch(this, this._showMapView));
         	},
         	
         	_showMapView: function(){
