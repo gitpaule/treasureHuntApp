@@ -7,7 +7,7 @@
 
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, minimum-scale = 1, maximum-scale = 1">
 
   <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/h/apple-touch-icon.png">
   <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/m/apple-touch-icon.png">
@@ -62,11 +62,11 @@
 		
 		<div data-dojo-type="dojox.mobile.ScrollableView"  id="mapView">
 			<h1 data-dojo-type="dojox.mobile.Heading" data-dojo-props="fixed: 'top'">Explore Fingal Challenge</h1>
-			<div id="map_canvas"></div>
+			<div id="map_canvas" style="position:absolute;top:40px;bottom:40px;left:0;right:0;"></div>
 			<h1 dojoType="dojox.mobile.Heading" id="mapView_footer" fixed="bottom">
 				<ul data-dojo-type="dojox.mobile.TabBar" class="tabBar" data-dojo-props="barType:'segmentedControl'">
-					<li data-dojo-type="dojox.mobile.TabBarButton">Map</li>
 					<li data-dojo-type="dojox.mobile.TabBarButton" id="mapView_listBtn">List</li>
+					<li data-dojo-type="dojox.mobile.TabBarButton">Map</li>
 				</ul>
 			</h1>
 		</div>
@@ -97,8 +97,8 @@
 			<ul data-dojo-type="dojox.mobile.RoundRectList" id="activityList"></ul>
 			<h1 dojoType="dojox.mobile.Heading" fixed="bottom">
 				<ul data-dojo-type="dojox.mobile.TabBar" class="tabBar" data-dojo-props="barType:'segmentedControl'">
-					<li data-dojo-type="dojox.mobile.TabBarButton" id="activityListView_mapBtn">Map</li>
 					<li data-dojo-type="dojox.mobile.TabBarButton" data-dojo-props="selected:'true'">List</li>
+					<li data-dojo-type="dojox.mobile.TabBarButton" id="activityListView_mapBtn">Map</li>
 				</ul>
 			</h1>
 		</div>
@@ -135,8 +135,8 @@
 			</div>
 			<h1 dojoType="dojox.mobile.Heading" fixed="bottom">
 				<ul data-dojo-type="dojox.mobile.TabBar" class="tabBar" data-dojo-props="barType:'segmentedControl'">
-					<li data-dojo-type="dojox.mobile.TabBarButton" id="taskListView_mapBtn">Map</li>
 					<li data-dojo-type="dojox.mobile.TabBarButton" data-dojo-props="selected:'true'">List</li>
+					<li data-dojo-type="dojox.mobile.TabBarButton" id="taskListView_mapBtn">Map</li>
 				</ul>
 			</h1>
 		</div>
