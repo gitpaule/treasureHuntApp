@@ -3,7 +3,9 @@ define(['dojo/_base/declare',
         'dojo/_base/lang', 
         'dojo/on', 
         'dojo/_base/xhr', 
-        'app/views/ActivityList', ], function (declare, registry, lang, on, xhr, ActivityList) {
+        'dojo/dom-form',
+        'dojo/_base/event',
+        'app/views/ActivityList', ], function (declare, registry, lang, on, xhr, domForm, event, ActivityList) {
 	
 	// module:
 	//		views/ActivityList
@@ -27,17 +29,15 @@ define(['dojo/_base/declare',
 				this.view.selected = true;
         	}, 
         	
-        	generateActivities: function(formValues){
+        	generateActivities: function(evt){
+        		
         		this.view.performTransition("activityListView", 1, "slide");
-        		xhr.get({
-        			url:"js/dummydata/sampleActivityData.json",
-        			handleAs:"json",
-        			load: lang.hitch(this, function(data){
-                			var activityMobileView = registry.byId('activityListView');
-                			viewCache.activityList = new ActivityList(activityMobileView);
-                			viewCache.activityList.populateData(data);
-        			})
-        		});
+                viewCache.activityList = new ActivityList();
+                var formQuery = domForm.toQuery('gameSetupForm');
+                viewCache.activityList.getActivitesForNewGame(formQuery);
+                
+                event.stop(evt);
+                return false;
         	}
     });
 });

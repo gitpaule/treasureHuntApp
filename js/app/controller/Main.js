@@ -39,8 +39,7 @@ define([ 'dojo/_base/Deferred',
         	//		If none available then show setup page else show activity list page
         	//
         	setStartPage: function(){
-        		var cachedActivities, 
-        			activityMobileView, 
+        		var activityMobileView, 
         			setupMobileView,
         			taskListView;
         			
@@ -76,10 +75,9 @@ define([ 'dojo/_base/Deferred',
         		//END TEST CODE
         		
         		
-        		cachedActivitiesData = localStorage.getItem("fingalActivityChallenge");
+        		var cachedActivitiesData = localStorage.getItem("game_activities");
         		if (cachedActivitiesData){
         			viewCache.activityList = new ActivityList();
-        			viewCache.activityList.populateData(cachedActivitiesData);
 	    			viewCache.activityList.show();
         		}
         		else{
