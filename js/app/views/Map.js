@@ -31,8 +31,11 @@ define(['dojo/_base/declare',
 			};
 			this.map = new google.maps.Map(dom.byId("map_canvas"), mapOptions);
 			
-			on(window, (dojo.global.onorientationchange !== undefined && !dojo.isAndroid)
-					? "onorientationchange" : "onresize", this.fixHeight);
+			on(window, (dojo.global.orientationchange !== undefined && !dojo.isAndroid)
+					? "orientationchange" : "resize", this.fixHeight);
+					
+			// dojo.connect(null, (dojo.global.onorientationchange !== undefined && !dojo.isAndroid)
+					// ? "onorientationchange" : "onresize", null, this.fixHeight);
 		},
 
         
@@ -59,13 +62,14 @@ define(['dojo/_base/declare',
 		
 		fixHeight: function()
 		{
-			alert('fixHeight');
+			//alert('fixHeight');
 			var vs = win.getBox();
 			var mapCanvas = dom.byId("map_canvas");
 			var mapView = query("#mapView .mblScrollableViewContainer");
 			
 	        var vs = win.getBox();
 	        mapView[0].style.height = (vs.h)+'px';
+	        //mapView[0].style.width = (vs.w)+'px';
 	        
 			google.maps.event.trigger(this.map, 'resize');
 		}
