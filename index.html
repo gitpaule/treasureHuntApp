@@ -60,16 +60,6 @@
 <body>
 	<div id="contentContainer" style="display: none">
 		
-		<div data-dojo-type="dojox.mobile.ScrollableView"  id="mapView">
-			<h1 data-dojo-type="dojox.mobile.Heading" data-dojo-props="fixed: 'top'">Explore Fingal Challenge</h1>
-			<div id="map_canvas" style="position:absolute;top:40px;bottom:40px;left:0;right:0;"></div>
-			<h1 dojoType="dojox.mobile.Heading" id="mapView_footer" fixed="bottom">
-				<ul data-dojo-type="dojox.mobile.TabBar" class="tabBar" data-dojo-props="barType:'segmentedControl'">
-					<li data-dojo-type="dojox.mobile.TabBarButton" id="mapView_listBtn">List</li>
-					<li data-dojo-type="dojox.mobile.TabBarButton">Map</li>
-				</ul>
-			</h1>
-		</div>
 		
 		<div data-dojo-type="dojox.mobile.View"  id="setupView" >
 			<h1 data-dojo-type="dojox.mobile.Heading" data-dojo-props="fixed: 'top'">Explore Fingal Challenge</h1>
@@ -92,16 +82,29 @@
 			</div>
 		</div>
 		
-		<div data-dojo-type="dojox.mobile.ScrollableView" id="activityListView">
-			<h1 data-dojo-type="dojox.mobile.Heading" data-dojo-props="fixed: 'top'">Explore Fingal Challenge</h1>
-			<ul data-dojo-type="dojox.mobile.RoundRectList" id="activityList"></ul>
-			<h1 dojoType="dojox.mobile.Heading" fixed="bottom">
-				<ul data-dojo-type="dojox.mobile.TabBar" class="tabBar" data-dojo-props="barType:'segmentedControl'">
-					<li data-dojo-type="dojox.mobile.TabBarButton" data-dojo-props="selected:'true'">List</li>
-					<li data-dojo-type="dojox.mobile.TabBarButton" id="activityListView_mapBtn">Map</li>
+		
+		<div id="activityGroupView" data-dojo-type="dojox.mobile.View" selected="true">
+			
+			<div data-dojo-type="dojox.mobile.ScrollableView" id="activityListView">
+				<h1 data-dojo-type="dojox.mobile.Heading" back="New Game" moveTo="setupView" data-dojo-props="fixed: 'top'">Explore Fingal Challenge - Activities</h1>
+				<ul data-dojo-type="dojox.mobile.RoundRectList" id="activityList"></ul>
+			</div>
+			
+			<div data-dojo-type="dojox.mobile.ScrollableView"  id="mapView">
+				<h1 data-dojo-type="dojox.mobile.Heading"  back="New Game" moveTo="setupView"  data-dojo-props="fixed: 'top'">Explore Fingal Challenge - Activities Map</h1>
+				<div id="map_canvas" style=""></div>
+			</div>
+			
+			
+			<h1 dojoType="dojox.mobile.Heading" fixed="bottom" style="margin-top: -41px;">
+	    		<ul data-dojo-type="dojox.mobile.TabBar"  class="tabBar"  barType="segmentedControl">
+						<li data-dojo-type="dojox.mobile.TabBarButton" moveTo="activityListView" selected="true" id="activListBtn">List</li>
+						<li data-dojo-type="dojox.mobile.TabBarButton" moveTo="mapView" id="activMapBtn">Map</li>
 				</ul>
 			</h1>
 		</div>
+		
+		
 		
 		<div data-dojo-type="dojox.mobile.ScrollableView" id="taskListView">
 			<h1 data-dojo-type="dojox.mobile.Heading" data-dojo-props="fixed: 'top'">Explore Fingal Challenge</h1>

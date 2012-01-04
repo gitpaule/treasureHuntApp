@@ -52,6 +52,7 @@ define(['dojo/_base/declare',
 		//
 		_populateData : function(activityListJson) {
 			this.activityRectList = registry.byId('activityList');
+			this.activityStore = activityListJson;
 			for(var idx = 0; idx < activityListJson.features.length; idx++) {
 				var item = activityListJson.features[idx];
 
@@ -102,19 +103,25 @@ define(['dojo/_base/declare',
 		//
 		show : function() {
 			this.view.show();
+			registry.byId('dojox_mobile_Heading_3').resize();
 		},
 		
 		_setupEventHandlers : function(view) {
-			var mapBtn = registry.byId('activityListView_mapBtn');
+			var listBtn = registry.byId('activListBtn');
+			var mapBtn = registry.byId('activMapBtn');
 			if(!viewCache.mapView) {
 				viewCache.mapView = new Map();
 			}
+			listBtn.on('Click', lang.hitch(this, this.show));
 			mapBtn.on('Click', lang.hitch(this, this._showMapView));
 		},
 		
+		// summary:
+		//		Show the map view on the Activity List page
+		//
+		//
 		_showMapView : function() {
-			viewCache.mapView.populateData(this);
-			viewCache.mapView.show();
+			viewCache.mapView.show(this.activityStore, 'activityListPage', this);
 		}
 	});
 });
