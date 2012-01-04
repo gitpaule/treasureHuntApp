@@ -70,7 +70,7 @@ define(['dojo/_base/declare',
 			{
 				var vs = win.getBox();
 				var mapCanvas = dom.byId("map_canvas");
-				var mapView = query("#mapView .mblScrollableViewContainer");
+				var mapView = query("#mapView");
 				
 		        var vs = win.getBox();
 		        mapView[0].style.height = (vs.h)+'px';
