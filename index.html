@@ -66,7 +66,7 @@
 					<div>
 						<label for="input2">Test2</label><input data-dojo-type="dojox.mobile.TextBox" id="input2" data-dojo-props="selectOnClick:'true', placeHolder:'enter something'">
 					</div>
-					<div data-dojo-type="dojox.mobile.ListItem" data-dojo-props="moveTo:'taskListView'">
+					<div data-dojo-type="dojox.mobile.ListItem" data-dojo-props="moveTo:'taskListView', onClick: function(){Main.setActivity({taskList:Main.globalTaskDataArray})}">
 						
 					</div>
 					<div>
@@ -76,40 +76,16 @@
 			</div>
     </div>
     <div data-dojo-type="dojox.mobile.ScrollableView" id="taskListView">
-    		<img src="http://blog.discoverireland.com/wp-content/uploads/2011/11/ChristmasInIreland_Farmleigh-550x366.jpg" alt="farmleigh photo" style="padding: 10px; float: left;" id="taskListViewImage"/>
-			<h1 id="taskListViewTitle">Tasks for Farmleigh House</h1>
-			<div id="taskListViewTaskContainer">
-				
-			</div>
+    	<h1 data-dojo-type="dojox.mobile.Heading" data-dojo-props="fixed: 'top'">Explore Fingal Challenge</h1>
+		<img src="" alt="" style="padding: 10px; float: left;" id="taskListViewImage"/>
+		<h2 id="taskListViewTitle">Initial, change.</h2>
+		<div id="taskListViewTaskContainer">
+			
+		</div>
+		<div data-dojo-type="dojox.mobile.ListItem" data-dojo-props="moveTo:'setupView'"></div>
     </div>
-    
 	<div data-dojo-type="dojox.mobile.ScrollableView" id="activityListView">
-		<div>
-			<img src="http://blog.discoverireland.com/wp-content/uploads/2011/11/ChristmasInIreland_Farmleigh-550x366.jpg" height="175px" width="183px" alt="farmleigh photo" style="padding: 10px; float: left;"/>
-			<h1 float:left;>Tasks for Farmleigh House</h1>
-		</div>
-		<div data-dojo-type="dojox.mobile.RoundRect" style="clear: both;">
-			<h3> Who founded Farmleigh House? </h3>
-			<input data-dojo-type="dojox.mobile.RadioButton" id="peterFarmleigh">
-			<label for="peterFarmleigh">Peter Farmleigh</label><br/>
-			
-			<input data-dojo-type="dojox.mobile.RadioButton" id="peterFrampton">
-			<label for="peterFrampton">Peter Frampton</label><br/>
-			
-			<input data-dojo-type="dojox.mobile.RadioButton" id="thomasFarmleigh">
-			<label for="thomasFarmleigh">Thomas Farmleigh</label><br/>
-		</div>
-		<div data-dojo-type="dojox.mobile.RoundRect">
-			<h3> What were the chairs in the lobby used for? </h3>
-			<input data-dojo-type="dojox.mobile.RadioButton" id="intimidation">
-			<label for="intimidation">Intimidating Debtors</label><br/>
-			
-			<input data-dojo-type="dojox.mobile.RadioButton" id="relax">
-			<label for="relax">Relaxing after a long hunt</label><br/>
-			
-			<input data-dojo-type="dojox.mobile.RadioButton" id="poker">
-			<label for="poker">Smoking and Poker playing</label><br/>
-		</div>
+		
 	</div>
 	
 </div>
