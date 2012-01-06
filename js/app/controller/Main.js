@@ -29,8 +29,14 @@ define([ 'dojo/_base/Deferred',
 	// summary:
 	//		Main controller for bootstrapping application
 	return {
-        	
-        	
+		setActivity: function(activity){
+			var taskList;
+			
+			//Task part
+			taskList = new TaskList(activity.taskData);
+			taskList.populateData();
+		},
+		
         	// summary:
 			//		Checks to see what initial page to load
 			// description:
@@ -49,23 +55,60 @@ define([ 'dojo/_base/Deferred',
         			return;
         		}
         		
-        		//TEST CODE, DO NOT DELIVER!!
+        		//TEST CODE, DO NOT DELIVER!
         		/*
-        		taskData = {
-	        		title: "Farmleigh House Sample Task",
-	        		imgSource: "/img/l/apple-touch-icon-precomposed.png",
-	        		tasks: [
-	        			{
-	        				title: "Who is the guy who founded this place?",
-	        				type: "radio",
-	        				options: [
-	        					"Peter Frampton",
-	        					"Peter Farmleigh",
-	        					"Thomas Farmleigh"
-	        				],
-	        				correct: "Peter Farmleigh"
-	        			}
-	        	]};
+        		this.globalTaskDataArray = [
+        			{
+		        		title: "Farmleigh House Sample Task",
+		        		imgSource: "/img/l/apple-touch-icon-precomposed.png",
+		        		tasks: [
+		        			{
+		        				title: "Who is the guy who founded this place?",
+		        				type: "radio",
+		        				options: [
+		        					"Peter Frampton",
+		        					"Peter Farmleigh",
+		        					"Thomas Farmleigh"
+		        				],
+		        				correct: "Peter Farmleigh"//This is all speculation, I haven't got a clue.
+		        			},
+		        			{
+		        				title: "What year was Farmleigh House founded?",
+		        				type: "radio",
+		        				options: [
+		        					"1942",
+		        					"400 B.C.",
+		        					"2011"
+		        				],
+		        				correct: "1942"//This is all speculation, I haven't got a clue.
+		        			}
+		        	]},
+		        	{
+		        		title: "Farmleigh House Sample Task 2",
+		        		imgSource: "/img/l/apple-touch-icon-precomposed.png",
+		        		tasks: [
+		        			{
+		        				title: "What is the answer to this question?",
+		        				type: "radio",
+		        				options: [
+		        					"this",
+		        					"something else",
+		        					"something else entirely"
+		        				],
+		        				correct: "this"//This is all speculation, I haven't got a clue :)
+		        			},
+		        			{
+		        				title: "What year was Farmleigh House founded?",
+		        				type: "radio",
+		        				options: [
+		        					"1942",
+		        					"400 B.C.",
+		        					"2011"
+		        				],
+		        				correct: "1942"//This is all speculation, I haven't got a clue.
+		        			}
+		        	]}
+		        ];
 	        	taskListView = registry.byId("taskListView");
 	        	viewCache.taskList = new TaskList(taskListView);
         		viewCache.taskList.populateData(taskData);
