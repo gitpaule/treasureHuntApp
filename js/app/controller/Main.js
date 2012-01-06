@@ -6,6 +6,7 @@ define([ 'dojo/_base/Deferred',
          'app/views/ActivityList',
          'app/views/Setup',
          'app/views/TaskList',
+         'app/views/Map',
          'dojox/mobile/parser',
          'dojox/mobile/View',
          'dojox/mobile/ScrollableView',
@@ -22,7 +23,7 @@ define([ 'dojo/_base/Deferred',
          'dojox/mobile/RoundRectList',
          'dojox/mobile/ListItem',
          'dojox/mobile/Switch',
-         'dojo/domReady!'], function ( Deferred, lang, djson, dom, registry, ActivityList, Setup, TaskList) {
+         'dojo/domReady!'], function ( Deferred, lang, djson, dom, registry, ActivityList, Setup, TaskList, Map) {
 	
 	// module:
 	//		controller/Main
@@ -120,17 +121,13 @@ define([ 'dojo/_base/Deferred',
         		
         		cachedActivitiesData = localStorage.getItem("fingalActivityChallenge");
         		if (cachedActivitiesData){
-        			activityMobileView = registry.byId('activityListView');
-        			viewCache.activityList = new ActivityList(activityMobileView);
+        			viewCache.activityList = new ActivityList();
         			viewCache.activityList.populateData(cachedActivitiesData);
-	    			viewCache.activityList.setupEventHandlers(activityMobileView);
 	    			viewCache.activityList.show();
         		}
         		else{
-        			setupMobileView = registry.byId('setupView');
-        			viewCache.setup = new Setup(setupMobileView);
-        			viewCache.setup.setupEventHandlers(setupMobileView);
-        			viewCache.setup.show(true);
+					viewCache.setup = new Setup();
+					viewCache.setup.show();
         		}
         		dom.byId('contentContainer').style.display = 'block';
         	}

@@ -1,0 +1,22 @@
+[
+	{
+		label: "Farmleigh house tour",
+		icon:  "img/h/tower_clear.png",
+		id: "123"
+	},
+	{
+		label: "Farmleigh garden",
+		icon:  "img/h/flowers_clear.png",
+		id: "1234"
+	},
+	{
+		label: "National museum",
+		icon:  "img/h/art-museum_clear.png",
+		id: "12345"
+	},
+	{
+		label: "Coast walk",
+		icon:  "img/h/hiking_clear.png",
+		id: "123456"
+	}
+]

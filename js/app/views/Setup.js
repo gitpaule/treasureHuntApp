@@ -13,20 +13,22 @@ define(['dojo/_base/declare',
 			
         	view: null,
         	
-        	constructor: function(view){
-        		this.view = view;
+        	constructor: function(){
+        		this.view = registry.byId('setupView');
+        		this._setupEventHandlers();
         	},
         	
-        	setupEventHandlers: function(view){
-        		on(registry.byId('startGameBtn').domNode, "click", lang.hitch(this, this.generateActivities));
+        	_setupEventHandlers: function(){
+        		registry.byId('startGameBtn').on("Click", lang.hitch(this, this.generateActivities));
         	},
         	
         	show: function(){
         		this.view.show();
+				this.view.selected = true;
         	}, 
         	
         	generateActivities: function(formValues){
-        		var slideEef = this.view.performTransition("activityListView", 1, "slide");
+        		this.view.performTransition("activityListView", 1, "slide");
         		xhr.get({
         			url:"js/dummydata/sampleActivityData.json",
         			handleAs:"json",
@@ -34,7 +36,6 @@ define(['dojo/_base/declare',
                 			var activityMobileView = registry.byId('activityListView');
                 			viewCache.activityList = new ActivityList(activityMobileView);
                 			viewCache.activityList.populateData(data);
-        	    			viewCache.activityList.setupEventHandlers(activityMobileView);
         			})
         		});
         	}
