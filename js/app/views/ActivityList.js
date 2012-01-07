@@ -63,7 +63,7 @@ define(['dojo/_base/declare',
 					icon : 'img/h/tower_clear-.png',
 					clickable : true,
 					onClick : lang.hitch(this, function(event) {
-						this.view.performTransition("taskListView", 1, "slide");
+						this.view.performTransition("activityDetailView", 1, "slide");
 						if(!viewCache.taskList) {
 							viewCache.taskList = new TaskList();
 						}
