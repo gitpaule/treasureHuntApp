@@ -124,7 +124,7 @@ define([ 'dojo/_base/Deferred',
     		//END TEST CODE
     		
     		
-    		cachedActivitiesData = localStorage.getItem("fingalActivityChallenge");
+    		cachedActivitiesData = localStorage.getItem("activityList");
     		if (cachedActivitiesData){
     			viewCache.activityList = new ActivityList();
     			viewCache.activityList.populateData(cachedActivitiesData);
