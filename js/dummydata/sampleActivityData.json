@@ -6,7 +6,7 @@
            "id": "708",
            "geometry": {
                "type": "Point",
-               "coordinates": [53.3422770269445, -6.26794763576191]
+               "coordinates": [ -6.26794763576191, 53.3422770269445]
            },
            "properties": {
                "name": "Chester Beatty Library",
@@ -20,7 +20,7 @@
            "id": "748",
            "geometry": {
                "type": "Point",
-               "coordinates": [53.343305890299, -6.2996629547358]
+               "coordinates": [-6.2996629547358, 53.343305890299]
            },
            "properties": {
                "name": "Irish Museum Of Modern Art",
@@ -34,7 +34,7 @@
            "id": "718",
            "geometry": {
                "type": "Point",
-               "coordinates": [53.345210431764, -6.2653305351955]
+               "coordinates": [-6.2653305351955, 53.345210431764]
            },
            "properties": {
                "name": "National Photographic Archive",
@@ -48,7 +48,7 @@
            "id": "Malahide Castle",
            "geometry": {
                "type": "Point",
-               "coordinates": [53.4448028556712, -6.16464799530636]
+               "coordinates": [ -6.16464799530636, 53.4448028556712]
            },
            "properties": {
                "name": "Malahide Castle",
@@ -62,7 +62,7 @@
            "id": "Farmleigh House",
            "geometry": {
                "type": "Point",
-               "coordinates": [53.365079214374, -6.35977384885857]
+               "coordinates": [-6.35977384885857, 53.365079214374]
            },
            "properties": {
                "name": "Farmleigh House",
