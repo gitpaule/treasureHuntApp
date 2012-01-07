@@ -17,14 +17,15 @@ define(['dojo/_base/declare',
 
 		view : null,
 		activityRectList : null,
-		activityStore : null,
+		activityListStore: null,
 
 
 		constructor : function() {
 			this.view = registry.byId('activityListView');
 			var cachedActivitiesData = localStorage.getItem("game_activities");
 			if(cachedActivitiesData){
-				this._populateData(dojo.fromJson(cachedActivitiesData));
+				this.activityListStore = dojo.fromJson(cachedActivitiesData);
+				this._populateData(this.activityListStore);
 			}
 			this._setupEventHandlers();
 		},
