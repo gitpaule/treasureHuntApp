@@ -5,30 +5,47 @@ define(['dojo/_base/declare',
         'dojox/mobile/RoundRect',
         'dojox/mobile/ListItem',
         'dojo/dom-construct',
-        'dojo/dom'], function (declare, on, registry, RadioButton, RoundRect, ListItem, domConstruct, dom) {
+        'dojo/dom',
+        'dojo/_base/lang',
+        'app/views/Map'], function (declare, on, registry, RadioButton, RoundRect, ListItem, domConstruct, dom, lang, Map) {
 	
 	// module:
 	//		views/TaskList
 	// summary:
 	//		Object encapsulating view and event handlers for displaying list of tasks to complete on activities.
-	return declare('app.views.TaskList', null,{
+	return declare('app.views.TaskList', null, {
+			
+			identifier: null,
 			
 			iMAGE_DOM_ID: "taskListViewImage",
+			
 			tITLE_DOM_ID: "taskListViewTitle",
 			
         	view: null,
+        	
         	imageNode: null,
+        	
         	titleNode: null,
         	
-        	constructor: function(){
-        		this.view = registry.byId('taskListView');
-        		this._setupEventHandlers();
+        	taskData: null,
+        	
+        	/**
+        	 * create a new instance, usage: new TaskList(view, taskData)
+        	 * 
+        	 * Where view is the node where the Activity is to be shown
+        	 * TaskData is of the format seen on populateData function
+        	 */
+        	constructor: function(view, taskData){
+        		this.view = view;
+        		//persist the task data
+        		this.taskData = taskData;
+        		this._setupEventHandlers(this.view);
         	},
         	
         	// summary:
 			//		Initialise the store 
         	//
-        	//taskData = {
+        	//this.taskData = {
         	//	title: "title string",
         	//	imgSource: "URL to image",
         	//	tasks: [
@@ -48,16 +65,12 @@ define(['dojo/_base/declare',
         	//			correct: 1922
         	//		}
         	//]};
-        	//
-        	// 192.168.1.29:10039/TestWeb
-        	//
         	
-        	populateData: function(taskData){
+        	populateData: function(){
+        		var taskData = this.taskData;
+        		this.identifier = this.taskData.title;
         		//Set title and image
-        		if(!this.imageNode){
-        			this.imageNode = dom.byId(this.iMAGE_DOM_ID);
-        		}
-        		
+        		this.imageNode = dom.byId(this.iMAGE_DOM_ID);
         		this.imageNode.src = taskData.imgSource;
         		this.imageNode.alt = taskData.title;
         		
@@ -68,20 +81,26 @@ define(['dojo/_base/declare',
         		
         		
         		//add tasks
-        		dojo.forEach(taskData.tasks, function(task){
+        		dojo.forEach(taskData.tasks, function(task, index){
+        			
     				var taskWidget;
-    				taskWidget = new RoundRect();
+    				
+    				taskWidget = new RoundRect({style:"clear: both;"});
     				
     				taskWidget.containerNode.innerHTML = "<h3>"+task.title+"</h3>";
     				
-    				//(domConstruct.create("h3", {innerHTML: task.title}), taskWidget, "first");
+    				// (domConstruct.create("h3", {innerHTML: task.title}), taskWidget, "first");
     				if(task.type === "radio"){
     					//add options
     					dojo.forEach(task.options, function(option){
-    						taskWidget.addChild(new RadioButton({label: option}), taskWidget, "last");
+    						var divThingy = domConstruct.create("div");
+    						taskWidget.addChild(new RadioButton({name: task.title}), taskWidget, "last");
+    						//TODO: Don't like this mix of innerHTML and addChild. addChild helpfully (or not) 
+    						//closes opened div tags (it seems, maybe it's the browser though...)
+    						taskWidget.containerNode.innerHTML += "<label for='"+option+"'>"+option+"</label><br/>";
     					})
     				}
-    				domConstruct.place(taskWidget, "taskListViewTaskContainer", "last");
+    				domConstruct.place(taskWidget.domNode, dom.byId("taskListViewTaskContainer"), "last");
     			});
         	},
         	

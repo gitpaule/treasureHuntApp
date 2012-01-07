@@ -2,7 +2,8 @@ define([ 'dojo/_base/Deferred',
          'dojo/_base/lang', 
          'dojo/_base/json',
          'dojo/dom',
-         'dijit/registry', 
+         'dijit/registry',
+         'dojo/on',
          'app/views/ActivityList',
          'app/views/Setup',
          'app/views/TaskList',
@@ -23,35 +24,47 @@ define([ 'dojo/_base/Deferred',
          'dojox/mobile/RoundRectList',
          'dojox/mobile/ListItem',
          'dojox/mobile/Switch',
-         'dojo/domReady!'], function ( Deferred, lang, djson, dom, registry, ActivityList, Setup, TaskList, Map) {
+         'dojo/domReady!'], function ( Deferred, lang, djson, dom, registry, on, ActivityList, Setup, TaskList, Map) {
 	
 	// module:
 	//		controller/Main
 	// summary:
 	//		Main controller for bootstrapping application
 	return {
-        	
-        	
-        	// summary:
-			//		Checks to see what initial page to load
-			// description:
-        	//		Check to see if there is a list of activities in localStorage
-        	//		If none available then show setup page else show activity list page
-        	//
-        	setStartPage: function(){
-        		var activityMobileView, 
-        			setupMobileView,
-        			taskListView;
-        			
-        		this.contentNode = dom.byId('content');
-        		if (!window.localStorage){
-        			console.error("Browser not supported");
-        			return;
-        		}
-        		
-        		//TEST CODE, DO NOT DELIVER!!
-        		/*
-        		taskData = {
+		
+		// Activity List
+		activityDetailList: null,
+		
+		setActivity: function(activity){
+			var taskList;
+			
+			//Task part
+			taskList = new TaskList(activity.taskData);
+			taskList.populateData();
+		},
+		
+    	// summary:
+		//		Checks to see what initial page to load
+		// description:
+    	//		Check to see if there is a list of activities in localStorage
+    	//		If none available then show setup page else show activity list page
+    	//
+    	setStartPage: function(){
+    		var cachedActivities, 
+    			activityMobileView, 
+    			setupMobileView,
+    			taskListView;
+    			
+    		this.contentNode = dom.byId('content');
+    		if (!window.localStorage){
+    			console.error("Browser not supported");
+    			return;
+    		}
+    		
+    		//TEST CODE, DO NOT DELIVER!
+    		
+    		this.globalTaskDataArray = [
+    			{
 	        		title: "Farmleigh House Sample Task",
 	        		imgSource: "/img/l/apple-touch-icon-precomposed.png",
 	        		tasks: [
@@ -63,29 +76,66 @@ define([ 'dojo/_base/Deferred',
 	        					"Peter Farmleigh",
 	        					"Thomas Farmleigh"
 	        				],
-	        				correct: "Peter Farmleigh"
+	        				correct: "Peter Farmleigh"//This is all speculation, I haven't got a clue.
+	        			},
+	        			{
+	        				title: "What year was Farmleigh House founded?",
+	        				type: "radio",
+	        				options: [
+	        					"1942",
+	        					"400 B.C.",
+	        					"2011"
+	        				],
+	        				correct: "1942"//This is all speculation, I haven't got a clue.
 	        			}
-	        	]};
-	        	taskListView = registry.byId("taskListView");
-	        	viewCache.taskList = new TaskList(taskListView);
-        		viewCache.taskList.populateData(taskData);
-	    		viewCache.taskList.setupEventHandlers(activityMobileView);
-	    		viewCache.taskList.show();
-	        	*/
-        		//END TEST CODE
-        		
-        		
-        		var cachedActivitiesData = localStorage.getItem("game_activities");
-        		if (cachedActivitiesData){
-        			viewCache.activityList = new ActivityList();
-	    			viewCache.activityList.show();
-        		}
-        		else{
-					viewCache.setup = new Setup();
-					viewCache.setup.show();
-        		}
-        		dom.byId('contentContainer').style.display = 'block';
-        	}
+		        	]},
+		        	{
+		        		title: "Farmleigh House Sample Task 2",
+		        		imgSource: "/img/l/apple-touch-icon-precomposed.png",
+		        		tasks: [
+		        			{
+		        				title: "What is the answer to this question?",
+		        				type: "radio",
+		        				options: [
+		        					"this",
+		        					"something else",
+		        					"something else entirely"
+		        				],
+		        				correct: "this"//This is all speculation, I haven't got a clue :)
+		        			},
+		        			{
+		        				title: "What year was Farmleigh House founded?",
+		        				type: "radio",
+		        				options: [
+		        					"1942",
+		        					"400 B.C.",
+		        					"2011"
+		        				],
+		        				correct: "1942"//This is all speculation, I haven't got a clue.
+		        			}
+	        			]}
+	        ];
+	        
+        	taskListView = registry.byId("activityListView");
+        	viewCache.taskList = new TaskList(taskListView, this.globalTaskDataArray[0]);
+    		var mockTaskPageLink = registry.byId("mockTaskPageLink");
+    		viewCache.taskList.show();
+        	
+    		//END TEST CODE
+    		
+    		
+    		cachedActivitiesData = localStorage.getItem("fingalActivityChallenge");
+    		if (cachedActivitiesData){
+    			viewCache.activityList = new ActivityList();
+    			viewCache.activityList.populateData(cachedActivitiesData);
+    			viewCache.activityList.show();
+    		}
+    		else{
+				viewCache.setup = new Setup();
+				viewCache.setup.show();
+    		}
+    		dom.byId('contentContainer').style.display = 'block';
+    	}
 	}
         	
 });
