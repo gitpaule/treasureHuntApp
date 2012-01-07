@@ -5,7 +5,9 @@ define(['dojo/_base/declare',
         'dojo/on',
         'dojo/_base/lang',
         'dojo/window',
-        'dojo/query'], function (declare, Deferred, registry, dom, on, lang, win, query) {
+        'dojo/query', 
+        'app/views/GeoJSON'
+        ], function (declare, Deferred, registry, dom, on, lang, win, query, GeoJSON) {
 	
 	// module:
 	//		views/Map
@@ -18,6 +20,7 @@ define(['dojo/_base/declare',
 		listBtn: null,
 		currentPage: null,
 		previousView: null,
+		
         	
 
 		constructor: function() {
@@ -35,13 +38,34 @@ define(['dojo/_base/declare',
 			// dojo.connect(null, (dojo.global.onorientationchange !== undefined && !dojo.isAndroid)
 					// ? "onorientationchange" : "onresize", null, this.fixHeight);
 		},
+		
+		displayActivityMarkers: function(){
+			
+			//var geoJSONStr = localStorage.getItem("game_activities");
+			var geoJSON = viewCache.activityList.activityListStore;
+			var parser = new GeoJSON(geoJSON);
+			var googleMarkers = parser.parse();
+			if (googleMarkers.length){
+				for (var i = 0; i < googleMarkers.length; i++){
+					googleMarkers[i].setMap(this.map);
+					if (googleMarkers[i].geojsonProperties) {
+						this.setInfoWindow(googleMarkers[i]);
+					}
+				}
+			}else{
+				googleMarkers.setMap(this.map);
+				if (googleMarkers.geojsonProperties) {
+					this.setInfoWindow(googleMarkers);
+				}
+			}
+		},
 
         
 		show: function(activityStore, pageType, previousView) {
 			this.populateData(previousView);
 			this.view.show();
 	        this.fixHeight(this);
-	        
+	        this.displayActivityMarkers();
 			//registry.byId('mapView_footer').resize();
 		}, 
 		
@@ -78,7 +102,50 @@ define(['dojo/_base/declare',
 		        
 				google.maps.event.trigger(mapCanvas, 'resize');
 			}
+		},
+		
+		clearMap: function (){
+			if (!currentFeature_or_Features)
+				return;
+			if (currentFeature_or_Features.length){
+				for (var i = 0; i < currentFeature_or_Features.length; i++){
+					currentFeature_or_Features[i].setMap(null);
+				}
+			}else{
+				currentFeature_or_Features.setMap(null);
+			}
+			if (infowindow.getMap()){
+				infowindow.close();
+			}
+		},
+		
+		rawGeoJSON: function (){
+			clearMap();
+			currentFeature_or_Features = new GeoJSON(JSON.parse(document.getElementById("put_geojson_string_here").value));
+			if (currentFeature_or_Features.length){
+				for (var i = 0; i < currentFeature_or_Features.length; i++){
+					currentFeature_or_Features[i].setMap(map);
+				}
+			}else{
+				currentFeature_or_Features.setMap(map);
+			}
+		},
+		
+		setInfoWindow: function  (feature) {
+			google.maps.event.addListener(feature, "click", function(event) {
+				var content = "<div id='infoBox'><strong>GeoJSON Feature Properties</strong><br />";
+				for (var j in this.geojsonProperties) {
+					content += j + ": " + this.geojsonProperties[j] + "<br />";
+				}
+				content += "</div>";
+				infowindow.setContent(content);
+				infowindow.position = event.latLng;
+				infowindow.open(map);
+			});
 		}
+		
+		
+		
     });
 });
 
