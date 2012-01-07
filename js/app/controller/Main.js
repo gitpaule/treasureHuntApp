@@ -35,13 +35,12 @@ define([ 'dojo/_base/Deferred',
 		// Activity List
 		activityDetailList: null,
 		
-		setActivity: function(activity){
+		/*setActivity: function(activityData){
 			var taskList;
 			
 			//Task part
-			taskList = new TaskList(activity.taskData);
-			taskList.populateData();
-		},
+			taskList = new TaskList(activityData);
+		},*/
 		
     	// summary:
 		//		Checks to see what initial page to load
@@ -62,6 +61,52 @@ define([ 'dojo/_base/Deferred',
     		}
     		
     		//TEST CODE, DO NOT DELIVER!
+    		
+    		
+			this.globalTaskDataArray2 = 
+			[
+				{
+					"id": 4042,
+					"headline": "Count the steps",
+					"description": null,
+					"type": "MULTIPLE_CHOICE",
+					"duration": 10,
+					"question": {
+						"id": 0,
+						"text": "How many steps to top of bell tower",
+						"correctAnswer": "100",
+						"options": ["100", "184", "149"]
+					},
+					"locations": null
+				}, {
+					"id": 4041,
+					"headline": "Count the steps",
+					"description": null,
+					"type": "MULTIPLE_CHOICE",
+					"duration": 10,
+					"question": {
+						"id": 0,
+						"text": "How many steps to top of bell tower",
+						"correctAnswer": "100",
+						"options": ["100", "184", "149"]
+					},
+					"locations": null
+				}, {
+					"id": 4043,
+					"headline": "Count the steps",
+					"description": null,
+					"type": "MULTIPLE_CHOICE",
+					"duration": 10,
+					"question": {
+						"id": 0,
+						"text": "How many steps to top of bell tower",
+						"correctAnswer": "100",
+						"options": ["100", "184", "149"]
+					},
+					"locations": null
+				}
+			]
+
     		
     		this.globalTaskDataArray = [
     			{
@@ -117,7 +162,11 @@ define([ 'dojo/_base/Deferred',
 	        ];
 	        
         	taskListView = registry.byId("activityListView");
-        	viewCache.taskList = new TaskList(taskListView, this.globalTaskDataArray[0]);
+			viewCache.taskList = new TaskList(taskListView, {
+				title : "Farmleigh House Sample Task",
+				imgSource : "/img/l/apple-touch-icon-precomposed.png",
+				tasks : this.globalTaskDataArray2
+			});
     		var mockTaskPageLink = registry.byId("mockTaskPageLink");
     		viewCache.taskList.show();
         	
