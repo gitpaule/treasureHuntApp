@@ -6,13 +6,16 @@ define(['dojo/_base/declare',
         'dojox/mobile/ListItem',
         'dojo/dom-construct',
         'dojo/dom',
-        'app/views/Map'], function (declare, on, registry, RadioButton, RoundRect, ListItem, domConstruct, dom, Map) {
+        'dojo/_base/lang',
+        'app/views/Map'], function (declare, on, registry, RadioButton, RoundRect, ListItem, domConstruct, dom, lang, Map) {
 	
 	// module:
 	//		views/TaskList
 	// summary:
 	//		Object encapsulating view and event handlers for displaying list of tasks to complete on activities.
 	return declare('app.views.TaskList', null, {
+			
+			identifier: null,
 			
 			iMAGE_DOM_ID: "taskListViewImage",
 			
@@ -65,12 +68,9 @@ define(['dojo/_base/declare',
         	
         	populateData: function(){
         		var taskData = this.taskData;
-        		
+        		this.identifier = this.taskData.title;
         		//Set title and image
-        		if(!this.imageNode){
-        			this.imageNode = dom.byId(this.iMAGE_DOM_ID);
-        		}
-        		
+        		this.imageNode = dom.byId(this.iMAGE_DOM_ID);
         		this.imageNode.src = taskData.imgSource;
         		this.imageNode.alt = taskData.title;
         		
