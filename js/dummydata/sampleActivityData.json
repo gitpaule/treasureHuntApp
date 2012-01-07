@@ -1,22 +1,76 @@
-[
-	{
-		label: "Farmleigh house tour",
-		icon:  "img/h/tower_clear.png",
-		id: "123"
-	},
-	{
-		label: "Farmleigh garden",
-		icon:  "img/h/flowers_clear.png",
-		id: "1234"
-	},
-	{
-		label: "National museum",
-		icon:  "img/h/art-museum_clear.png",
-		id: "12345"
-	},
-	{
-		label: "Coast walk",
-		icon:  "img/h/hiking_clear.png",
-		id: "123456"
-	}
-]
+{
+   "type": "FeatureCollection",
+   "features": [
+       {
+           "type": "Feature",
+           "id": "708",
+           "geometry": {
+               "type": "Point",
+               "coordinates": [53.3422770269445, -6.26794763576191]
+           },
+           "properties": {
+               "name": "Chester Beatty Library",
+               "category": "ART_CENTRE",
+               "moreInfo": "",
+               "locality": ""
+           }
+       },
+       {
+           "type": "Feature",
+           "id": "748",
+           "geometry": {
+               "type": "Point",
+               "coordinates": [53.343305890299, -6.2996629547358]
+           },
+           "properties": {
+               "name": "Irish Museum Of Modern Art",
+               "category": "ART_CENTRE",
+               "moreInfo": "",
+               "locality": "Kilmainham"
+           }
+       },
+       {
+           "type": "Feature",
+           "id": "718",
+           "geometry": {
+               "type": "Point",
+               "coordinates": [53.345210431764, -6.2653305351955]
+           },
+           "properties": {
+               "name": "National Photographic Archive",
+               "category": "ART_CENTRE",
+               "moreInfo": "",
+               "locality": "Temple Bar",
+           }
+       },
+       {
+           "type": "Feature",
+           "id": "Malahide Castle",
+           "geometry": {
+               "type": "Point",
+               "coordinates": [53.4448028556712, -6.16464799530636]
+           },
+           "properties": {
+               "name": "Malahide Castle",
+               "category": "HERITAGE",
+               "moreInfo": "Malahide Castle set on 250 acres of park land was both a fortress and a private home for nearly 800 years. In 1185 Henry II of England granted 600 acres of land in Malahide to Richard Talbot. The castle was originally a Norman Tower House until the last quarter of the 18th century when it was extended and castellated. Features include the Oak Room, Great Hall, the two Drawing Rooms, Library, Nursery and Bedrooms which are furnished with period furniture. There is also a fine Portrait collection.",
+               "locality": "Malahide"
+           }
+       },
+       {
+           "type": "Feature",
+           "id": "Farmleigh House",
+           "geometry": {
+               "type": "Point",
+               "coordinates": [53.365079214374, -6.35977384885857]
+           },
+           "properties": {
+               "name": "Farmleigh House",
+               "category": "HERITAGE",
+               "moreInfo": "Farmleigh House is located on an estate of 78 acres to the north-west of Dublin's Phoenix Park.  It was originally a small Georgian house built in the late 18th century.  In 1881-84 it was refurbished, extended to the west, and a third storey added. In 1896 the Ballroom wing was added, and in 1901 the Conservatory was added.  Features include artworks and furniture; the Benjamin Iveagh collection of rare books, bindings and manuscripts; Victorian and Edwardian ornamental features in the grounds.",
+               "locality": "Phoenix Park",
+               "img": "http://blog.discoverireland.com/wp-content/uploads/2011/11/ChristmasInIreland_Farmleigh-550x366.jpg"
+           }
+       }
+   ]
+}

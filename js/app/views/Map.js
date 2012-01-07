@@ -4,7 +4,8 @@ define(['dojo/_base/declare',
 		'dojo/dom',
         'dojo/on',
         'dojo/_base/lang',
-        'dojo/_base/window' ], function (declare, Deferred, registry, dom, on, lang, win) {
+        'dojo/window',
+        'dojo/query'], function (declare, Deferred, registry, dom, on, lang, win, query) {
 	
 	// module:
 	//		views/Map
@@ -15,6 +16,7 @@ define(['dojo/_base/declare',
         view: null,
 		map: null,
 		listBtn: null,
+		currentPage: null,
 		previousView: null,
         	
 
@@ -29,34 +31,54 @@ define(['dojo/_base/declare',
 				sensor : true
 			};
 			this.map = new google.maps.Map(dom.byId("map_canvas"), mapOptions);
-
+					
+			// dojo.connect(null, (dojo.global.onorientationchange !== undefined && !dojo.isAndroid)
+					// ? "onorientationchange" : "onresize", null, this.fixHeight);
 		},
 
         
-		show: function() {
+		show: function(activityStore, pageType, previousView) {
+			this.populateData(previousView);
 			this.view.show();
-			registry.byId('mapView_footer').resize();
-			
-			google.maps.event.trigger(this.map, 'resize');
-	        var mapCanvas = dom.byId("map_canvas");
-	        //var vs = win.getBox();
-	        mapCanvas.style.height = "300px";
+	        this.fixHeight(this);
+	        
+			//registry.byId('mapView_footer').resize();
 		}, 
 		
-		populateData: function(view, data) {
-			if(this.previousView !== view){
-				this.previousView = view
+		populateData: function(previousView) {
+			if(this.previousView !== previousView){
+				this.previousView = previousView
 				if(this.btnHandle){
 					this.btnHandle.pause();
 				}
-				this.btnHandle = this.listBtn.on('Click', lang.hitch(this.previousView, this.previousView.show));
 			}
+			//this.btnHandle = this.listBtn.on('Click', lang.hitch(this.previousView, this.previousView.show));
 		},
 		
 		_setupEventHandlers: function(){
 			this.listBtn = registry.byId('mapView_listBtn');
+			
+			
+			on(window, (dojo.global.orientationchange !== undefined && !dojo.isAndroid)
+					? "orientationchange" : "resize", this.fixHeight(this));
+		},
+		
+		fixHeight: function(view)
+		{
+			//alert('fixHeight');
+			//if(view.view._visible == true)
+			{
+				var vs = win.getBox();
+				var mapCanvas = dom.byId("map_canvas");
+				var mapView = query("#mapView");
+				
+		        var vs = win.getBox();
+		        mapView[0].style.height = (vs.h)+'px';
+		        //mapView[0].style.width = (vs.w)+'px';
+		        
+				google.maps.event.trigger(mapCanvas, 'resize');
+			}
 		}
-
     });
 });
 

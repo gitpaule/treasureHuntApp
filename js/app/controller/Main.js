@@ -88,32 +88,32 @@ define([ 'dojo/_base/Deferred',
 	        				],
 	        				correct: "1942"//This is all speculation, I haven't got a clue.
 	        			}
-	        	]},
-	        	{
-	        		title: "Farmleigh House Sample Task 2",
-	        		imgSource: "/img/l/apple-touch-icon-precomposed.png",
-	        		tasks: [
-	        			{
-	        				title: "What is the answer to this question?",
-	        				type: "radio",
-	        				options: [
-	        					"this",
-	        					"something else",
-	        					"something else entirely"
-	        				],
-	        				correct: "this"//This is all speculation, I haven't got a clue :)
-	        			},
-	        			{
-	        				title: "What year was Farmleigh House founded?",
-	        				type: "radio",
-	        				options: [
-	        					"1942",
-	        					"400 B.C.",
-	        					"2011"
-	        				],
-	        				correct: "1942"//This is all speculation, I haven't got a clue.
-	        			}
-	        	]}
+		        	]},
+		        	{
+		        		title: "Farmleigh House Sample Task 2",
+		        		imgSource: "/img/l/apple-touch-icon-precomposed.png",
+		        		tasks: [
+		        			{
+		        				title: "What is the answer to this question?",
+		        				type: "radio",
+		        				options: [
+		        					"this",
+		        					"something else",
+		        					"something else entirely"
+		        				],
+		        				correct: "this"//This is all speculation, I haven't got a clue :)
+		        			},
+		        			{
+		        				title: "What year was Farmleigh House founded?",
+		        				type: "radio",
+		        				options: [
+		        					"1942",
+		        					"400 B.C.",
+		        					"2011"
+		        				],
+		        				correct: "1942"//This is all speculation, I haven't got a clue.
+		        			}
+	        			]}
 	        ];
 	        
         	taskListView = registry.byId("activityListView");

@@ -105,7 +105,6 @@ define(['dojo/_base/declare',
         	},
         	
         	show: function(){
-        		this.populateData();
         		this.view.show();
         	},
         	
@@ -114,7 +113,7 @@ define(['dojo/_base/declare',
         		if(!viewCache.mapView){
         			viewCache.mapView = new Map();
         		}
-				on(mapBtn.domNode, 'click', this._showMapView);
+				mapBtn.on('Click', lang.hitch(this, this._showMapView));
         	},
         	
         	_showMapView: function(){
