@@ -60,7 +60,7 @@ define(['dojo/_base/declare',
 				var li = new ListItem({
 					id : item.id,
 					label : item.properties.name,
-					icon : 'img/h/tower_clear-.jpg',
+					icon : 'img/h/tower_clear-.png',
 					clickable : true,
 					onClick : lang.hitch(this, function(event) {
 						this.view.performTransition("taskListView", 1, "slide");
