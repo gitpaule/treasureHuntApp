@@ -5,7 +5,8 @@ define(['dojo/_base/declare',
         'dojox/mobile/RoundRect',
         'dojox/mobile/ListItem',
         'dojo/dom-construct',
-        'dojo/dom'], function (declare, on, registry, RadioButton, RoundRect, ListItem, domConstruct, dom) {
+        'dojo/dom',
+        'app/views/Map'], function (declare, on, registry, RadioButton, RoundRect, ListItem, domConstruct, dom, Map) {
 	
 	// module:
 	//		views/TaskList
@@ -25,17 +26,23 @@ define(['dojo/_base/declare',
         	
         	taskData: null,
         	
+        	/**
+        	 * create a new instance, usage: new TaskList(view, taskData)
+        	 * 
+        	 * Where view is the node where the Activity is to be shown
+        	 * TaskData is of the format seen on populateData function
+        	 */
         	constructor: function(view, taskData){
         		this.view = view;
         		//persist the task data
         		this.taskData = taskData;
-        		this._setupEventHandlers();
+        		this._setupEventHandlers(this.view);
         	},
         	
         	// summary:
 			//		Initialise the store 
         	//
-        	//activityData = {
+        	//this.taskData = {
         	//	title: "title string",
         	//	imgSource: "URL to image",
         	//	tasks: [
@@ -82,7 +89,7 @@ define(['dojo/_base/declare',
     				
     				taskWidget.containerNode.innerHTML = "<h3>"+task.title+"</h3>";
     				
-    				//(domConstruct.create("h3", {innerHTML: task.title}), taskWidget, "first");
+    				// (domConstruct.create("h3", {innerHTML: task.title}), taskWidget, "first");
     				if(task.type === "radio"){
     					//add options
     					dojo.forEach(task.options, function(option){
@@ -97,8 +104,9 @@ define(['dojo/_base/declare',
     			});
         	},
         	
-        	show: function(initialLoad){
-        		this.view.show(initialLoad);
+        	show: function(){
+        		this.populateData();
+        		this.view.show();
         	},
         	
         	_setupEventHandlers: function(view){
