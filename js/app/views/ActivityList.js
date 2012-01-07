@@ -55,12 +55,12 @@ define(['dojo/_base/declare',
 			this.activityRectList = registry.byId('activityList');
 			this.activityStore = activityListJson;
 			for(var idx = 0; idx < activityListJson.features.length; idx++) {
-				var item = activityListJson.features[idx];
+				var item = activityListJson.features[idx];king
 
 				var li = new ListItem({
 					id : item.id,
 					label : item.properties.name,
-					icon : 'img/h/tower_clear.png',
+					icon : 'img/h/tower_clear-.jpg',
 					clickable : true,
 					onClick : lang.hitch(this, function(event) {
 						this.view.performTransition("taskListView", 1, "slide");
