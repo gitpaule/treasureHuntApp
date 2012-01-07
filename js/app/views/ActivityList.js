@@ -55,7 +55,7 @@ define(['dojo/_base/declare',
 			this.activityRectList = registry.byId('activityList');
 			this.activityStore = activityListJson;
 			for(var idx = 0; idx < activityListJson.features.length; idx++) {
-				var item = activityListJson.features[idx];king
+				var item = activityListJson.features[idx];
 
 				var li = new ListItem({
 					id : item.id,
