@@ -133,7 +133,9 @@ define(['dojo/_base/declare',
 					if(!viewCache.taskList) {
 						viewCache.taskList = new TaskList();
 					}
-					viewCache.activityList.getActivityItemData(event.target.id);
+					var activityId = event.target.id;
+					//viewCache.activityList.getActivityItemData(activityId);
+					viewcache.activityDetailViews[activityId].show();
 				}));
 				
 			}, feature));
