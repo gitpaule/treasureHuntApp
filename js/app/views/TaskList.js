@@ -206,7 +206,7 @@ define(['dojo/_base/declare', 'dojo/on', 'dijit/registry', 'dojox/mobile/RadioBu
 		
 		
 		destroy : function(){
-			localStorage.removeItem("task_"+this.identifier);
+			localStorage.removeItem("activityDetail_"+this.identifier);
 			
 			this.taskWidgetsClasswide = [];
 			this.activityScore = null;
