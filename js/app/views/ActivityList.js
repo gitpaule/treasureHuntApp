@@ -131,7 +131,7 @@ define(['dojo/_base/declare',
 							{
 								id: activity.id,
 								title : activity.properties.name,
-								imgSource : activity.properties.img,
+								imgSource : activity.properties.imgSource,
 								tasks : activityInLocalStorage.tasks
 							}
 						);
@@ -147,7 +147,7 @@ define(['dojo/_base/declare',
 							{
 								id : activity.id,
 								title : activity.properties.name,
-								imgSource : activity.properties.img,
+								imgSource : activity.properties.imgSource,
 								tasks : activityData
 							}
 						);
