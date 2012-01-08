@@ -89,14 +89,16 @@
     	</div>
 
 		<div data-dojo-type="dojox.mobile.ScrollableView" id="activityListView">
-			<h1 data-dojo-type="dojox.mobile.Heading" id ="activityListHeading" back="New Game" moveTo="setupView" data-dojo-props="fixed: 'top'">Activities</h1>
+			<h1 data-dojo-type="dojox.mobile.Heading" id ="activityListHeading" back="New Game" moveTo="setupView" data-dojo-props="fixed: 'top'">Activities
+				<div dojoType="dojox.mobile.ToolBarButton" label="Score" moveTo="scoreView" style="float:right" id="ScoreButtonInActivityListView">
+    </div>
+			</h1>
 			<ul data-dojo-type="dojox.mobile.RoundRectList" id="activityList"></ul>
 			
 			<h1 dojoType="dojox.mobile.Heading" fixed="bottom" style="">
 	    		<ul data-dojo-type="dojox.mobile.TabBar"  class="tabBar"  barType="segmentedControl">
 						<li data-dojo-type="dojox.mobile.TabBarButton" moveTo="activityListView" selected="true" id="activListBtn_actList">List</li>
 						<li data-dojo-type="dojox.mobile.TabBarButton" moveTo="mapView" id="activMapBtn_actList">Map</li>
-						<li data-dojo-type="dojox.mobile.TabBarButton" moveTo="scoreView" id="somethingBalbla">Score</li>
 				</ul>
 			</h1>
 		</div>
@@ -115,7 +117,8 @@
 		
 		<div data-dojo-type="dojox.mobile.View"  id="scoreView">
 			<h1 data-dojo-type="dojox.mobile.Heading"  back="Activities" moveTo="activityListView"  data-dojo-props="fixed: 'top'">Score</h1>
-			<h2>Your score is: <span id="scoreViewScoreSpan" style="text-align: center;"></span></h2>
+			<h2 style="text-align: center;"><img src="/img/customIcons/correct.png"/>You've earned <span id="scoreViewScoreSpan"></span> points!</h2>
+			<h3 style="text-align: center;"><img src="/img/customIcons/correct.png"/>In <span id="scoreViewAmountDone"></span> out of <span id="scoreViewAmountViewed"></span> started tasks!</h3>
 		</div>
 		
 		
@@ -132,9 +135,6 @@
 				</ul>
 			</h1>-->
 		</div>
-		
-		
-		
     </div>
 </body>
 </html>

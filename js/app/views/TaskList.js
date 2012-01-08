@@ -25,7 +25,6 @@ define(['dojo/_base/declare', 'dojo/on', 'dijit/registry', 'dojox/mobile/RadioBu
 		titleNode : null,
 
 		taskData : null,
-
 		/**
 		 * create a new instance, usage: new TaskList(view, taskData)
 		 *
@@ -39,7 +38,10 @@ define(['dojo/_base/declare', 'dojo/on', 'dijit/registry', 'dojox/mobile/RadioBu
 			//persist the task data
 			this.activityData = activityData;
 			localStorage.setItem("activityDetails_"+activityData.id, dojo.toJson(activityData));
-			this._setupEventHandlers(this.view);
+			//this._setupEventHandlers(this.view);
+			console.debug(activityData.tasks.length);
+			var previousViewed = parseInt(localStorage.getItem("itemsViewed"));
+			localStorage.setItem("itemsViewed",(previousViewed + activityData.tasks.length));
 		},
 		
 		createLockAnswerFunction : function(option, correctAnswer, taskId, taskIndex){
@@ -52,7 +54,10 @@ define(['dojo/_base/declare', 'dojo/on', 'dijit/registry', 'dojox/mobile/RadioBu
 				console.debug(event);
 				console.debug("the current total is:", this.activityScore);
 				
-				if(_option == _correctAnswer){
+				if(_option === _correctAnswer){
+					
+					var previousFinished = parseInt(localStorage.getItem("itemsFinished"));
+					localStorage.setItem("itemsFinished",(previousFinished + 1));
 					//score tracking
 					if(this.tasksAndTriesMap[taskId]){ //has tried before
 						this.activityScore += Math.round(100 / (this.tasksAndTriesMap[_taskId]+1));
@@ -218,14 +223,6 @@ define(['dojo/_base/declare', 'dojo/on', 'dijit/registry', 'dojox/mobile/RadioBu
 			this.imageNode = null;
 			this.titleNode = null;
 			this.activityData = null;
-		},
-		
-		_setupEventHandlers : function(view) {
-			var mapBtn = registry.byId('taskListView_mapBtn');
-			if(!viewCache.mapView) {
-				viewCache.mapView = new Map();
-			}
-			mapBtn.on('Click', lang.hitch(this, this._showMapView));
 		},
 		
 		_showMapView : function() {

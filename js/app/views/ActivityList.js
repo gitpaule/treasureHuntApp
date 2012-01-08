@@ -100,6 +100,10 @@ define(['dojo/_base/declare',
 					sum = sum + activityDetailView.activityScore;
 				}
 				
+				on(dom.byId("ScoreButtonInActivityListView", click, function(){
+					dom.byId("scoreViewAmountViewed").innerHTML = localStorage.getItem("itemsFinished");
+					dom.byId("scoreViewAmountDone").innerHTML = localStorage.getItem("itemsViewed");
+				}));
 				dom.byId("scoreViewScoreSpan").innerHTML = sum;
 			}
 		},
@@ -133,10 +137,10 @@ define(['dojo/_base/declare',
 						viewCache.activityDetailViews[activity.id].show();
 						return null;
 				}
-				
+				window.someNumber = 1;
 				
 				return xhr.get({
-					url : "js/dummydata/tasks.json",
+					url : "js/dummydata/tasks"+window.someNumber+".json",
 					handleAs : "json",
 					load : lang.hitch(this, function(activityData) {
 						viewCache.activityDetailViews[activity.id] = new TaskList(registry.byId("activityListView"), 
