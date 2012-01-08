@@ -56,7 +56,7 @@ define(['dojo/_base/declare',
 		getActivitesForNewGame: function(gameSetupForm) {
 			
 			xhr.get({
-				url : "js/dummydata/sampleActivityData.json",
+				url : "/js/dummydata/sampleActivityData.json",
 				handleAs : "json",
 				load : lang.hitch(this, function(data) {
 					this._populateData(data);
@@ -140,7 +140,7 @@ define(['dojo/_base/declare',
 				}
 				
 				return xhr.get({
-					url : "js/dummydata/tasks.json",
+					url : "js/dummydata/tasks_"+activity.id+".json",
 					handleAs : "json",
 					load : lang.hitch(this, function(activityData) {
 						viewCache.activityDetailViews[activity.id] = new TaskList(registry.byId("activityListView"), 

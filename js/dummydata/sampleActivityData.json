@@ -1,76 +1,216 @@
 {
-   "type": "FeatureCollection",
-   "features": [
-       {
-           "type": "Feature",
-           "id": "708",
-           "geometry": {
-               "type": "Point",
-               "coordinates": [-6.26794763576191, 53.3422770269445]
-           },
-           "properties": {
-               "name": "Chester Beatty Library",
-               "category": "ART_CENTRE",
-               "moreInfo": "",
-               "locality": ""
-           }
-       },
-       {
-           "type": "Feature",
-           "id": "748",
-           "geometry": {
-               "type": "Point",
-               "coordinates": [-6.2996629547358, 53.343305890299]
-           },
-           "properties": {
-               "name": "Irish Museum Of Modern Art",
-               "category": "ART_CENTRE",
-               "moreInfo": "",
-               "locality": "Kilmainham"
-           }
-       },
-       {
-           "type": "Feature",
-           "id": "718",
-           "geometry": {
-               "type": "Point",
-               "coordinates": [-6.2653305351955, 53.345210431764]
-           },
-           "properties": {
-               "name": "National Photographic Archive",
-               "category": "ART_CENTRE",
-               "moreInfo": "",
-               "locality": "Temple Bar",
-           }
-       },
-       {
-           "type": "Feature",
-           "id": "Malahide Castle",
-           "geometry": {
-               "type": "Point",
-               "coordinates": [ -6.16464799530636, 53.4448028556712]
-           },
-           "properties": {
-               "name": "Malahide Castle",
-               "category": "HERITAGE",
-               "moreInfo": "Malahide Castle set on 250 acres of park land was both a fortress and a private home for nearly 800 years. In 1185 Henry II of England granted 600 acres of land in Malahide to Richard Talbot. The castle was originally a Norman Tower House until the last quarter of the 18th century when it was extended and castellated. Features include the Oak Room, Great Hall, the two Drawing Rooms, Library, Nursery and Bedrooms which are furnished with period furniture. There is also a fine Portrait collection.",
-               "locality": "Malahide"
-           }
-       },
-       {
-           "type": "Feature",
-           "id": "Farmleigh House",
-           "geometry": {
-               "type": "Point",
-               "coordinates": [-6.35977384885857, 53.365079214374]
-           },
-           "properties": {
-               "name": "Farmleigh House",
-               "category": "HERITAGE",
-               "moreInfo": "Farmleigh House is located on an estate of 78 acres to the north-west of Dublin's Phoenix Park.  It was originally a small Georgian house built in the late 18th century.  In 1881-84 it was refurbished, extended to the west, and a third storey added. In 1896 the Ballroom wing was added, and in 1901 the Conservatory was added.  Features include artworks and furniture; the Benjamin Iveagh collection of rare books, bindings and manuscripts; Victorian and Edwardian ornamental features in the grounds.",
-               "locality": "Phoenix Park",
-               "img": "http://blog.discoverireland.com/wp-content/uploads/2011/11/ChristmasInIreland_Farmleigh-550x366.jpg"
-           }
-       }
-   ]
+	"type": "FeatureCollection",
+	"features": [
+		{
+			"properties": {
+				"phone": null,
+				"website": null,
+				"street": null,
+				"postcode": null,
+				"guided_tours": null,
+				"opening_hours": null,
+				"category": "HERITAGE",
+				"email": null,
+				"admission": null,
+				"description": null,
+				"name": "Farmleigh House",
+				"locality": null,
+				"cafe": null
+			},
+			"id": "2491",
+			"geometry": {
+				"coordinates": [-6.34830536294109, 53.3641241251006],
+				"type": "POINT"
+			}
+		}, {
+			"properties": {
+				"phone": null,
+				"website": null,
+				"street": null,
+				"postcode": null,
+				"guided_tours": null,
+				"opening_hours": null,
+				"category": "HERITAGE",
+				"email": null,
+				"admission": null,
+				"description": null,
+				"name": "Phoenix Park Visitor Centre",
+				"locality": null,
+				"cafe": null
+			},
+			"id": "772",
+			"geometry": {
+				"coordinates": [-6.3309550629754, 53.366084875538],
+				"type": "POINT"
+			}
+		}, {
+			"properties": {
+				"phone": null,
+				"website": null,
+				"street": null,
+				"postcode": null,
+				"guided_tours": null,
+				"opening_hours": null,
+				"category": "HERITAGE",
+				"email": null,
+				"admission": null,
+				"description": null,
+				"name": "Aras An Uachtarain",
+				"locality": null,
+				"cafe": null
+			},
+			"id": "721",
+			"geometry": {
+				"coordinates": [-6.3172977530811, 53.359585446444],
+				"type": "POINT"
+			}
+		}, {
+			"properties": {
+				"phone": null,
+				"website": null,
+				"street": null,
+				"postcode": null,
+				"guided_tours": null,
+				"opening_hours": null,
+				"category": "HERITAGE",
+				"email": null,
+				"admission": null,
+				"description": null,
+				"name": "Kilmainham Gaol",
+				"locality": null,
+				"cafe": null
+			},
+			"id": "764",
+			"geometry": {
+				"coordinates": [-6.3095910899492, 53.341748860065],
+				"type": "POINT"
+			}
+		}, {
+			"properties": {
+				"phone": null,
+				"website": null,
+				"street": null,
+				"postcode": null,
+				"guided_tours": null,
+				"opening_hours": null,
+				"category": "MUSEUMS",
+				"email": null,
+				"admission": null,
+				"description": null,
+				"name": "Glasnevin Cemetery Museum",
+				"locality": null,
+				"cafe": null
+			},
+			"id": "2310",
+			"geometry": {
+				"coordinates": [-6.27677143206024, 53.3695476253234],
+				"type": "POINT"
+			}
+		}, {
+			"properties": {
+				"phone": null,
+				"website": null,
+				"street": null,
+				"postcode": null,
+				"guided_tours": null,
+				"opening_hours": null,
+				"category": "HERITAGE",
+				"email": null,
+				"admission": null,
+				"description": null,
+				"name": "Royal Hospital Kilmainham",
+				"locality": null,
+				"cafe": null
+			},
+			"id": "773",
+			"geometry": {
+				"coordinates": [-6.2996629547358, 53.343305890299],
+				"type": "POINT"
+			}
+		}, {
+			"properties": {
+				"phone": null,
+				"website": null,
+				"street": null,
+				"postcode": null,
+				"guided_tours": null,
+				"opening_hours": null,
+				"category": "THEATRES",
+				"email": null,
+				"admission": null,
+				"description": null,
+				"name": "Irish Museum Of Modern Art",
+				"locality": null,
+				"cafe": null
+			},
+			"id": "748",
+			"geometry": {
+				"coordinates": [-6.2996629547358, 53.343305890299],
+				"type": "POINT"
+			}
+		}, {
+			"properties": {
+				"phone": null,
+				"website": null,
+				"street": null,
+				"postcode": null,
+				"guided_tours": null,
+				"opening_hours": null,
+				"category": "HERITAGE",
+				"email": null,
+				"admission": null,
+				"description": null,
+				"name": "Drimnagh Castle",
+				"locality": null,
+				"cafe": null
+			},
+			"id": "812",
+			"geometry": {
+				"coordinates": [-6.3325747063745, 53.325009818931],
+				"type": "POINT"
+			}
+		}, {
+			"properties": {
+				"phone": null,
+				"website": null,
+				"street": null,
+				"postcode": null,
+				"guided_tours": null,
+				"opening_hours": null,
+				"category": "MUSEUMS",
+				"email": null,
+				"admission": null,
+				"description": null,
+				"name": "National Museum Of Ireland",
+				"locality": null,
+				"cafe": null
+			},
+			"id": "766",
+			"geometry": {
+				"coordinates": [-6.2863530824732, 53.349027576363],
+				"type": "POINT"
+			}
+		}, {
+			"properties": {
+				"phone": null,
+				"website": null,
+				"street": null,
+				"postcode": null,
+				"guided_tours": null,
+				"opening_hours": null,
+				"category": "MUSEUMS",
+				"email": null,
+				"admission": null,
+				"description": null,
+				"name": "Museum Luas Stop",
+				"locality": null,
+				"cafe": null
+			},
+			"id": "162",
+			"geometry": {
+				"coordinates": [-6.2869245803719, 53.347885690502],
+				"type": "POINT"
+			}
+		}
+	]
 }
