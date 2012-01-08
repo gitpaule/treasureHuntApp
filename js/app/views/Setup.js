@@ -38,7 +38,7 @@ define(['dojo/_base/declare',
         		
         		this.view.performTransition("activityListView", 1, "slide");
                 viewCache.activityList = new ActivityList();
-                
+                viewCache.activityList.getActivitesForNewGame();
                 // event.stop(evt);
                 return false;
         	},
