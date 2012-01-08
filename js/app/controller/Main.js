@@ -24,7 +24,7 @@ define([ 'dojo/_base/Deferred',
          'dojox/mobile/RoundRectList',
          'dojox/mobile/ListItem',
          'dojox/mobile/Switch',
-         'dojox.mobile.EdgeToEdgeList',
+         'dojox/mobile/EdgeToEdgeList',
          'dojo/domReady!'], function ( Deferred, lang, djson, dom, registry, on, ActivityList, Setup, TaskList, Map) {
 	
 	// module:

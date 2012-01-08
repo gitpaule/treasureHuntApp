@@ -20,8 +20,25 @@ img.taskTitleImage{
 	position:absolute;top:40px;bottom:40px;left:0;right:0;
 }
 
-.setup_checkbox_row{
-	clear:left;
-	height: 40%;
+#setup_check_list .mblListItemIcon{
+		margin-right: 10%,
+}
+#setup_check_list .mblListItemIcon img{
+		width: 45px;
+		height: 45px;
+}
+
+#setup_check_list .mblListItem{
+	line-height: 63px;
+	height: 63px;
+}
+
+#setup_check_list .mblListItemRightIcon{
+	margin-right: 10%;
+}
 	
+#startGameBtn{
+	margin: auto;
+	width: 30%;
+	text-align:center;
 }
