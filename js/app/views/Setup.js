@@ -5,7 +5,7 @@ define(['dojo/_base/declare',
         'dojo/_base/xhr', 
         'dojo/dom-form',
         'dojo/_base/event',
-        'app/views/ActivityList', ], function (declare, registry, lang, on, xhr, domForm, event, ActivityList) {
+        'app/views/ActivityList'], function (declare, registry, lang, on, xhr, domForm, event, ActivityList) {
 	
 	// module:
 	//		views/ActivityList
