@@ -24,7 +24,7 @@ define(['dojo/_base/declare',
         	
         	_setupEventHandlers: function(){
         		registry.byId('startGameBtn').on("Click", lang.hitch(this, this.generateActivities));
-        		registry.byId('setup_check_list').on("CheckStateChanged", this, function(arg1, arg2, arg2){
+        		registry.byId('setup_check_list').on("CheckStateChanged", function(arg1, arg2, arg2){
         			console.log("values ", arg1, arg2, arg2);
         		})
         		
@@ -38,7 +38,7 @@ define(['dojo/_base/declare',
         		
         		this.view.performTransition("activityListView", 1, "slide");
                 viewCache.activityList = new ActivityList();
-                
+                viewCache.activityList.getActivitesForNewGame();
                 // event.stop(evt);
                 return false;
         	},
