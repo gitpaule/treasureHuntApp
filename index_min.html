@@ -33,7 +33,7 @@
   </script>
   <script src="js/release/dojox/mobile/deviceTheme.js"></script>
   <script src="js/release/dojo/dojo.js"></script>
-  <script src="js/release/app/main1.js"></script>
+  <script src="js/release/app/main2.js"></script>
 
   <script>
   		viewCache =  [];
@@ -69,28 +69,36 @@
 <body>
 	<div id="contentContainer" style="display: none">
 		<div data-dojo-type="dojox.mobile.View"  id="setupView" >
-			<h1 data-dojo-type="dojox.mobile.Heading" data-dojo-props="fixed: 'top'">Explore Fingal Challenge</h1>
-			<h2 data-dojo-type="dojox.mobile.RoundRectCategory">Setup</h2>
+			<h1 data-dojo-type="dojox.mobile.Heading" data-dojo-props="fixed: 'top'">Explore Fingal</h1>
+			<h2 data-dojo-type="dojox.mobile.RoundRectCategory">Find activites near you</h2>
 			<div dojoType="dojox.mobile.RoundRect" shadow="true">
-				<form id="gameSetupForm">
-					<div>
-						<label for="input1">Test1</label>
-						<input data-dojo-type="dojox.mobile.TextBox" id="input1" data-dojo-props="selectOnClick:'true', placeHolder:'enter something'">
-					</div>
-					<div>
-						<label for="input2">Test2</label><input data-dojo-type="dojox.mobile.TextBox" id="input2" data-dojo-props="selectOnClick:'true', placeHolder:'enter something'">
-					</div>
-					<div data-dojo-type="dojox.mobile.ListItem" data-dojo-props="moveTo:'activityListView'"></div>
-					<div data-dojo-type="dojox.mobile.ListItem" data-dojo-props="moveTo:'activityDetailView'" id="mockTaskPageLink">go to mock task page</div>
-					<div>
-						<div id="startGameBtn" data-dojo-type="dojox.mobile.Button" >Start Exploring</div>
-					</div>
-				</form>
+				<ul id="setup_check_list" dojoType="dojox.mobile.EdgeToEdgeList" select="multiple">
+					<li dojoType="dojox.mobile.ListItem"  icon="img/h/tower_clear-.png" checked="true">
+						Heritage
+					</li>
+					<li dojoType="dojox.mobile.ListItem"  icon="img/h/art-museum_clear-.png" checked="true">
+						Art Centres
+					</li>
+					<li dojoType="dojox.mobile.ListItem"  icon="img/h/hiking_clear-.png" checked="true">
+						Walks
+					</li>
+					<li dojoType="dojox.mobile.ListItem"  icon="img/h/flowers_clear-.png" checked="true">
+						Parks
+					</li>
+				</ul>
+			</div>
+			<div class="setupbutton">
+				<div id="startGameBtn" data-dojo-type="dojox.mobile.Button">
+					Start Exploring!
+				</div>
 			</div>
     	</div>
 
 		<div data-dojo-type="dojox.mobile.ScrollableView" id="activityListView">
-			<h1 data-dojo-type="dojox.mobile.Heading" id ="activityListHeading" back="New Game" moveTo="setupView" data-dojo-props="fixed: 'top'">Activities</h1>
+			<h1 data-dojo-type="dojox.mobile.Heading" id ="activityListHeading" back="New Game" moveTo="setupView" data-dojo-props="fixed: 'top'">Activities
+				<div data-dojo-type="dojox.mobile.ToolBarButton" label="Score" moveTo="scoreView" style="float:right" id="ScoreButtonInActivityListView">
+    </div>
+			</h1>
 			<ul data-dojo-type="dojox.mobile.RoundRectList" id="activityList"></ul>
 			
 			<h1 dojoType="dojox.mobile.Heading" fixed="bottom" style="">
@@ -113,6 +121,12 @@
 			</h1>
 		</div>
 		
+		<div data-dojo-type="dojox.mobile.View"  id="scoreView">
+			<h1 data-dojo-type="dojox.mobile.Heading"  back="Activities" moveTo="activityListView"  data-dojo-props="fixed: 'top'">Score</h1>
+			<h2 style="text-align: center;"><img src="/img/customIcons/yellow_award.png"/>You've earned <span id="scoreViewScoreSpan"></span> points!</h2>
+			<h3 style="text-align: center;"><img src="/img/customIcons/correct.png"/>Finished <span id="scoreViewAmountDone"></span> out of <span id="scoreViewAmountViewed"></span> started tasks!</h3>
+		</div>
+		
 		
 		<div data-dojo-type="dojox.mobile.ScrollableView" id="activityDetailView"  >
 	    	<h1 data-dojo-type="dojox.mobile.Heading" data-dojo-props="fixed: 'top'" back="Back" moveTo="activityListView" >Explore Fingal Challenge</h1>
@@ -127,9 +141,6 @@
 				</ul>
 			</h1>-->
 		</div>
-		
-		
-		
     </div>
 </body>
 </html>
