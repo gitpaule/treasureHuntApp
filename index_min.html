@@ -83,14 +83,39 @@
 					<div data-dojo-type="dojox.mobile.ListItem" data-dojo-props="moveTo:'activityListView'"></div>
 					<div data-dojo-type="dojox.mobile.ListItem" data-dojo-props="moveTo:'activityDetailView'" id="mockTaskPageLink">go to mock task page</div>
 					<div>
-						<input type="submit"  id="startGameBtn" data-dojo-type="dojox.mobile.Button" value="Submit"/>
+						<div id="startGameBtn" data-dojo-type="dojox.mobile.Button" >Start Exploring</div>
 					</div>
 				</form>
 			</div>
     	</div>
+
+		<div data-dojo-type="dojox.mobile.ScrollableView" id="activityListView">
+			<h1 data-dojo-type="dojox.mobile.Heading" id ="activityListHeading" back="New Game" move-to="setupView" data-dojo-props="fixed: 'top'">Activities</h1>
+			<ul data-dojo-type="dojox.mobile.RoundRectList" id="activityList"></ul>
+			
+			<h1 dojoType="dojox.mobile.Heading" fixed="bottom" style="">
+	    		<ul data-dojo-type="dojox.mobile.TabBar"  class="tabBar"  barType="segmentedControl">
+						<li data-dojo-type="dojox.mobile.TabBarButton" moveTo="activityListView" selected="true" id="activListBtn_actList">List</li>
+						<li data-dojo-type="dojox.mobile.TabBarButton" moveTo="mapView" id="activMapBtn_actList">Map</li>
+				</ul>
+			</h1>
+		</div>
 		
-		<div data-dojo-type="dojox.mobile.ScrollableView" id="activityDetailView">
-	    	<h1 data-dojo-type="dojox.mobile.Heading" data-dojo-props="fixed: 'top'">Explore Fingal Challenge</h1>
+		<div data-dojo-type="dojox.mobile.View"  id="mapView">
+			<h1 data-dojo-type="dojox.mobile.Heading"  back="New Game" moveTo="setupView"  data-dojo-props="fixed: 'top'">Map</h1>
+			<div id="map_canvas" style=""></div>
+		
+			<h1 dojoType="dojox.mobile.Heading" fixed="bottom" style="bottom:0;position: absolute;">
+	    		<ul data-dojo-type="dojox.mobile.TabBar"  class="tabBar"  barType="segmentedControl">
+						<li data-dojo-type="dojox.mobile.TabBarButton" moveTo="activityListView" id="listBtn_map">List</li>
+						<li data-dojo-type="dojox.mobile.TabBarButton" moveTo="mapView" selected="true" id="mapBtn_map">Map</li>
+				</ul>
+			</h1>
+		</div>
+		
+		
+		<div data-dojo-type="dojox.mobile.ScrollableView" id="activityDetailView"  >
+	    	<h1 data-dojo-type="dojox.mobile.Heading" data-dojo-props="fixed: 'top'" back="Back" moveTo="activityListView" >Explore Fingal Challenge</h1>
 			<img src="" alt="" style="padding: 10px; float: left;" id="taskListViewImage"/>
 			<h2 id="taskListViewTitle">Initial, change.</h2>
 			<div id="taskListViewTaskContainer"></div>
@@ -104,25 +129,6 @@
 		</div>
 		
 		
-		<div data-dojo-type="dojox.mobile.View" selected="true" id="activityGroupView">
-			
-			<div data-dojo-type="dojox.mobile.ScrollableView" id="activityListView">
-				<h1 data-dojo-type="dojox.mobile.Heading" back="New Game" moveTo="setupView" data-dojo-props="fixed: 'top'">Explore Fingal Challenge - Activities</h1>
-				<ul data-dojo-type="dojox.mobile.RoundRectList" id="activityList"></ul>
-			</div>
-			
-			<div data-dojo-type="dojox.mobile.View"  id="mapView">
-				<h1 data-dojo-type="dojox.mobile.Heading"  back="New Game" moveTo="setupView"  data-dojo-props="fixed: 'top'">Explore Fingal Challenge - Activities Map</h1>
-				<div id="map_canvas" style=""></div>
-			</div>
-			
-			<h1 dojoType="dojox.mobile.Heading" fixed="bottom" style="margin-top: -41px;">
-	    		<ul data-dojo-type="dojox.mobile.TabBar"  class="tabBar"  barType="segmentedControl">
-						<li data-dojo-type="dojox.mobile.TabBarButton" moveTo="activityListView" selected="true" id="activListBtn">List</li>
-						<li data-dojo-type="dojox.mobile.TabBarButton" moveTo="mapView" id="activMapBtn">Map</li>
-				</ul>
-			</h1>
-		</div>
 		
     </div>
 </body>
