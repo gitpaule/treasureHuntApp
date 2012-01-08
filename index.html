@@ -68,21 +68,51 @@
 <body>
 	<div id="contentContainer" style="display: none">
 		<div data-dojo-type="dojox.mobile.View"  id="setupView" >
-			<h1 data-dojo-type="dojox.mobile.Heading" data-dojo-props="fixed: 'top'">Explore Fingal Challenge</h1>
-			<h2 data-dojo-type="dojox.mobile.RoundRectCategory">Setup</h2>
+			<h1 data-dojo-type="dojox.mobile.Heading" data-dojo-props="fixed: 'top'">A</h1>
+			<h2 data-dojo-type="dojox.mobile.RoundRectCategory">Find selected activites near you</h2>
 			<div dojoType="dojox.mobile.RoundRect" shadow="true">
 				<form id="gameSetupForm">
-					<div>
-						<label for="input1">Test1</label>
-						<input data-dojo-type="dojox.mobile.TextBox" id="input1" data-dojo-props="selectOnClick:'true', placeHolder:'enter something'">
+					<ul id="setup_check_list" dojoType="dojox.mobile.EdgeToEdgeList" select="multiple">
+						<li dojoType="dojox.mobile.ListItem"  icon="img/h/tower_clear-.png" checked="true">
+							Cube
+						</li>
+						<li dojoType="dojox.mobile.ListItem">
+							Dissolve
+						</li>
+						<li dojoType="dojox.mobile.ListItem">
+							Ripple
+						</li>
+					</ul>
+					<div class="setup_checkbox_row">
+						<label for="heritage">
+							<img src="img/h/tower_clear-.png"/>
+							<div>Heritage</div>
+						</label>
+						<input data-dojo-type="dojox.mobile.CheckBox" type="checkbox" name="heritage" id="heritage">
 					</div>
-					<div>
-						<label for="input2">Test2</label><input data-dojo-type="dojox.mobile.TextBox" id="input2" data-dojo-props="selectOnClick:'true', placeHolder:'enter something'">
+					<div class="setup_checkbox_row">
+						<label for="art_centres">
+							<img src="img/h/art-museum_clear-.png"/>
+							<div>Art Centres</div>
+						</label>
+						<input data-dojo-type="dojox.mobile.CheckBox" type="checkbox" name="art_centres" id="art_centres">
 					</div>
-					<div data-dojo-type="dojox.mobile.ListItem" data-dojo-props="moveTo:'activityListView'"></div>
-					<div data-dojo-type="dojox.mobile.ListItem" data-dojo-props="moveTo:'activityDetailView'" id="mockTaskPageLink">go to mock task page</div>
-					<div>
-						<div id="startGameBtn" data-dojo-type="dojox.mobile.Button" >Start Exploring</div>
+					<div class="setup_checkbox_row">
+						<label for="beaches">
+							<img src="img/h/hiking_clear-.png"/>
+							<div>Walks</div>
+						</label>
+						<input data-dojo-type="dojox.mobile.CheckBox" type="checkbox" name="beaches" id="beaches">
+					</div>
+					<div class="setup_checkbox_row">
+						<label for="parks">
+							<img src="img/h/flowers_clear-.png"/>
+							<div>Parks</div>
+						</label>
+						<input data-dojo-type="dojox.mobile.CheckBox" type="checkbox" name="parks" id="parks">
+					</div>
+					<div class="setupbutton">
+						<div id="startGameBtn" data-dojo-type="dojox.mobile.Button">Start Exploring</div>
 					</div>
 				</form>
 			</div>

@@ -19,3 +19,9 @@ img.taskTitleImage{
 #map_canvas{
 	position:absolute;top:40px;bottom:40px;left:0;right:0;
 }
+
+.setup_checkbox_row{
+	clear:left;
+	height: 40%;
+	
+}
