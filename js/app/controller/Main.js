@@ -64,6 +64,7 @@ define([ 'dojo/_base/Deferred',
     		
     		cachedActivitiesData = localStorage.getItem("game_activities");
     		if (cachedActivitiesData){
+    			viewCache.setup = new Setup();
     			viewCache.activityList = new ActivityList();
     			viewCache.activityList.show();
     		}

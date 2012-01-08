@@ -82,6 +82,15 @@ define(['dojo/_base/declare',
 			}
 		},
 		
+				// summary:
+		//		Reverses PopulateData above by removing the list items
+		//
+		removeData : function() {
+			this.activityRectList.destroyDescendants();
+			
+			this.activityStore = null;
+			
+		},
 		
 		// summary:
 		//		Get data for activity from server (TODO: maybe cache tasks)
@@ -138,6 +147,14 @@ define(['dojo/_base/declare',
 			listBtn.on('Click', lang.hitch(this, this.show));
 			listBtn_map.on('Click', lang.hitch(this, this.show));
 			mapBtn.on('Click', lang.hitch(this, this._showMapView));
+			
+			
+			var header = registry.byId('activityListHeading');
+			on(header.backBtnNode, "click", function(){
+				
+				viewCache.setup.destroy_game();
+				
+			});
 		},
 		
 		// summary:
