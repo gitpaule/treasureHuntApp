@@ -7,7 +7,8 @@ define(['dojo/_base/declare',
   		'dojo/_base/json',
 		'dojox/mobile/ListItem',
 		'app/views/TaskList', 
-		'app/views/Map'], function(declare, registry, lang, on, Deferred, xhr, dojo, ListItem, TaskList, Map) {
+		'app/views/Map',
+		'dojo/dom'], function(declare, registry, lang, on, Deferred, xhr, dojo, ListItem, TaskList, Map, dom) {
 
 	// module:
 	//		views/ActivityList
@@ -88,6 +89,21 @@ define(['dojo/_base/declare',
 			this.activityStore = null;
 		},
 		
+		updateScoreView: function(){
+			var activityDetailView,
+				sum = 0;
+			
+			if(viewCache && viewCache.activityDetailViews){
+				
+				for(activityDetailView in viewCache.activityDetailViews){
+					activityDetailView = viewCache.activityDetailViews[activityDetailView];
+					sum = sum + activityDetailView.activityScore;
+				}
+				
+				dom.byId("scoreViewScoreSpan").innerHTML = sum;
+			}
+		},
+		
 		// summary:
 		//		Get data for activity from server (TODO: maybe cache tasks)
 		//
@@ -149,6 +165,7 @@ define(['dojo/_base/declare',
 		show : function() {
 			this.view.show();
 			registry.byId('dojox_mobile_Heading_3').resize();
+			this.updateScoreView();
 		},
 		
 		_setupEventHandlers : function(view) {

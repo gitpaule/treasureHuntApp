@@ -96,6 +96,7 @@
 	    		<ul data-dojo-type="dojox.mobile.TabBar"  class="tabBar"  barType="segmentedControl">
 						<li data-dojo-type="dojox.mobile.TabBarButton" moveTo="activityListView" selected="true" id="activListBtn_actList">List</li>
 						<li data-dojo-type="dojox.mobile.TabBarButton" moveTo="mapView" id="activMapBtn_actList">Map</li>
+						<li data-dojo-type="dojox.mobile.TabBarButton" moveTo="scoreView" id="somethingBalbla">Score</li>
 				</ul>
 			</h1>
 		</div>
@@ -110,6 +111,11 @@
 						<li data-dojo-type="dojox.mobile.TabBarButton" moveTo="mapView" selected="true" id="mapBtn_map">Map</li>
 				</ul>
 			</h1>
+		</div>
+		
+		<div data-dojo-type="dojox.mobile.View"  id="scoreView">
+			<h1 data-dojo-type="dojox.mobile.Heading"  back="Activities" moveTo="activityListView"  data-dojo-props="fixed: 'top'">Score</h1>
+			<h2>Your score is: <span id="scoreViewScoreSpan" style="text-align: center;"></span></h2>
 		</div>
 		
 		
