@@ -72,6 +72,7 @@ define(['dojo/_base/declare'], function(declare) {
 			switch ( geojsonGeometry.type ) {
 				case "Point":
 					opts.position = new google.maps.LatLng(geojsonGeometry.coordinates[1], geojsonGeometry.coordinates[0]);
+					opts.title = geojsonProperties.name;
 					googleObj = new google.maps.Marker(opts);
 					googleObj.set("id", geojson.id);
 					if(geojsonProperties) {
