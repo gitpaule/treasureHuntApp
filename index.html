@@ -126,6 +126,7 @@
 	    		<ul data-dojo-type="dojox.mobile.TabBar"  class="tabBar"  barType="segmentedControl">
 						<li data-dojo-type="dojox.mobile.TabBarButton" moveTo="activityListView" selected="true" id="activListBtn_actList">List</li>
 						<li data-dojo-type="dojox.mobile.TabBarButton" moveTo="mapView" id="activMapBtn_actList">Map</li>
+						<li data-dojo-type="dojox.mobile.TabBarButton" moveTo="scoreView" id="somethingBalbla">Score</li>
 				</ul>
 			</h1>
 		</div>
@@ -142,6 +143,11 @@
 			</h1>
 		</div>
 		
+		<div data-dojo-type="dojox.mobile.View"  id="scoreView">
+			<h1 data-dojo-type="dojox.mobile.Heading"  back="Activities" moveTo="activityListView"  data-dojo-props="fixed: 'top'">Score</h1>
+			<h2>Your score is: <span id="scoreViewScoreSpan" style="text-align: center;"></span></h2>
+		</div>
+		
 		
 		<div data-dojo-type="dojox.mobile.ScrollableView" id="activityDetailView"  >
 	    	<h1 data-dojo-type="dojox.mobile.Heading" data-dojo-props="fixed: 'top'" back="Back" moveTo="activityListView" >Explore Fingal Challenge</h1>
@@ -149,12 +155,12 @@
 			<h2 id="taskListViewTitle">Initial, change.</h2>
 			<div id="taskListViewTaskContainer"></div>
 			<div data-dojo-type="dojox.mobile.ListItem" data-dojo-props="moveTo:'setupView'"></div>
-			<h1 dojoType="dojox.mobile.Heading" fixed="bottom">
+			<!--<h1 dojoType="dojox.mobile.Heading" fixed="bottom">
 	    		<ul data-dojo-type="dojox.mobile.TabBar" class="tabBar" data-dojo-props="barType:'segmentedControl'">
 					<li data-dojo-type="dojox.mobile.TabBarButton" id="taskListView_listBtn" data-dojo-props="selected:'true'">List</li>
 					<li data-dojo-type="dojox.mobile.TabBarButton" id="taskListView_mapBtn">Map</li>
 				</ul>
-			</h1>
+			</h1>-->
 		</div>
 		
 		

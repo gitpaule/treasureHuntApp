@@ -7,7 +7,8 @@ define(['dojo/_base/declare',
   		'dojo/_base/json',
 		'dojox/mobile/ListItem',
 		'app/views/TaskList', 
-		'app/views/Map'], function(declare, registry, lang, on, Deferred, xhr, dojo, ListItem, TaskList, Map) {
+		'app/views/Map',
+		'dojo/dom'], function(declare, registry, lang, on, Deferred, xhr, dojo, ListItem, TaskList, Map, dom) {
 
 	// module:
 	//		views/ActivityList
@@ -18,11 +19,9 @@ define(['dojo/_base/declare',
 		view : null,
 		activityRectList : null,
 		activityListStore: null,
-		activityDetailsStore: null,
 
 
 		constructor : function() {
-			activityDetailsStore = {};
 			this.view = registry.byId('activityListView');
 			var cachedActivitiesData = localStorage.getItem("game_activities");
 			if(cachedActivitiesData){
@@ -87,9 +86,22 @@ define(['dojo/_base/declare',
 		//
 		removeData : function() {
 			this.activityRectList.destroyDescendants();
-			
 			this.activityStore = null;
+		},
+		
+		updateScoreView: function(){
+			var activityDetailView,
+				sum = 0;
 			
+			if(viewCache && viewCache.activityDetailViews){
+				
+				for(activityDetailView in viewCache.activityDetailViews){
+					activityDetailView = viewCache.activityDetailViews[activityDetailView];
+					sum = sum + activityDetailView.activityScore;
+				}
+				
+				dom.byId("scoreViewScoreSpan").innerHTML = sum;
+			}
 		},
 		
 		// summary:
@@ -99,6 +111,7 @@ define(['dojo/_base/declare',
 		//		When promise is resolved call the taskList to render the page
 		//
 		getActivityItemData : function(activity) {
+			//it's in memory, no need to do anything
 			if(viewCache.activityDetailViews && viewCache.activityDetailViews[activity.id]){
 				viewCache.activityDetailViews[activity.id].show();
 			}
@@ -106,12 +119,29 @@ define(['dojo/_base/declare',
 				if(!viewCache.activityDetailViews){
 					viewCache.activityDetailViews = {};
 				}
+				var activityInLocalStorageJson = localStorage.getItem("activityDetails_"+activity.id);
+				if(activityInLocalStorageJson){
+					var activityInLocalStorage = dojo.fromJson(activityInLocalStorageJson);
+					viewCache.activityDetailViews[activity.id] = new TaskList(registry.byId("activityListView"), 
+							{
+								id: activity.id,
+								title : activity.properties.name,
+								imgSource : activity.properties.img,
+								tasks : activityInLocalStorage.tasks
+							}
+						);
+						viewCache.activityDetailViews[activity.id].show();
+						return null;
+				}
+				
+				
 				return xhr.get({
 					url : "js/dummydata/tasks.json",
 					handleAs : "json",
 					load : lang.hitch(this, function(activityData) {
 						viewCache.activityDetailViews[activity.id] = new TaskList(registry.byId("activityListView"), 
 							{
+								id : activity.id,
 								title : activity.properties.name,
 								imgSource : activity.properties.img,
 								tasks : activityData
@@ -135,6 +165,7 @@ define(['dojo/_base/declare',
 		show : function() {
 			this.view.show();
 			registry.byId('dojox_mobile_Heading_3').resize();
+			this.updateScoreView();
 		},
 		
 		_setupEventHandlers : function(view) {
@@ -162,7 +193,7 @@ define(['dojo/_base/declare',
 		//
 		//
 		_showMapView : function() {
-			viewCache.mapView.show(this.activityStore, 'activityListPage', this);
+			viewCache.mapView.show(this.activityStore, 'activityList', this);
 		}
 	});
 });
