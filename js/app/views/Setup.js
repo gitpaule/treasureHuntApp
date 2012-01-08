@@ -16,6 +16,8 @@ define(['dojo/_base/declare',
         	view: null,
         	
         	constructor: function(){
+        		
+        		
         		this.view = registry.byId('setupView');
         		this._setupEventHandlers();
         	},
@@ -26,18 +28,24 @@ define(['dojo/_base/declare',
         	
         	show: function(){
         		this.view.show();
-				this.view.selected = true;
         	}, 
         	
         	generateActivities: function(evt){
         		
-        		this.view.performTransition("activityGroupView", 1, "slide");
+        		this.view.performTransition("activityListView", 1, "slide");
                 viewCache.activityList = new ActivityList();
                 var formQuery = domForm.toQuery('gameSetupForm');
                 viewCache.activityList.getActivitesForNewGame(formQuery);
                 
                 event.stop(evt);
                 return false;
+        	},
+        	
+        	destroy_game: function(){
+        		localStorage.removeItem("game_activities");
+        		// if(viewCache.activityList)
+        			// viewCache.activityList = null;
+        		viewCache.activityList.removeData();
         	}
     });
 });

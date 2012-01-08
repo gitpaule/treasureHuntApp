@@ -82,14 +82,14 @@
 					<div data-dojo-type="dojox.mobile.ListItem" data-dojo-props="moveTo:'activityListView'"></div>
 					<div data-dojo-type="dojox.mobile.ListItem" data-dojo-props="moveTo:'activityDetailView'" id="mockTaskPageLink">go to mock task page</div>
 					<div>
-						<input type="submit"  id="startGameBtn" data-dojo-type="dojox.mobile.Button" value="Submit"/>
+						<div id="startGameBtn" data-dojo-type="dojox.mobile.Button" >Start Exploring</div>
 					</div>
 				</form>
 			</div>
     	</div>
 
 		<div data-dojo-type="dojox.mobile.ScrollableView" id="activityListView">
-			<h1 data-dojo-type="dojox.mobile.Heading" back="New Game" moveTo="setupView" data-dojo-props="fixed: 'top'">Activities</h1>
+			<h1 data-dojo-type="dojox.mobile.Heading" id ="activityListHeading" back="New Game" move-to="setupView" data-dojo-props="fixed: 'top'">Activities</h1>
 			<ul data-dojo-type="dojox.mobile.RoundRectList" id="activityList"></ul>
 			
 			<h1 dojoType="dojox.mobile.Heading" fixed="bottom" style="">
