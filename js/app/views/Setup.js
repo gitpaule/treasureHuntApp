@@ -31,7 +31,7 @@ define(['dojo/_base/declare',
         	
         	generateActivities: function(evt){
         		
-        		this.view.performTransition("activityListView", 1, "slide");
+        		this.view.performTransition("activityGroupView", 1, "slide");
                 viewCache.activityList = new ActivityList();
                 var formQuery = domForm.toQuery('gameSetupForm');
                 viewCache.activityList.getActivitesForNewGame(formQuery);
