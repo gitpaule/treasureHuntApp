@@ -95,19 +95,23 @@ define(['dojo/_base/declare',
 			var geoJSON = viewCache.activityList.activityListStore;
 			var parser = new GeoJSON(geoJSON);
 			var googleMarkers = parser.parse();
+			var latlngbounds = new google.maps.LatLngBounds( );
 			if (googleMarkers.length){
 				for (var i = 0; i < googleMarkers.length; i++){
 					googleMarkers[i].setMap(this.map);
+					latlngbounds.extend( googleMarkers[i].getPosition() );
 					if (googleMarkers[i].geojsonProperties) {
 						this.setInfoWindow(googleMarkers[i]);
 					}
 				}
 			}else{
 				googleMarkers.setMap(this.map);
+				latlngbounds.extend( googleMarkers.getPosition() );
 				if (googleMarkers.geojsonProperties) {
 					this.setInfoWindow(googleMarkers);
 				}
 			}
+			this.map.fitBounds( latlngbounds );
 		},
 		
 		
@@ -124,7 +128,7 @@ define(['dojo/_base/declare',
 				this.infowindow.position = event.latLng;
 				this.infowindow.open(this.map);
 				
-				on(content, 'click', lang.hitch(this, function(event) {
+				on(content, 'span:click', lang.hitch(this, function(event) {
 					this.view.performTransition("activityDetailView", 1, "slide");
 					if(!viewCache.taskList) {
 						viewCache.taskList = new TaskList();
