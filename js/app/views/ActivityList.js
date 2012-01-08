@@ -138,10 +138,9 @@ define(['dojo/_base/declare',
 						viewCache.activityDetailViews[activity.id].show();
 						return null;
 				}
-				window.someNumber = 1;
 				
 				return xhr.get({
-					url : "js/dummydata/tasks"+window.someNumber+".json",
+					url : "js/dummydata/tasks.json",
 					handleAs : "json",
 					load : lang.hitch(this, function(activityData) {
 						viewCache.activityDetailViews[activity.id] = new TaskList(registry.byId("activityListView"), 
