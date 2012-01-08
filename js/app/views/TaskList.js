@@ -62,8 +62,8 @@ define(['dojo/_base/declare', 'dojo/on', 'dijit/registry', 'dojox/mobile/RadioBu
 						console.debug("correct! your new total is ", this.activityScore);
 					}
 					var taskDiv = dom.byId("task_"+_taskId);
-					domAttr.set(taskDiv, "innerHTML", '<img src="/img/l/apple-touch-icon-precomposed.png"/>'+_option);
-					domAttr.set(taskDiv, "style", "background-color:lightgreen;");
+					domAttr.set(taskDiv, "innerHTML", '<img src="/img/customIcons/correct.png"/>'+_option);
+					domAttr.set(taskDiv, "style", "color:green; vertical-align:middle;");
 				}
 				else{
 					if(this.tasksAndTriesMap[taskId]){
@@ -73,7 +73,8 @@ define(['dojo/_base/declare', 'dojo/on', 'dijit/registry', 'dojox/mobile/RadioBu
 						this.tasksAndTriesMap[taskId] = 1;
 					}
 					var optionDiv = dom.byId("" + _taskId + "_" + _option).parentNode;
-					domAttr.set(optionDiv, "innerHTML", '<div class="mblDomButtonRedBall"></div>'+_option);
+					domAttr.set(optionDiv, "innerHTML", '<img src="/img/customIcons/errorSmall.png"/>'+_option);
+					//domAttr.set(optionDiv, "innerHTML", '<div class="mblDomButtonRedBall"></div>'+_option);
 					domAttr.set(optionDiv, "style", "color:red;");
 				}
 			});
