@@ -44,6 +44,11 @@ define(['dojo/_base/declare', 'dojo/on', 'dijit/registry', 'dojox/mobile/RadioBu
 			localStorage.setItem("itemsViewed",(previousViewed + activityData.tasks.length));
 		},
 		
+		addToGlobalAccumulatedPoints: function(increment){
+			var previousPointsAccumulated = parseInt(localStorage.getItem("pointsAccumulated"));
+			localStorage.setItem("pointsAccumulated",(previousPointsAccumulated + increment));
+		},
+		
 		createLockAnswerFunction : function(option, correctAnswer, taskId, taskIndex){
 			var _option = option,
 				_correctAnswer = correctAnswer,
@@ -58,13 +63,16 @@ define(['dojo/_base/declare', 'dojo/on', 'dijit/registry', 'dojox/mobile/RadioBu
 					
 					var previousFinished = parseInt(localStorage.getItem("itemsFinished"));
 					localStorage.setItem("itemsFinished",(previousFinished + 1));
+					
 					//score tracking
 					if(this.tasksAndTriesMap[taskId]){ //has tried before
 						this.activityScore += Math.round(100 / (this.tasksAndTriesMap[_taskId]+1));
+						this.addToGlobalAccumulatedPoints(Math.round(100 / (this.tasksAndTriesMap[_taskId]+1)));
 						console.debug("correct! your new total is ", this.activityScore);
 					}
 					else{ //first try
 						this.activityScore += 100;
+						this.addToGlobalAccumulatedPoints(100);
 						console.debug("correct! your new total is ", this.activityScore);
 					}
 					this.activityData.tasks[taskIndex].question.answeredCorrectly = true;

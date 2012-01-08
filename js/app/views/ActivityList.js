@@ -29,6 +29,23 @@ define(['dojo/_base/declare',
 				this._populateData(this.activityListStore);
 			}
 			this._setupEventHandlers();
+			
+			//Unsafe, but I'm tired: if itemsViewed is 0 or unset, reset all the below fields... it means the user hasn't done anything.
+			if(!localStorage.getItem("itemsViewed")){
+				localStorage.setItem("itemsFinished", "0");
+				localStorage.setItem("itemsViewed", "0");
+				localStorage.setItem("pointsAccumulated", "0");
+				
+			}
+			
+			on(dom.byId("ScoreButtonInActivityListView"), "click", function(){
+				dom.byId("scoreViewAmountViewed").innerHTML = localStorage.getItem("itemsViewed");
+				dom.byId("scoreViewAmountDone").innerHTML = localStorage.getItem("itemsFinished");
+			});
+			on(dom.byId("ScoreButtonInActivityListView"), "click", lang.hitch(this,function(){
+				dom.byId("scoreViewScoreSpan").innerHTML = localStorage.getItem("pointsAccumulated");
+			}));
+			
 		},
 		
 		
@@ -87,25 +104,9 @@ define(['dojo/_base/declare',
 		removeData : function() {
 			this.activityRectList.destroyDescendants();
 			this.activityStore = null;
-		},
-		
-		updateScoreView: function(){
-			var activityDetailView,
-				sum = 0;
-			
-			if(viewCache && viewCache.activityDetailViews){
-				
-				for(activityDetailView in viewCache.activityDetailViews){
-					activityDetailView = viewCache.activityDetailViews[activityDetailView];
-					sum = sum + activityDetailView.activityScore;
-				}
-				
-				on(dom.byId("ScoreButtonInActivityListView", click, function(){
-					dom.byId("scoreViewAmountViewed").innerHTML = localStorage.getItem("itemsFinished");
-					dom.byId("scoreViewAmountDone").innerHTML = localStorage.getItem("itemsViewed");
-				}));
-				dom.byId("scoreViewScoreSpan").innerHTML = sum;
-			}
+			localStorage.removeItem("itemsFinished");
+			localStorage.removeItem("itemsViewed");
+			localStorage.removeItem("pointsAccumulated");
 		},
 		
 		// summary:
@@ -169,7 +170,7 @@ define(['dojo/_base/declare',
 		show : function() {
 			this.view.show();
 			registry.byId('dojox_mobile_Heading_3').resize();
-			this.updateScoreView();
+			
 		},
 		
 		_setupEventHandlers : function(view) {
