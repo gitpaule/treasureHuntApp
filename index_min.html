@@ -18,9 +18,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <script>(function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")</script>
   <link rel="apple-touch-startup-image" href="img/l/splash.png">
-
   <meta http-equiv="cleartype" content="on">
-  <link rel="stylesheet" href="css/releaseStyle.css">
+  <link rel="stylesheet" href="css/appStyles.css">
 
    <script>
 	var dojoConfig = {
@@ -32,14 +31,14 @@
 		// deps:["release/main"]
 	};
   </script>
-  <script src="js/release/dojo/dojo.js"></script>
   <script src="js/release/dojox/mobile/deviceTheme.js"></script>
+  <script src="js/release/dojo/dojo.js"></script>
   <script src="js/release/app/main.js"></script>
 
   <script>
   		viewCache =  [];
   		progressIndicator = null;
-		require(['app/controller/Main', 'dojox/mobile/parser', 'dojox/mobile/compat'],  function (Main, parser) {
+		require(['app/controller/Main', 'dojox/mobile/parser'],  function (Main, parser) {
 			//parse all widgets on page
 			parser.parse();
 			setTimeout(Main.setStartPage, 200);
