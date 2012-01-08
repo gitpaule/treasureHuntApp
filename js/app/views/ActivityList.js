@@ -162,7 +162,7 @@ define(['dojo/_base/declare',
 		//
 		//
 		_showMapView : function() {
-			viewCache.mapView.show(this.activityStore, 'activityListPage', this);
+			viewCache.mapView.show(this.activityStore, 'activityList', this);
 		}
 	});
 });
