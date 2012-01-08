@@ -18,9 +18,11 @@ define(['dojo/_base/declare',
 		view : null,
 		activityRectList : null,
 		activityListStore: null,
+		activityDetailsStore: null,
 
 
 		constructor : function() {
+			activityDetailsStore = {};
 			this.view = registry.byId('activityListView');
 			var cachedActivitiesData = localStorage.getItem("game_activities");
 			if(cachedActivitiesData){
@@ -62,13 +64,18 @@ define(['dojo/_base/declare',
 					label : item.properties.name,
 					icon : 'img/h/tower_clear-.png',
 					clickable : true,
-					onClick : lang.hitch(this, function(event) {
+					onClick : lang.hitch(this, function(itemId, event) {
+						var i;//for loop iterator
 						this.view.performTransition("activityDetailView", 1, "slide");
-						if(!viewCache.taskList) {
-							viewCache.taskList = new TaskList();
+						for(i=0; i<this.activityStore.features.length; i++){
+							if(this.activityStore.features[i].id === itemId){
+								this.getActivityItemData(this.activityStore.features[i]);
+								//found it, exit.
+								break;
+							}
 						}
-						this.getActivityItemData(event.target.id);
-					})
+					},
+					item.id)
 				});
 
 				this.activityRectList.addChild(li);
@@ -82,18 +89,32 @@ define(['dojo/_base/declare',
 		//Description:
 		//		When promise is resolved call the taskList to render the page
 		//
-		getActivityItemData : function(activityId) {
-
-			return xhr.get({
-				url : "js/dummydata/sampleActivityData.json",
-				handleAs : "json",
-				load : lang.hitch(this, function(activityData) {
-					viewCache.taskList.populateData(activityData);
-				}),
-				error : function(error) {
-					console.error("Error retrieving activity data ", error);
+		getActivityItemData : function(activity) {
+			if(viewCache.activityDetailViews && viewCache.activityDetailViews[activity.id]){
+				viewCache.activityDetailViews[activity.id].show();
+			}
+			else{
+				if(!viewCache.activityDetailViews){
+					viewCache.activityDetailViews = {};
 				}
-			});
+				return xhr.get({
+					url : "js/dummydata/tasks.json",
+					handleAs : "json",
+					load : lang.hitch(this, function(activityData) {
+						viewCache.activityDetailViews[activity.id] = new TaskList(registry.byId("activityListView"), 
+							{
+								title : activity.properties.name,
+								imgSource : activity.properties.img,
+								tasks : activityData
+							}
+						);
+						viewCache.activityDetailViews[activity.id].show();
+					}),
+					error : function(error) {
+						console.error("Error retrieving activity data ", error);
+					}
+				});
+			}
 		},
 		
 		// summary:
