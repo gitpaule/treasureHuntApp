@@ -25,6 +25,7 @@ define([ 'dojo/_base/Deferred',
          'dojox/mobile/ListItem',
          'dojox/mobile/Switch',
          'dojox/mobile/EdgeToEdgeList',
+         'dojox/mobile/ToolBarButton',
          'dojo/domReady!'], function ( Deferred, lang, djson, dom, registry, on, ActivityList, Setup, TaskList, Map) {
 	
 	// module:

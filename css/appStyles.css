@@ -21,7 +21,8 @@ img.taskTitleImage{
 }
 
 #setup_check_list .mblListItemIcon{
-		margin-right: 10%,
+		margin-right: 20%;
+		margin-left: 10%;
 }
 #setup_check_list .mblListItemIcon img{
 		width: 45px;

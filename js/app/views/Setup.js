@@ -38,10 +38,8 @@ define(['dojo/_base/declare',
         		
         		this.view.performTransition("activityListView", 1, "slide");
                 viewCache.activityList = new ActivityList();
-                var formQuery = domForm.toQuery('gameSetupForm');
-                viewCache.activityList.getActivitesForNewGame(formQuery);
                 
-                event.stop(evt);
+                // event.stop(evt);
                 return false;
         	},
         	
