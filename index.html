@@ -26,14 +26,19 @@
 	var dojoConfig = {
 		async: true,
 		parseOnLoad: false,
-		paths:{  "app":"../../app"}
+		paths:{  
+			"app":"../../app"
+		}
+		// deps:["release/main"]
 	};
   </script>
   <script src="js/lib/dojo/dojo.js"></script>
+  <script src="js/lib/dojox/mobile/deviceTheme.js"></script>
+
   <script>
   		viewCache =  [];
   		progressIndicator = null;
-		require(['app/controller/Main', 'dojox/mobile/parser'],  function (Main, parser) {
+		require(['app/controller/Main', 'dojox/mobile/parser', 'dojox/mobile/compat'],  function (Main, parser) {
 			//parse all widgets on page
 			parser.parse();
 			setTimeout(Main.setStartPage, 200);
