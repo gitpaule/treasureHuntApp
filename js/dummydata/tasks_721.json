@@ -1,0 +1,42 @@
+[
+	{
+		"id": 40422,
+		"headline": "Count the steps",
+		"description": null,
+		"type": "MULTIPLE_CHOICE",
+		"duration": 10,
+		"question": {
+			"id": 0,
+			"text": "How many steps to top of bell tower",
+			"correctAnswer": "100",
+			"options": ["100", "184", "149"]
+		},
+		"locations": null
+	}, {
+		"id": 40412,
+		"headline": "Count the steps",
+		"description": null,
+		"type": "MULTIPLE_CHOICE",
+		"duration": 10,
+		"question": {
+			"id": 0,
+			"text": "How many steps to top of bell tower",
+			"correctAnswer": "100",
+			"options": ["100", "184", "149"]
+		},
+		"locations": null
+	}, {
+		"id": 40432,
+		"headline": "Count the steps",
+		"description": null,
+		"type": "MULTIPLE_CHOICE",
+		"duration": 10,
+		"question": {
+			"id": 0,
+			"text": "How many steps to top of bell tower",
+			"correctAnswer": "100",
+			"options": ["100", "184", "149"]
+		},
+		"locations": null
+	}
+]
