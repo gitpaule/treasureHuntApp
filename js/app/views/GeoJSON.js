@@ -21,7 +21,7 @@ define(['dojo/_base/declare'], function(declare) {
 					} else {
 						obj = [];
 						for(var i = 0; i < this.geojson.features.length; i++) {
-							obj.push(this._geometryToGoogleMaps(this.geojson.features[i].geometry, this.options, this.geojson.features[i].properties));
+							obj.push(this._geometryToGoogleMaps(this.geojson.features[i], this.options));
 						}
 					}
 					break;
@@ -41,7 +41,7 @@ define(['dojo/_base/declare'], function(declare) {
 					if(!(this.geojson.properties && this.geojson.geometry )) {
 						obj = this._error("Invalid GeoJSON object: Feature object missing \"properties\" or \"geometry\" member.");
 					} else {
-						obj = this._geometryToGoogleMaps(this.geojson.geometry, this.options, this.geojson.properties);
+						obj = this._geometryToGoogleMaps(this.geojson, this.options);
 					}
 					break;
 
@@ -62,14 +62,18 @@ define(['dojo/_base/declare'], function(declare) {
 			return obj;
 		},
 
-		_geometryToGoogleMaps : function(geojsonGeometry, opts, geojsonProperties) {
-
+		_geometryToGoogleMaps : function(geojson, opts) {
+			
+			var geojsonGeometry = geojson.geometry;
+			var geojsonProperties = geojson.properties;
+			
 			var googleObj;
 
 			switch ( geojsonGeometry.type ) {
 				case "Point":
 					opts.position = new google.maps.LatLng(geojsonGeometry.coordinates[1], geojsonGeometry.coordinates[0]);
 					googleObj = new google.maps.Marker(opts);
+					googleObj.set("id", geojson.id);
 					if(geojsonProperties) {
 						googleObj.set("geojsonProperties", geojsonProperties);
 					}
@@ -84,6 +88,7 @@ define(['dojo/_base/declare'], function(declare) {
 					if(geojsonProperties) {
 						for(var k = 0; k < googleObj.length; k++) {
 							googleObj[k].set("geojsonProperties", geojsonProperties);
+							googleObj[k].set("id", geojson.id);
 						}
 					}
 					break;
@@ -99,6 +104,8 @@ define(['dojo/_base/declare'], function(declare) {
 					googleObj = new google.maps.Polyline(opts);
 					if(geojsonProperties) {
 						googleObj.set("geojsonProperties", geojsonProperties);
+						googleObj.set("id", geojson.id);
+						
 					}
 					break;
 
@@ -117,6 +124,7 @@ define(['dojo/_base/declare'], function(declare) {
 					if(geojsonProperties) {
 						for(var k = 0; k < googleObj.length; k++) {
 							googleObj[k].set("geojsonProperties", geojsonProperties);
+							googleObj[k].set("id", geojson.id);
 						}
 					}
 					break;
@@ -135,6 +143,7 @@ define(['dojo/_base/declare'], function(declare) {
 					googleObj = new google.maps.Polygon(opts);
 					if(geojsonProperties) {
 						googleObj.set("geojsonProperties", geojsonProperties);
+						googleObj.set("id", geojson.id);
 					}
 					break;
 
@@ -156,6 +165,7 @@ define(['dojo/_base/declare'], function(declare) {
 					if(geojsonProperties) {
 						for(var k = 0; k < googleObj.length; k++) {
 							googleObj[k].set("geojsonProperties", geojsonProperties);
+							googleObj[k].set("id", geojson.id);
 						}
 					}
 					break;

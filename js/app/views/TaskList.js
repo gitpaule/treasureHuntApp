@@ -73,7 +73,7 @@ define(['dojo/_base/declare', 'dojo/on', 'dijit/registry', 'dojox/mobile/RadioBu
 						this.tasksAndTriesMap[taskId] = 1;
 					}
 					var optionDiv = dom.byId("" + _taskId + "_" + _option).parentNode;
-					domAttr.set(optionDiv, "innerHTML", '<img src="/img/l/apple-touch-icon-precomposed.png"/>'+_option);
+					domAttr.set(optionDiv, "innerHTML", '<div class="mblDomButtonRedBall"></div>'+_option);
 					domAttr.set(optionDiv, "style", "color:red;");
 				}
 			});

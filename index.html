@@ -20,15 +20,19 @@
   <link rel="apple-touch-startup-image" href="img/l/splash.png">
 
   <meta http-equiv="cleartype" content="on">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/appStyles.css">
 
    <script>
 	var dojoConfig = {
 		async: true,
 		parseOnLoad: false,
-		paths:{  "app":"../../app"}
+		paths:{  
+			"app":"../../app"
+		}
+		// deps:["release/main"]
 	};
   </script>
+  <script src="js/lib/dojox/mobile/deviceTheme.js"></script> 
   <script src="js/lib/dojo/dojo.js"></script>
   <script>
   		viewCache =  [];
@@ -84,8 +88,29 @@
 			</div>
     	</div>
 		
+		<div data-dojo-type="dojox.mobile.View" selected="true" id="activityGroupView">
+			
+			<div data-dojo-type="dojox.mobile.ScrollableView" id="activityListView">
+				<h1 data-dojo-type="dojox.mobile.Heading" back="New Game" moveTo="setupView" data-dojo-props="fixed: 'top'">Activities</h1>
+				<ul data-dojo-type="dojox.mobile.RoundRectList" id="activityList"></ul>
+			</div>
+			
+			<div data-dojo-type="dojox.mobile.View"  id="mapView">
+				<h1 data-dojo-type="dojox.mobile.Heading"  back="New Game" moveTo="setupView"  data-dojo-props="fixed: 'top'">Map</h1>
+				<div id="map_canvas" style=""></div>
+			</div>
+			
+			<h1 dojoType="dojox.mobile.Heading" fixed="bottom" style="margin-top: -41px;">
+	    		<ul data-dojo-type="dojox.mobile.TabBar"  class="tabBar"  barType="segmentedControl">
+						<li data-dojo-type="dojox.mobile.TabBarButton" moveTo="activityListView" selected="true" id="activListBtn">List</li>
+						<li data-dojo-type="dojox.mobile.TabBarButton" moveTo="mapView" id="activMapBtn">Map</li>
+				</ul>
+			</h1>
+		</div>
+		
+		
 		<div data-dojo-type="dojox.mobile.ScrollableView" id="activityDetailView">
-	    	<h1 data-dojo-type="dojox.mobile.Heading" back="Activities" moveTo="activityGroupView" data-dojo-props="fixed: 'top'">Activity Detail</h1>
+	    	<h1 data-dojo-type="dojox.mobile.Heading" data-dojo-props="fixed: 'top'"  >Explore Fingal Challenge</h1>
 			<img src="" alt="" style="padding: 10px; float: left;" id="taskListViewImage"/>
 			<h2 id="taskListViewTitle">Initial, change.</h2>
 			<div id="taskListViewTaskContainer"></div>
@@ -99,25 +124,6 @@
 		</div>
 		
 		
-		<div data-dojo-type="dojox.mobile.View" selected="true" id="activityGroupView">
-			
-			<div data-dojo-type="dojox.mobile.ScrollableView" id="activityListView">
-				<h1 data-dojo-type="dojox.mobile.Heading" back="New Game" moveTo="setupView" data-dojo-props="fixed: 'top'">Activities List</h1>
-				<ul data-dojo-type="dojox.mobile.RoundRectList" id="activityList"></ul>
-			</div>
-			
-			<div data-dojo-type="dojox.mobile.View"  id="mapView">
-				<h1 data-dojo-type="dojox.mobile.Heading"  back="New Game" moveTo="setupView"  data-dojo-props="fixed: 'top'">Activities Map</h1>
-				<div id="map_canvas" style=""></div>
-			</div>
-			
-			<h1 dojoType="dojox.mobile.Heading" fixed="bottom" style="margin-top: -41px;">
-	    		<ul data-dojo-type="dojox.mobile.TabBar"  class="tabBar"  barType="segmentedControl">
-						<li data-dojo-type="dojox.mobile.TabBarButton" moveTo="activityListView" selected="true" id="activListBtn">List</li>
-						<li data-dojo-type="dojox.mobile.TabBarButton" moveTo="mapView" id="activMapBtn">Map</li>
-				</ul>
-			</h1>
-		</div>
 		
     </div>
 </body>
