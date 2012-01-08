@@ -182,13 +182,17 @@ define(['dojo/_base/declare',
 				this.infowindow.open(this.map);
 				
 				on(content, 'span:click', lang.hitch(this, function(event) {
+					var i;//for loop iterator
+					var itemId = event.target.id;
 					this.view.performTransition("activityDetailView", 1, "slide");
-					if(!viewCache.taskList) {
-						viewCache.taskList = new TaskList();
+					for(i=0; i<viewCache.activityList.activityStore.features.length; i++){
+						if(viewCache.activityList.activityStore.features[i].id === itemId){
+							viewCache.activityList.getActivityItemData(viewCache.activityList.activityStore.features[i]);
+							//found it, exit.
+							break;
+						}
 					}
-					var activityId = event.target.id;
-					//viewCache.activityList.getActivityItemData(activityId);
-					viewcache.activityDetailViews[activityId].show();
+					
 				}));
 				
 			}, feature));
