@@ -85,7 +85,7 @@
     	</div>
 		
 		<div data-dojo-type="dojox.mobile.ScrollableView" id="activityDetailView">
-	    	<h1 data-dojo-type="dojox.mobile.Heading" data-dojo-props="fixed: 'top'">Explore Fingal Challenge</h1>
+	    	<h1 data-dojo-type="dojox.mobile.Heading" back="Activities" moveTo="activityGroupView" data-dojo-props="fixed: 'top'">Activity Detail</h1>
 			<img src="" alt="" style="padding: 10px; float: left;" id="taskListViewImage"/>
 			<h2 id="taskListViewTitle">Initial, change.</h2>
 			<div id="taskListViewTaskContainer"></div>
@@ -102,12 +102,12 @@
 		<div data-dojo-type="dojox.mobile.View" selected="true" id="activityGroupView">
 			
 			<div data-dojo-type="dojox.mobile.ScrollableView" id="activityListView">
-				<h1 data-dojo-type="dojox.mobile.Heading" back="New Game" moveTo="setupView" data-dojo-props="fixed: 'top'">Explore Fingal Challenge - Activities</h1>
+				<h1 data-dojo-type="dojox.mobile.Heading" back="New Game" moveTo="setupView" data-dojo-props="fixed: 'top'">Activities List</h1>
 				<ul data-dojo-type="dojox.mobile.RoundRectList" id="activityList"></ul>
 			</div>
 			
 			<div data-dojo-type="dojox.mobile.View"  id="mapView">
-				<h1 data-dojo-type="dojox.mobile.Heading"  back="New Game" moveTo="setupView"  data-dojo-props="fixed: 'top'">Explore Fingal Challenge - Activities Map</h1>
+				<h1 data-dojo-type="dojox.mobile.Heading"  back="New Game" moveTo="setupView"  data-dojo-props="fixed: 'top'">Activities Map</h1>
 				<div id="map_canvas" style=""></div>
 			</div>
 			
