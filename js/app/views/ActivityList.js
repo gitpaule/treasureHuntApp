@@ -108,12 +108,14 @@ define(['dojo/_base/declare',
 		},
 		
 		_setupEventHandlers : function(view) {
-			var listBtn = registry.byId('activListBtn');
-			var mapBtn = registry.byId('activMapBtn');
+			var listBtn = registry.byId('activListBtn_actList');
+			var listBtn_map = registry.byId('listBtn_map');
+			var mapBtn = registry.byId('activMapBtn_actList');
 			if(!viewCache.mapView) {
 				viewCache.mapView = new Map();
 			}
 			listBtn.on('Click', lang.hitch(this, this.show));
+			listBtn_map.on('Click', lang.hitch(this, this.show));
 			mapBtn.on('Click', lang.hitch(this, this._showMapView));
 		},
 		

@@ -77,13 +77,12 @@ define(['dojo/_base/declare',
 			//if(view.view._visible == true)
 			{
 				var vs = win.getBox();
-				var mapCanvas = dom.byId("map_canvas");
 				var mapView = query("#mapView");
 				
 		        var vs = win.getBox();
 		        mapView[0].style.height = (vs.h)+'px';
-		        //mapView[0].style.width = (vs.w)+'px';
 		        
+				var mapCanvas = dom.byId("map_canvas");
 				google.maps.event.trigger(mapCanvas, 'resize');
 			}
 		},
