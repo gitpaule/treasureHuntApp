@@ -32,12 +32,13 @@ define(['dojo/_base/declare', 'dojo/on', 'dijit/registry', 'dojox/mobile/RadioBu
 		 * Where view is the node where the Activity is to be shown
 		 * TaskData is of the format seen on populateData function
 		 */
-		constructor : function(view, taskData) {
+		constructor : function(view, activityData) {
 			this.activityScore = 0;
 			this.tasksAndTriesMap = {};
 			this.view = view;
 			//persist the task data
-			this.taskData = taskData;
+			this.activityData = activityData;
+			localStorage.setItem("activityDetails_"+activityData.id, dojo.toJson(activityData));
 			this._setupEventHandlers(this.view);
 		},
 		
@@ -61,7 +62,7 @@ define(['dojo/_base/declare', 'dojo/on', 'dijit/registry', 'dojox/mobile/RadioBu
 						this.activityScore += 100;
 						console.debug("correct! your new total is ", this.activityScore);
 					}
-					this.taskData.tasks[taskIndex].question.answeredCorrectly = true;
+					this.activityData.tasks[taskIndex].question.answeredCorrectly = true;
 					
 					//change the display.
 					var taskDiv = dom.byId("task_"+_taskId);
@@ -69,11 +70,11 @@ define(['dojo/_base/declare', 'dojo/on', 'dijit/registry', 'dojox/mobile/RadioBu
 				}
 				else{
 					//Wrong answer tracking
-					if(!this.taskData.tasks[taskIndex].question.givenWrongAnswers){
-						this.taskData.tasks[taskIndex].question.givenWrongAnswers = [_option];
+					if(!this.activityData.tasks[taskIndex].question.givenWrongAnswers){
+						this.activityData.tasks[taskIndex].question.givenWrongAnswers = [_option];
 					}
 					else{
-						this.taskData.tasks[taskIndex].question.givenWrongAnswers.push(_option);
+						this.activityData.tasks[taskIndex].question.givenWrongAnswers.push(_option);
 					}
 					
 					//Score tracking
@@ -104,7 +105,7 @@ define(['dojo/_base/declare', 'dojo/on', 'dijit/registry', 'dojox/mobile/RadioBu
 		// summary:
 		//		Initialise the store
 		//
-		//this.taskData = {
+		//this.activityData = {
 		//	title: "title string",
 		//	imgSource: "URL to image",
 		//	tasks: [
@@ -125,8 +126,8 @@ define(['dojo/_base/declare', 'dojo/on', 'dijit/registry', 'dojox/mobile/RadioBu
 		//		}
 		//]};
 		populateData : function() {
-			var taskData = this.taskData;
-			this.identifier = this.taskData.title;
+			var taskData = this.activityData;
+			this.identifier = this.activityData.title;
 			//Set title and image
 			this.imageNode = dom.byId(this.iMAGE_DOM_ID);
 			this.imageNode.src = taskData.imgSource;
@@ -140,6 +141,7 @@ define(['dojo/_base/declare', 'dojo/on', 'dijit/registry', 'dojox/mobile/RadioBu
 			dojo.forEach(this.taskWidgetsClasswide, function(taskWidget) {
 				taskWidget.destroyDescendants();
 				taskWidget.destroyRecursive();
+				console.debug("destroyed all widgets");
 			});
 			
 			this.taskWidgetsClasswide = [];
@@ -158,9 +160,9 @@ define(['dojo/_base/declare', 'dojo/on', 'dijit/registry', 'dojox/mobile/RadioBu
 				var taskDiv = domConstruct.create("div");
 				domAttr.set(taskDiv, "id", "task_" + task.id);
 				if(task.type === "MULTIPLE_CHOICE") {
-					if(this.taskData.tasks[taskIndex].question.answeredCorrectly){
+					if(this.activityData.tasks[taskIndex].question.answeredCorrectly){
 						//If answered correctly, show only right answer and checkbox
-						this.setTaskDisplayToAnswered(taskDiv, this.taskData.tasks[taskIndex].question.correctAnswer);
+						this.setTaskDisplayToAnswered(taskDiv, this.activityData.tasks[taskIndex].question.correctAnswer);
 						domConstruct.place(taskDiv, taskWidget.containerNode, "last");
 						domConstruct.place(taskWidget.domNode, dom.byId("taskListViewTaskContainer"), "last");
 						//do not render anything else.
@@ -172,7 +174,7 @@ define(['dojo/_base/declare', 'dojo/on', 'dijit/registry', 'dojox/mobile/RadioBu
 						
 						var optionDiv = domConstruct.create("div");
 						//if this option has been answered incorrectly before
-						var givenWrongAnswers = this.taskData.tasks[taskIndex].question.givenWrongAnswers;
+						var givenWrongAnswers = this.activityData.tasks[taskIndex].question.givenWrongAnswers;
 						if(givenWrongAnswers && givenWrongAnswers.indexOf(option)>=0){
 							this.setTaskDisplayToWrong(optionDiv, option);
 							domConstruct.place(optionDiv, taskDiv, "last");
@@ -206,7 +208,7 @@ define(['dojo/_base/declare', 'dojo/on', 'dijit/registry', 'dojox/mobile/RadioBu
 		
 		
 		destroy : function(){
-			localStorage.removeItem("activityDetail_"+this.identifier);
+			localStorage.removeItem("activityDetails_"+this.identifier);
 			
 			this.taskWidgetsClasswide = [];
 			this.activityScore = null;
@@ -215,7 +217,7 @@ define(['dojo/_base/declare', 'dojo/on', 'dijit/registry', 'dojox/mobile/RadioBu
 			this.view = null;
 			this.imageNode = null;
 			this.titleNode = null;
-			this.taskData = null;
+			this.activityData = null;
 		},
 		
 		_setupEventHandlers : function(view) {

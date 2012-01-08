@@ -18,11 +18,9 @@ define(['dojo/_base/declare',
 		view : null,
 		activityRectList : null,
 		activityListStore: null,
-		activityDetailsStore: null,
 
 
 		constructor : function() {
-			activityDetailsStore = {};
 			this.view = registry.byId('activityListView');
 			var cachedActivitiesData = localStorage.getItem("game_activities");
 			if(cachedActivitiesData){
@@ -87,9 +85,7 @@ define(['dojo/_base/declare',
 		//
 		removeData : function() {
 			this.activityRectList.destroyDescendants();
-			
 			this.activityStore = null;
-			
 		},
 		
 		// summary:
@@ -99,6 +95,7 @@ define(['dojo/_base/declare',
 		//		When promise is resolved call the taskList to render the page
 		//
 		getActivityItemData : function(activity) {
+			//it's in memory, no need to do anything
 			if(viewCache.activityDetailViews && viewCache.activityDetailViews[activity.id]){
 				viewCache.activityDetailViews[activity.id].show();
 			}
@@ -106,12 +103,29 @@ define(['dojo/_base/declare',
 				if(!viewCache.activityDetailViews){
 					viewCache.activityDetailViews = {};
 				}
+				var activityInLocalStorageJson = localStorage.getItem("activityDetails_"+activity.id);
+				if(activityInLocalStorageJson){
+					var activityInLocalStorage = dojo.fromJson(activityInLocalStorageJson);
+					viewCache.activityDetailViews[activity.id] = new TaskList(registry.byId("activityListView"), 
+							{
+								id: activity.id,
+								title : activity.properties.name,
+								imgSource : activity.properties.img,
+								tasks : activityInLocalStorage.tasks
+							}
+						);
+						viewCache.activityDetailViews[activity.id].show();
+						return null;
+				}
+				
+				
 				return xhr.get({
 					url : "js/dummydata/tasks.json",
 					handleAs : "json",
 					load : lang.hitch(this, function(activityData) {
 						viewCache.activityDetailViews[activity.id] = new TaskList(registry.byId("activityListView"), 
 							{
+								id : activity.id,
 								title : activity.properties.name,
 								imgSource : activity.properties.img,
 								tasks : activityData
