@@ -127,7 +127,7 @@ define(['dojo/_base/declare',
 				var activityInLocalStorageJson = localStorage.getItem("activityDetails_"+activity.id);
 				if(activityInLocalStorageJson){
 					var activityInLocalStorage = dojo.fromJson(activityInLocalStorageJson);
-					viewCache.activityDetailViews[activity.id] = new TaskList(registry.byId("activityListView"), 
+					viewCache.activityDetailViews[activity.id] = new TaskList(registry.byId("activityDetailView"), 
 							{
 								id: activity.id,
 								title : activity.properties.name,
@@ -143,7 +143,7 @@ define(['dojo/_base/declare',
 					url : "js/dummydata/tasks_"+activity.id+".json",
 					handleAs : "json",
 					load : lang.hitch(this, function(activityData) {
-						viewCache.activityDetailViews[activity.id] = new TaskList(registry.byId("activityListView"), 
+						viewCache.activityDetailViews[activity.id] = new TaskList(registry.byId("activityDetailView"), 
 							{
 								id : activity.id,
 								title : activity.properties.name,
