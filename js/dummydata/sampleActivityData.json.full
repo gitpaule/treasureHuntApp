@@ -1,0 +1,220 @@
+{
+	"type": "FeatureCollection",
+	"features": [
+		{
+			"properties": {
+				"imgSource": "/img/facilityImages/farmleigh.jpg",
+				"phone": null,
+				"website": null,
+				"street": null,
+				"postcode": null,
+				"guided_tours": null,
+				"opening_hours": null,
+				"category": "HERITAGE",
+				"email": null,
+				"admission": null,
+				"description": null,
+				"name": "Farmleigh House",
+				"locality": null,
+				"cafe": null
+			},
+			"id": "2491",
+			"geometry": {
+				"coordinates": [-6.34830536294109, 53.3641241251006],
+				"type": "Point"
+			}
+		}, {
+			"properties": {
+				"imgSource": "/img/facilityImages/phoenixVisitor.jpg",
+				"phone": null,
+				"website": null,
+				"street": null,
+				"postcode": null,
+				"guided_tours": null,
+				"opening_hours": null,
+				"category": "HERITAGE",
+				"email": null,
+				"admission": null,
+				"description": null,
+				"name": "Phoenix Park Visitor Centre",
+				"locality": null,
+				"cafe": null
+			},
+			"id": "772",
+			"geometry": {
+				"coordinates": [-6.3309550629754, 53.366084875538],
+				"type": "Point"
+			}
+		}, {
+			"properties": {
+				"imgSource": "/img/facilityImages/arasAn.jpg",
+				"phone": null,
+				"website": null,
+				"street": null,
+				"postcode": null,
+				"guided_tours": null,
+				"opening_hours": null,
+				"category": "HERITAGE",
+				"email": null,
+				"admission": null,
+				"description": null,
+				"name": "Aras An Uachtarain",
+				"locality": null,
+				"cafe": null
+			},
+			"id": "721",
+			"geometry": {
+				"coordinates": [-6.3172977530811, 53.359585446444],
+				"type": "Point"
+			}
+		}, {
+			"properties": {
+				"imgSource": "/img/facilityImages/kilmainham.jpg",
+				"phone": null,
+				"website": null,
+				"street": null,
+				"postcode": null,
+				"guided_tours": null,
+				"opening_hours": null,
+				"category": "HERITAGE",
+				"email": null,
+				"admission": null,
+				"description": null,
+				"name": "Kilmainham Gaol",
+				"locality": null,
+				"cafe": null
+			},
+			"id": "764",
+			"geometry": {
+				"coordinates": [-6.3095910899492, 53.341748860065],
+				"type": "Point"
+			}
+		}, {
+			"properties": {
+				"phone": null,
+				"website": null,
+				"street": null,
+				"postcode": null,
+				"guided_tours": null,
+				"opening_hours": null,
+				"category": "MUSEUMS",
+				"email": null,
+				"admission": null,
+				"description": null,
+				"name": "Glasnevin Cemetery Museum",
+				"locality": null,
+				"cafe": null
+			},
+			"id": "2310",
+			"geometry": {
+				"coordinates": [-6.27677143206024, 53.3695476253234],
+				"type": "Point"
+			}
+		}, {
+			"properties": {
+				"phone": null,
+				"website": null,
+				"street": null,
+				"postcode": null,
+				"guided_tours": null,
+				"opening_hours": null,
+				"category": "HERITAGE",
+				"email": null,
+				"admission": null,
+				"description": null,
+				"name": "Royal Hospital Kilmainham",
+				"locality": null,
+				"cafe": null
+			},
+			"id": "773",
+			"geometry": {
+				"coordinates": [-6.2996629547358, 53.343305890299],
+				"type": "Point"
+			}
+		}, {
+			"properties": {
+				"phone": null,
+				"website": null,
+				"street": null,
+				"postcode": null,
+				"guided_tours": null,
+				"opening_hours": null,
+				"category": "THEATRES",
+				"email": null,
+				"admission": null,
+				"description": null,
+				"name": "Irish Museum Of Modern Art",
+				"locality": null,
+				"cafe": null
+			},
+			"id": "748",
+			"geometry": {
+				"coordinates": [-6.2996629547358, 53.343305890299],
+				"type": "Point"
+			}
+		}, {
+			"properties": {
+				"phone": null,
+				"website": null,
+				"street": null,
+				"postcode": null,
+				"guided_tours": null,
+				"opening_hours": null,
+				"category": "HERITAGE",
+				"email": null,
+				"admission": null,
+				"description": null,
+				"name": "Drimnagh Castle",
+				"locality": null,
+				"cafe": null
+			},
+			"id": "812",
+			"geometry": {
+				"coordinates": [-6.3325747063745, 53.325009818931],
+				"type": "Point"
+			}
+		}, {
+			"properties": {
+				"phone": null,
+				"website": null,
+				"street": null,
+				"postcode": null,
+				"guided_tours": null,
+				"opening_hours": null,
+				"category": "MUSEUMS",
+				"email": null,
+				"admission": null,
+				"description": null,
+				"name": "National Museum Of Ireland",
+				"locality": null,
+				"cafe": null
+			},
+			"id": "766",
+			"geometry": {
+				"coordinates": [-6.2863530824732, 53.349027576363],
+				"type": "Point"
+			}
+		}, {
+			"properties": {
+				"phone": null,
+				"website": null,
+				"street": null,
+				"postcode": null,
+				"guided_tours": null,
+				"opening_hours": null,
+				"category": "MUSEUMS",
+				"email": null,
+				"admission": null,
+				"description": null,
+				"name": "Museum Luas Stop",
+				"locality": null,
+				"cafe": null
+			},
+			"id": "162",
+			"geometry": {
+				"coordinates": [-6.2869245803719, 53.347885690502],
+				"type": "Point"
+			}
+		}
+	]
+}

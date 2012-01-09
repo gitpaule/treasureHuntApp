@@ -1,6 +1,6 @@
 [
 	{
-		"id": 40423,
+		"id": 40424,
 		"headline": "Count the steps",
 		"description": null,
 		"type": "MULTIPLE_CHOICE",
@@ -13,20 +13,7 @@
 		},
 		"locations": null
 	}, {
-		"id": 40413,
-		"headline": "Count the steps",
-		"description": null,
-		"type": "MULTIPLE_CHOICE",
-		"duration": 10,
-		"question": {
-			"id": 0,
-			"text": "How many steps to top of bell tower",
-			"correctAnswer": "100",
-			"options": ["100", "184", "149"]
-		},
-		"locations": null
-	}, {
-		"id": 40433,
+		"id": 40425,
 		"headline": "Count the steps",
 		"description": null,
 		"type": "MULTIPLE_CHOICE",
