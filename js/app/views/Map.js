@@ -187,7 +187,7 @@ define(['dojo/_base/declare',
 					this.view.performTransition("activityDetailView", 1, "slide");
 					for(i=0; i<viewCache.activityList.activityStore.features.length; i++){
 						if(viewCache.activityList.activityStore.features[i].id === itemId){
-							viewCache.activityList.getActivityItemData(viewCache.activityList.activityStore.features[i]);
+							lang.hitch(viewCache.activityList, "getActivityItemData", viewCache.activityList.activityStore.features[i])();
 							//found it, exit.
 							break;
 						}

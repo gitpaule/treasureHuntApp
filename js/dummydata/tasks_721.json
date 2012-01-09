@@ -1,41 +1,15 @@
 [
 	{
-		"id": 40422,
-		"headline": "Count the steps",
+		"id": 3337,
+		"headline": "It is the residence of...",
 		"description": null,
 		"type": "MULTIPLE_CHOICE",
 		"duration": 10,
 		"question": {
 			"id": 0,
-			"text": "How many steps to top of bell tower",
-			"correctAnswer": "100",
-			"options": ["100", "184", "149"]
-		},
-		"locations": null
-	}, {
-		"id": 40412,
-		"headline": "Count the steps",
-		"description": null,
-		"type": "MULTIPLE_CHOICE",
-		"duration": 10,
-		"question": {
-			"id": 0,
-			"text": "How many steps to top of bell tower",
-			"correctAnswer": "100",
-			"options": ["100", "184", "149"]
-		},
-		"locations": null
-	}, {
-		"id": 40432,
-		"headline": "Count the steps",
-		"description": null,
-		"type": "MULTIPLE_CHOICE",
-		"duration": 10,
-		"question": {
-			"id": 0,
-			"text": "How many steps to top of bell tower",
-			"correctAnswer": "100",
-			"options": ["100", "184", "149"]
+			"text": "It is the residence of...",
+			"correctAnswer": "The President of Ireland",
+			"options": ["The Guinness Family", "The Ambassador to the U.S.A.", "The President of Ireland"]
 		},
 		"locations": null
 	}
