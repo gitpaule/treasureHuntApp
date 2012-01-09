@@ -53,10 +53,11 @@ define(['dojo/_base/declare',
 		//		retrieve list of activities based on criteria user entered in game setup
 		//
 		// gameSetupForm: query string generated from setup form
-		getActivitesForNewGame: function(gameSetupForm) {
+		getActivitesForNewGame: function(gameSetupForm, currentLocation) {
 			
 			xhr.get({
-				url : "/js/dummydata/sampleActivityData.json",
+				url : "/TreasureHuntWeb/rest/game",
+				content: {categories: gameSetupForm, lon_lat : currentLocation.longitude+' '+currentLocation.latitude},
 				handleAs : "json",
 				load : lang.hitch(this, function(data) {
 					this._populateData(data);
@@ -78,7 +79,7 @@ define(['dojo/_base/declare',
 				var li = new ListItem({
 					id : item.id,
 					label : item.properties.name,
-					icon : 'img/h/tower_clear-.png',
+					icon : 'img/h/'+item.properties.category+'.png',
 					clickable : true,
 					onClick : lang.hitch(this, function(itemId, event) {
 						var i;//for loop iterator

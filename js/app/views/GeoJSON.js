@@ -45,12 +45,12 @@ define(['dojo/_base/declare'], function(declare) {
 					}
 					break;
 
-				case "Point":
-				case "MultiPoint":
-				case "LineString":
-				case "MultiLineString":
-				case "Polygon":
-				case "MultiPolygon":
+				case "POINT":
+				case "MULTIPOINT":
+				case "LINESTRING":
+				case "MULTILINESTRING":
+				case "POLYGON":
+				case "MULTIPOLYGON":
 					obj = this.geojson.coordinates ? obj = this._geometryToGoogleMaps(this.geojson, this.options) : this._error("Invalid GeoJSON object: Geometry object missing \"coordinates\" member.");
 					break;
 
@@ -70,7 +70,7 @@ define(['dojo/_base/declare'], function(declare) {
 			var googleObj;
 
 			switch ( geojsonGeometry.type ) {
-				case "Point":
+				case "POINT":
 					opts.position = new google.maps.LatLng(geojsonGeometry.coordinates[1], geojsonGeometry.coordinates[0]);
 					opts.title = geojsonProperties.name;
 					googleObj = new google.maps.Marker(opts);
@@ -80,7 +80,7 @@ define(['dojo/_base/declare'], function(declare) {
 					}
 					break;
 
-				case "MultiPoint":
+				case "MULTIPOINT":
 					googleObj = [];
 					for(var i = 0; i < geojsonGeometry.coordinates.length; i++) {
 						opts.position = new google.maps.LatLng(geojsonGeometry.coordinates[i][1], geojsonGeometry.coordinates[i][0]);

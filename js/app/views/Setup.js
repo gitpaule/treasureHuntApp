@@ -14,32 +14,46 @@ define(['dojo/_base/declare',
 	return declare('app.views.Setup', null,{
 			
         	view: null,
+        	currentLocation: null,
         	
         	constructor: function(){
-        		
-        		
         		this.view = registry.byId('setupView');
         		this._setupEventHandlers();
         	},
         	
         	_setupEventHandlers: function(){
-        		registry.byId('startGameBtn').on("Click", lang.hitch(this, this.generateActivities));
-        		registry.byId('setup_check_list').on("CheckStateChanged", function(arg1){
-        			console.log("values ", arg1);
-        		})
-        		
+        		registry.byId('startGameBtn').on("Click", lang.hitch(this, this.startNewGame));
         	},
         	
         	show: function(){
         		this.view.show();
         	}, 
         	
+        	startNewGame: function(evt){
+				if (navigator.geolocation) {
+					navigator.geolocation.getCurrentPosition( 
+								lang.hitch(this, function(position){
+									this.currentLocation = position.coords;
+									this.generateActivities();
+								}), 
+								lang.hitch(this, this.generateActivities));
+				} else {
+					this.generateActivities();
+				}
+        	},
+        	
         	generateActivities: function(evt){
         		
         		this.view.performTransition("activityListView", 1, "slide");
+        		var listItems = registry.byId("setup_check_list").getChildren();
+        		var selectedCategories = [];
+        		for (var i=0; i < listItems.length; i++) {
+				  if(listItems[i].checked){
+				  	selectedCategories.push(listItems[i].id);
+				  }
+				};
                 viewCache.activityList = new ActivityList();
-                viewCache.activityList.getActivitesForNewGame();
-                // event.stop(evt);
+                viewCache.activityList.getActivitesForNewGame(selectedCategories, this.currentLocation);
                 return false;
         	},
         	
