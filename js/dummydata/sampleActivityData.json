@@ -3,7 +3,7 @@
 	"features": [
 		{
 			"properties": {
-				"imgSource": "/img/facilityImages/farmleigh.jpg",
+				"imgSource": "/img/facilityImages/farmleighS.jpg",
 				"phone": null,
 				"website": null,
 				"street": null,
@@ -25,7 +25,7 @@
 			}
 		}, {
 			"properties": {
-				"imgSource": "/img/facilityImages/phoenixVisitor.jpg",
+				"imgSource": "/img/facilityImages/phoenixVisitorS.jpg",
 				"phone": null,
 				"website": null,
 				"street": null,
@@ -47,7 +47,7 @@
 			}
 		}, {
 			"properties": {
-				"imgSource": "/img/facilityImages/arasAn.jpg",
+				"imgSource": "/img/facilityImages/arasAnS.jpg",
 				"phone": null,
 				"website": null,
 				"street": null,
@@ -69,7 +69,7 @@
 			}
 		}, {
 			"properties": {
-				"imgSource": "/img/facilityImages/kilmainham.jpg",
+				"imgSource": "/img/facilityImages/kilmainhamS.jpg",
 				"phone": null,
 				"website": null,
 				"street": null,

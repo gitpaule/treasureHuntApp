@@ -7,7 +7,7 @@
 		"duration": 10,
 		"question": {
 			"id": 0,
-			"text": "How many steps to top of bell tower",
+			"text": "When was it first built?",
 			"correctAnswer": "1796",
 			"options": ["1796", "1842", "1921"]
 		},
