@@ -57,6 +57,11 @@ define(['dojo/_base/declare',
 	        	domClass.remove(selLi[0], "mblTabButtonSelected");
 	        	domClass.add("mapBtn_map", "mblTabButtonSelected");
 	        	
+	        	var cachedActivitiesData = localStorage.getItem("game_activities");
+				if(cachedActivitiesData){
+					viewCache.activityList.activityListStore = dojo.fromJson(cachedActivitiesData);
+				}
+	        	
 				var geoJSON = viewCache.activityList.activityListStore;
 				this.displayActivityMarkers(geoJSON);
 			}
