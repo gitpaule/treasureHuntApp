@@ -3,12 +3,14 @@ define(['dojo/_base/declare',
  		'dojo/_base/lang',
   		'dojo/on', 
   		'dojo/_base/Deferred',
+  		'dojox/mobile/ProgressIndicator',
   		'dojo/_base/xhr',
   		'dojo/_base/json',
 		'dojox/mobile/ListItem',
 		'app/views/TaskList', 
 		'app/views/Map',
-		'dojo/dom'], function(declare, registry, lang, on, Deferred, xhr, dojo, ListItem, TaskList, Map, dom) {
+		'dojo/dom',
+ 		'dojo/dom-style'], function(declare, registry, lang, on, Deferred, ProgressIndicator,  xhr, dojo, ListItem, TaskList, Map, dom, domStyle) {
 
 	// module:
 	//		views/ActivityList
@@ -22,11 +24,14 @@ define(['dojo/_base/declare',
 
 
 		constructor : function() {
+			var prog = this.startProgressSpinner();
 			this.view = registry.byId('activityListView');
 			var cachedActivitiesData = localStorage.getItem("game_activities");
 			if(cachedActivitiesData){
 				this.activityListStore = dojo.fromJson(cachedActivitiesData);
-				this._populateData(this.activityListStore);
+				Deferred.when(this._populateData(this.activityListStore), function(){
+					prog.stop();
+				});
 			}
 			this._setupEventHandlers();
 			
@@ -48,22 +53,41 @@ define(['dojo/_base/declare',
 			
 		},
 		
+		startProgressSpinner: function(){
+			var prog = ProgressIndicator.getInstance();
+			dom.byId('progressSpinnerDiv').appendChild(prog.domNode);
+			prog.start();
+			return prog;
+		},
 		
 		// summary:
 		//		retrieve list of activities based on criteria user entered in game setup
 		//
 		// gameSetupForm: query string generated from setup form
-		getActivitesForNewGame: function(gameSetupForm, currentLocation) {
-			
-			xhr.get({
-				url : "/TreasureHuntWeb/rest/game",
-				content: {categories: gameSetupForm, lon_lat : currentLocation.longitude+' '+currentLocation.latitude},
-				handleAs : "json",
-				load : lang.hitch(this, function(data) {
-					this._populateData(data);
-					localStorage.setItem("game_activities", dojo.toJson(data));
-				})
-			});
+		getActivitesForNewGame: function(gameSetupForm) {
+			var getActivitiesPromise = new Deferred();
+			var geoPromise = new Deferred();
+			if (navigator.geolocation) {
+				navigator.geolocation.getCurrentPosition( function(position){
+					geoPromise.resolve(position.coords);
+				}); 
+			} else {
+				console.log("navigator not supported");
+				return false;
+			}
+			Deferred.when(geoPromise, lang.hitch(this, function(currentLocation){
+				xhr.get({
+					url : "/TreasureHuntWeb/rest/game",
+					content: {categories: gameSetupForm, lon_lat : currentLocation.longitude+' '+currentLocation.latitude},
+					handleAs : "json",
+					load : lang.hitch(this, function(data) {
+						this._populateData(data);
+						localStorage.setItem("game_activities", dojo.toJson(data));
+						getActivitiesPromise.resolve();
+					})
+				});
+			}));
+			return getActivitiesPromise;
 		},
 
 		
@@ -72,6 +96,7 @@ define(['dojo/_base/declare',
 		//
 		_populateData : function(activityListJson) {
 			this.activityRectList = registry.byId('activityList');
+			domStyle.set(this.activityRectList.domNode, 'visibility', 'hidden');
 			this.activityStore = activityListJson;
 			for(var idx = 0; idx < activityListJson.features.length; idx++) {
 				var item = activityListJson.features[idx];
@@ -94,9 +119,9 @@ define(['dojo/_base/declare',
 					},
 					item.id)
 				});
-
 				this.activityRectList.addChild(li);
 			}
+			domStyle.set(this.activityRectList.domNode, 'visibility', 'visible');
 		},
 		
 				// summary:
@@ -141,7 +166,8 @@ define(['dojo/_base/declare',
 				}
 				
 				return xhr.get({
-					url : "js/dummydata/tasks_"+activity.id+".json",
+					url : "/TreasureHuntWeb/rest/tasks",
+					content: {facilityid: activity.id},
 					handleAs : "json",
 					load : lang.hitch(this, function(activityData) {
 						viewCache.activityDetailViews[activity.id] = new TaskList(registry.byId("activityDetailView"), 

@@ -25,8 +25,8 @@ img.taskTitleImage{
 		margin-left: 10%;
 }
 #setup_check_list .mblListItemIcon img{
-		width: 45px;
-		height: 45px;
+		width: 40px;
+		height: 40px;
 }
 
 #setup_check_list .mblListItem{
@@ -45,4 +45,32 @@ img.taskTitleImage{
 	font-size: 1.1em;
 	line-height: 45px;
 	width: 100%;
+}
+.taskDetails{
+	width: 80%;
+	margin: 5px auto;	
+}
+
+.questionOption{
+	margin: 2px;
+	padding: 5px;
+}
+
+.questionOption label{
+	margin-left: 5%;
+}
+
+.checkpoint{
+	margin: 2px;
+	padding: 5px;
+}
+
+.checkpoint span{
+	margin-left: 5%;
+}
+
+.checkpoint span .reached{
+	color : green;
+}
+	
 }

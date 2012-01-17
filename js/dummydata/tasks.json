@@ -1,42 +1,44 @@
 [
 	{
-		"id": 4042,
-		"headline": "Count the steps",
+		"id": 4231,
+		"headline": "Walk Howth strand",
 		"description": null,
-		"type": "MULTIPLE_CHOICE",
-		"duration": 10,
-		"question": {
-			"id": 0,
-			"text": "How many steps to top of bell tower",
-			"correctAnswer": "100",
-			"options": ["100", "184", "149"]
+		"type": "ACTION",
+		"question": null,
+		"walk": {
+			"start": {
+				"location": {
+					"coordinates": [-6.0945451123995, 53.3912486938877],
+					"type": "POINT"
+				},
+				"reached": false
+			},
+			"end": {
+				"location": {
+					"coordinates": [-6.0945451123995, 53.3912486938877],
+					"type": "POINT"
+				},
+				"reached": false
+			},
+			"walkPath": {
+				"coordinates": [[-6.08545848515276, 53.3921564939252],[-6.08736432346461, 53.3923072649499],[-6.08897307485281, 53.3926020731815],[-6.09249078028584, 53.3924837270224],[-6.09633065060305, 53.3924541208577],[-6.10055815611062, 53.3923830235234],[-6.10633400834879, 53.3933045652504],[-6.10969915784188, 53.393818217411]
+				],
+				"type": "LINESTRING"
+			}
 		},
-		"locations": null
+		"facility": "2491"
 	}, {
-		"id": 4041,
-		"headline": "Count the steps",
+		"id": 4229,
+		"headline": "When did construction start for the Farmleigh House?",
 		"description": null,
 		"type": "MULTIPLE_CHOICE",
-		"duration": 10,
 		"question": {
 			"id": 0,
-			"text": "How many steps to top of bell tower",
-			"correctAnswer": "100",
-			"options": ["100", "184", "149"]
+			"text": "When was the Farmleigh House founded?",
+			"correctAnswer": "1881",
+			"options": ["1948", "1881", "1791"]
 		},
-		"locations": null
-	}, {
-		"id": 4043,
-		"headline": "Count the steps",
-		"description": null,
-		"type": "MULTIPLE_CHOICE",
-		"duration": 10,
-		"question": {
-			"id": 0,
-			"text": "How many steps to top of bell tower",
-			"correctAnswer": "100",
-			"options": ["100", "184", "149"]
-		},
-		"locations": null
+		"walk": null,
+		"facility": "2491"
 	}
 ]
