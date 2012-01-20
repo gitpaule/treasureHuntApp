@@ -148,28 +148,6 @@ define(['dojo/_base/declare',
 		// summary:
 		//		Initialise the store
 		//
-		//this.activityData = {
-		//	title: "title string",
-		//	imgSource: "URL to image",
-		//	tasks: [
-		//		{
-		//			title: "Who is the guy who founded this place?",
-		//			type: "radio",
-		//			options: [
-		//				"Peter Frampton",
-		//				"Peter Farmleigh",
-		//				"Thomas Farmleigh"
-		//			],
-		//			correct: "Peter Farmleigh"
-		//		},
-		//		{
-		//			title: "What year was this place founded?",
-		//			type: "textbox",
-		//			correct: 1922
-		//		}
-		//]};
-
-
 		populateData : function() {
 			var taskData = this.activityData;
 			this.identifier = this.activityData.title;
@@ -184,6 +162,7 @@ define(['dojo/_base/declare',
 			this.titleNode.innerHTML = taskData.title;
 
 			this.taskList.destroyDescendants();
+			var _this = this;
 
 			for(var taskIndex = 0; taskIndex < taskData.tasks.length; taskIndex++) {
 				// add list of tasks
@@ -197,27 +176,31 @@ define(['dojo/_base/declare',
 					variableHeight : true,
 					rightIcon2 : 'mblDomButtonSilverCircleDownArrow',
 					variableHeight : true,
-					clickable : false
+					clickable : true,
+					onClick : function(evt) {
+						var d = new Date();
+						if(d - _this.lastClickTime < 500) {
+							console.log("returning early ", d - _this.lastClickTime);
+							return false;
+						}
+						event.stop(evt);
+						_this.lastClickTime = d;
+						for(var i = 0; i < taskData.tasks.length; i++) {
+							if(this.id != taskData.tasks[i].id) {
+								_this._hideTaskDetails(taskData.tasks[i]);
+								console.log("hide", this);
+							} else {
+								_this._showTaskDetails(taskData.tasks[i], i);
+								console.log("show", taskData.tasks[i].id);
+							}
+						}
+					}
 				});
 				li.doneIcon = this.taskCompletedIcons[task.type];
 				this.taskList.addChild(li);
 			}
-			li.doneIcon = this.taskCompletedIcons[task.type];
-			this.taskList.addChild(li);
-			var _this = this;
-			on(li.domNode, tap, function(evt, item) {
-				event.stop(evt);
-				for(var i = 0; i < taskData.tasks.length; i++) {
-					if(this.id != taskData.tasks[i].id) {
-						_this._hideTaskDetails(taskData.tasks[i]);
-						console.log("hide", this);
-					} else {
-						_this._showTaskDetails(taskData.tasks[i], i);
-						console.log("show", taskData.tasks[i].id);
-					}
-				};
-			});
 		},
+
 
 		
 		/*
