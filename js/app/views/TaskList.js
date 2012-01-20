@@ -167,6 +167,7 @@ define(['dojo/_base/declare',
 		//			correct: 1922
 		//		}
 		//]};
+
 		populateData : function() {
 			var taskData = this.activityData;
 			this.identifier = this.activityData.title;
@@ -174,14 +175,14 @@ define(['dojo/_base/declare',
 			this.imageNode = dom.byId(this.iMAGE_DOM_ID);
 			this.imageNode.src = taskData.imgSource;
 			this.imageNode.alt = taskData.title;
-			
+
 			if(!this.titleNode) {
 				this.titleNode = dom.byId(this.tITLE_DOM_ID);
 			}
 			this.titleNode.innerHTML = taskData.title;
-			
+
 			this.taskList.destroyDescendants();
-			
+
 			for(var taskIndex = 0; taskIndex < taskData.tasks.length; taskIndex++) {
 				// add list of tasks
 				var task = taskData.tasks[taskIndex];
@@ -189,29 +190,35 @@ define(['dojo/_base/declare',
 				var li = new ListItem({
 					id : task.id,
 					label : task.headline,
-					noArrow: true,
-					icon: taskIcon,
-					variableHeight: true,
+					noArrow : true,
+					icon : taskIcon,
+					variableHeight : true,
 					rightIcon2 : 'mblDomButtonSilverCircleDownArrow',
-					variableHeight: true,
-					clickable : true,
-					onClick : lang.hitch(this, function(task, taskIndex, evt) {
-						//hide the task details for the clicked item if it is already open or if the user has clicked on another list item
-						for(var i = 0; i < taskData.tasks.length; i++) {
-							
-							if( registry.getEnclosingWidget(evt.target).id != taskData.tasks[i].id) {
-								this._hideTaskDetails(taskData.tasks[i]);
-							} else {
-								this._showTaskDetails(task, taskIndex);
-							}
-						};
-
-					},task, taskIndex)
+					variableHeight : true,
+					clickable : false
 				});
 				li.doneIcon = this.taskCompletedIcons[task.type];
 				this.taskList.addChild(li);
 			}
+			var _this = this;
+			on(this.taskList.domNode, 'li:click', function(evt) {
+				//hide the task details for the clicked item if it is already open or if the user has clicked on another list item
+				//this is the element that we are listening for the event (the li)
+				event.stop(evt);
+				for(var i = 0; i < taskData.tasks.length; i++) {
+					console.log(this.id == taskData.tasks[i].id);
+					if(this.id != taskData.tasks[i].id) {
+						_this._hideTaskDetails(taskData.tasks[i]);
+						console.log("hide", this);
+					} else {
+						_this._showTaskDetails(taskData.tasks[i], i);
+						console.log("show", taskData.tasks[i].id);
+					}
+				};
+			});
 		},
+
+
 		
 		/*
 		 * Shows task details
@@ -343,8 +350,6 @@ define(['dojo/_base/declare',
 												alert("Task completed!");
 												var listItem = registry.byId("" + task.id);
 												this.setTaskDisplayToCompleted("Walk Completed", listItem);
-												this.activityScore += 100;
-												this.addToGlobalAccumulatedPoints(100);
 											}
 											
 										}else{
@@ -390,7 +395,7 @@ define(['dojo/_base/declare',
 				var checkpoint = task.walk[start_end].location.coordinates[0]+' '+task.walk[start_end].location.coordinates[1];
 				var currentLocation = currentLocation.longitude+' '+currentLocation.latitude;
 				return xhr.get({
-					url : "/TreasureHuntWeb/rest/game/proximity/"+currentLocation+"/"+checkpoint,
+					url : "/TreasureHuntWeb/rest/game/proximity/"+checkpoint+"/"+currentLocation,
 					handleAs : "json",
 					load: function(atLocation){
 						serverReqPromise.resolve({result: atLocation, type: start_end});
