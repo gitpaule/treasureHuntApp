@@ -14,7 +14,8 @@ define(['dojo/_base/declare',
  		'dojo/dom-geometry',
  		'dojo/query',
  		'dojo/_base/event',
- 		'dojo/_base/Deferred'], function(declare, on, registry, RadioButton, Button, RoundRect, ListItem, domConstruct, dom, lang, xhr, Map, domAttr, domGeom, query, event, Deferred) {
+ 		'dojo/_base/Deferred',
+ 		'dojox/gesture/tap'], function(declare, on, registry, RadioButton, Button, RoundRect, ListItem, domConstruct, dom, lang, xhr, Map, domAttr, domGeom, query, event, Deferred, tap) {
 
 	// module:
 	//		views/TaskList
@@ -168,6 +169,7 @@ define(['dojo/_base/declare',
 		//		}
 		//]};
 
+
 		populateData : function() {
 			var taskData = this.activityData;
 			this.identifier = this.activityData.title;
@@ -200,13 +202,12 @@ define(['dojo/_base/declare',
 				li.doneIcon = this.taskCompletedIcons[task.type];
 				this.taskList.addChild(li);
 			}
+			li.doneIcon = this.taskCompletedIcons[task.type];
+			this.taskList.addChild(li);
 			var _this = this;
-			on(this.taskList.domNode, 'li:click', function(evt) {
-				//hide the task details for the clicked item if it is already open or if the user has clicked on another list item
-				//this is the element that we are listening for the event (the li)
+			on(li.domNode, tap, function(evt, item) {
 				event.stop(evt);
 				for(var i = 0; i < taskData.tasks.length; i++) {
-					console.log(this.id == taskData.tasks[i].id);
 					if(this.id != taskData.tasks[i].id) {
 						_this._hideTaskDetails(taskData.tasks[i]);
 						console.log("hide", this);
@@ -217,7 +218,6 @@ define(['dojo/_base/declare',
 				};
 			});
 		},
-
 
 		
 		/*
