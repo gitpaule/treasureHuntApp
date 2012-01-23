@@ -1,6 +1,5 @@
 js/lib/
 mongoose-3.0.exejs/lib
-js/release
 js/release/dijit
 js/release/dojo
 js/release/dojox

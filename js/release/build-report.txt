@@ -1,0 +1,1168 @@
+Build started: Mon Jan 23 2012 19:40:52 GMT-0000 (GMT)
+Build application version: 1.7.0dev (23930)
+Messages:
+info(100) Assumed module uses legacy loader API.
+	module: dojox/secure/DOM
+	module: dojox/storage
+	module: dojox/jsonPath
+	module: dojox/wire/TreeAdapter
+	module: dojox/wire/demos/WidgetRepeater
+	module: dojox/drawing/stencil/Path
+	module: dojox/widget/DynamicTooltip
+	module: dojox/widget/AnalogGauge
+	module: dojox/widget/Loader
+	module: dojox/storage/AirFileStorageProvider
+	module: dojox/xmpp/sasl
+	module: dojox/lang/aspect/memoizerGuard
+	module: dojox/mobile/app/compat
+	module: dojox/widget/gauge/AnalogArrowIndicator
+	module: dojox/drawing/stencil/Ellipse
+	module: dojox/wire/Wire
+	module: dojox/widget/rotator/ThumbnailController
+	module: dojox/mobile/app/ImageView
+	module: dojox/cometd/HttpChannels
+	module: dojox/drawing/plugins/tools/Zoom
+	module: dojox/data/restListener
+	module: dojox/mobile/app/TextBox
+	module: dojox/storage/CookieStorageProvider
+	module: dojox/mobile/app/AlertDialog
+	module: dojox/lang/oo/mixin
+	module: dojox/editor/plugins/ResizeTableColumn
+	module: dojox/drawing/tools/custom/Vector
+	module: dojox/drawing/manager/Undo
+	module: dojox/drawing/stencil/Text
+	module: dojox/drawing/ui/Button
+	module: dojox/widget/CalendarViews
+	module: dojox/mobile/app/SceneController
+	module: dojox/storage/LocalStorageProvider
+	module: dojox/storage/GearsStorageProvider
+	module: dojox/mobile/app/_event
+	module: dojox/cometd/RestChannels
+	module: dojox/widget/RollingList
+	module: dojox/lang/functional/curry
+	module: dojox/drawing/util/typeset
+	module: dojox/drawing/tools/Arrow
+	module: dojox/widget/rotator/Wipe
+	module: dojox/lang/functional/zip
+	module: dojox/wire/ml/XmlHandler
+	module: dojox/wire/ml/util
+	module: dojox/cometd/ack
+	module: dojox/xmpp/ChatService
+	module: dojox/drawing/tools/Ellipse
+	module: dojox/lang/aspect
+	module: dojox/wire/TextAdapter
+	module: dojox/lang/oo/aop
+	module: dojox/lang/aspect/cflow
+	module: dojox/drawing/defaults
+	module: dojox/drawing/tools/Pencil
+	module: dojox/drawing/plugins/tools/Pan
+	module: dojox/drawing/ui/Toolbar
+	module: dojox/help/_base
+	module: dojox/sql
+	module: dojox/socket/Reconnect
+	module: dojox/storage/AirDBStorageProvider
+	module: dojox/widget/Portlet
+	module: dojox/storage/Provider
+	module: dojox/lang/aspect/counter
+	module: dojox/data/ItemExplorer
+	module: dojox/xmpp/TransportSession
+	module: dojox/lang/functional/listcomp
+	module: dojox/editor/plugins/SpellCheck
+	module: dojox/data/StoreExplorer
+	module: dojox/widget/AutoRotator
+	module: dojox/lang/async/event
+	module: dojox/mobile/app/ImageThumbView
+	module: dojox/gantt/GanttChart
+	module: dojox/data/demos/widgets/PicasaView
+	module: dojox/image/ThumbnailPicker
+	module: dojox/xmpp/util
+	module: dojox/xmpp/widget/ChatSession
+	module: dojox/drawing/plugins/drawing/GreekPalette
+	module: dojox/widget/Pager
+	module: dojox/mobile/app/StageController
+	module: dojox/cometd/timesync
+	module: dojox/widget/BarGauge
+	module: dojox/drawing/manager/Stencil
+	module: dojox/widget/DocTester
+	module: dojox/lang/docs
+	module: dojox/cometd/longPollTransport
+	module: dojox/lang/async/timeout
+	module: dojox/drawing/annotations/BoxShadow
+	module: dojox/rails
+	module: dojox/cometd/_base
+	module: dojox/wire/demos/TableContainer
+	module: dojox/gantt/GanttTaskItem
+	module: dojox/gantt/GanttResourceItem
+	module: dojox/widget/gauge/_Gauge
+	module: dojox/wire/ml/Action
+	module: dojox/lang/functional/util
+	module: dojox/layout/BorderContainer
+	module: dojox/xmpp/PresenceService
+	module: dojox/flash/_base
+	module: dojox/lang/oo/Decorator
+	module: dojox/wire/_base
+	module: dojox/drawing/tools/custom/Axes
+	module: dojox/wire
+	module: dojox/layout/dnd/PlottedDnd
+	module: dojox/drawing/util/oo
+	module: dojox/widget/rotator/PanFade
+	module: dojox/widget/gauge/AnalogNeedleIndicator
+	module: dojox/wire/ml/DataStore
+	module: dojox/storage/BehaviorStorageProvider
+	module: dojox/wire/ml/JsonHandler
+	module: dojox/widget/Iterator
+	module: dojox/xmpp/xmppSession
+	module: dojox/drawing/tools/Rect
+	module: dojox/widget/SortList
+	module: dojox/cometd/longPollTransportFormEncoded
+	module: dojox/lang/functional/tailrec
+	module: dojox/data/demos/widgets/FlickrViewList
+	module: dojox/cometd/timestamp
+	module: dojox/jsonPath/query
+	module: dojox/mobile/app/_base
+	module: dojox/lang/functional/numrec
+	module: dojox/drawing/ui/dom/Pan
+	module: dojox/drawing/stencil/_Base
+	module: dojox/drawing/stencil/Rect
+	module: dojox/lang/oo/Filter
+	module: dojox/xmpp/bosh
+	module: dojox/secure/sandbox
+	module: dojox/storage/WhatWGStorageProvider
+	module: dojox/mobile/app/_FormWidget
+	module: dojox/gantt/GanttProjectItem
+	module: dojox/lang/functional/multirec
+	module: dojox/lang/aspect/memoizer
+	module: dojox/widget/rotator/Slide
+	module: dojox/image/SlideShow
+	module: dojox/cometd
+	module: dojox/data/demos/stores/LazyLoadJSIStore
+	module: dojox/drawing/annotations/Angle
+	module: dojox/secure/fromJson
+	module: dojox/drawing/plugins/tools/Iconize
+	module: dojox/widget/CalendarFx
+	module: dojox/mobile/app/_Widget
+	module: dojox/drawing/util/common
+	module: dojox/mobile/app/SceneAssistant
+	module: dojox/help/console
+	module: dojox/drawing/stencil/Image
+	module: dojox/lang/async/topic
+	module: dojox/drawing/plugins/_Plugin
+	module: dojox/sql/_base
+	module: dojox/drawing/tools/Line
+	module: dojox/lang/observable
+	module: dojox/drawing/manager/Mouse
+	module: dojox/secure/capability
+	module: dojox/widget/FilePicker
+	module: dojox/widget/rotator/Fade
+	module: dojox/drawing/util/positioning
+	module: dojox/lang/async
+	module: dojox/wire/TableAdapter
+	module: dojox/drawing/stencil/Line
+	module: dojox/lang/functional/linrec
+	module: dojox/lang/oo/rearrange
+	module: dojox/drawing/ui/dom/Toolbar
+	module: dojox/wire/ml/Service
+	module: dojox/lang/typed
+	module: dojox/drawing/tools/custom/Equation
+	module: dojox/storage/manager
+	module: dojox/drawing/library/greek
+	module: dojox/widget/Rotator
+	module: dojox/cometd/longPollTransportJsonEncoded
+	module: dojox/widget/FisheyeList
+	module: dojox/wire/ml/Transfer
+	module: dojox/lang/aspect/profiler
+	module: dojox/widget/DataPresentation
+	module: dojox/wire/DataWire
+	module: dojox/drawing
+	module: dojox/drawing/_base
+	module: dojox/widget/Calendar
+	module: dojox/drawing/manager/Canvas
+	module: dojox/lang/oo/general
+	module: dojox/wire/XmlWire
+	module: dojox/drawing/tools/TextBlock
+	module: dojox/drawing/annotations/Label
+	module: dojox/wire/ml/Invocation
+	module: dojox/lang/functional/binrec
+	module: dojox/gantt/TabMenu
+	module: dojox/jq
+	module: dojox/drawing/manager/StencilUI
+	module: dojox/lang/aspect/timer
+	module: dojox/layout/ext-dijit/layout/StackContainer-touch
+	module: dojox/mobile/app/List
+	module: dojox/widget/UpgradeBar
+	module: dojox/layout/dnd/Avatar
+	module: dojox/data/demos/widgets/FileView
+	module: dojox/drawing/annotations/Arrow
+	module: dojox/drawing/manager/Anchors
+	module: dojox/widget/rotator/Pan
+	module: dojox/drawing/library/icons
+	module: dojox/wire/ml/RestHandler
+	module: dojox/drawing/plugins/drawing/Silverlight
+	module: dojox/drawing/plugins/drawing/Grid
+	module: dojox/xmpp/RosterService
+	module: dojox/robot/recorder
+	module: dojox/mobile/app/ListSelector
+	module: dojox/lang/aspect/tracer
+	module: dojox/widget/FeedPortlet
+	module: dojox/drawing/manager/_registry
+	module: dojox/drawing/ui/Tooltip
+	module: dojox/storage/FlashStorageProvider
+	module: dojox/cometd/callbackPollTransport
+	module: dojox/widget/gauge/AnalogArcIndicator
+	module: dojox/drawing/manager/keys
+	module: dojox/flash
+	module: dojox/sql/_crypto
+	module: dojox/wire/CompositeWire
+	module: dojox/widget/rotator/Controller
+	module: dojox/xmpp/UserService
+	module: dojox/storage/AirEncryptedLocalStorageProvider
+	module: dojox/image/Gallery
+	module: dojox/storage/_common
+	module: dojox/data/demos/widgets/PicasaViewList
+	module: dojox/widget/gauge/BarIndicator
+	module: dojox/drawing/tools/Path
+	module: dojox/drawing/Drawing
+	module: dojox/drawing/ui/dom/Zoom
+	module: dojox/wire/ml/Data
+info(101) Using dojo/loadInit plugin for module.
+	module: dojox/cometd/RestChannels
+info(102) Optimizing module
+	module: dojo/dojo
+	module: app/main
+info(106) Optimizing CSS.
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonCheckboxOn.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/android/RoundRect-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/blackberry/EdgeToEdgeCategory.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/form/resources/FileUploader.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/form/resources/ListInput.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/custom/Carousel.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/android/Button.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/android/EdgeToEdgeList.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/blackberry/Heading.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/iphone/ToggleButton-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/android/TabBar-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/grid/enhanced/resources/EnhancedGrid_rtl.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/custom/View.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/transitions/flip.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/android/RoundRectList-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/highlight/resources/pygments/autumn.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/custom/common-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonTransparent29.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/android/ToggleButton.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/blackberry/ProgressIndicator.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/android/android-compat.css; skipped: EdgeToEdgeCategory-compat.css,/home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/android/base-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonOrangeBall.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/editor/plugins/resources/css/CollapsibleToolbar.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/iphone/Heading-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/charting/resources/Legend.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/android/ComboBox.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonGreenBall.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/android/RadioButton-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/blackberry/EdgeToEdgeList.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/blackberry/Switch.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/blackberry/Slider-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/blackberry/ToggleButton.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/custom/custom-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/iphone/Button.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/android/ToolBarButton.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonCheckboxOff-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/iphone/TextBox.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/iphone/iphone.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/widget/DocTester/DocTester.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/iphone/ListItem-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/iphone/RoundRect.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/custom/ComboBox.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/iphone/Opener-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/grid/enhanced/resources/Common.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/custom/RoundRect-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/custom/ComboBox-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/grid/enhanced/resources/Pagination_rtl.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/editor/plugins/resources/css/Breadcrumb.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/widget/Toaster/Toaster.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/custom/ToggleButton.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonSilverCircleDownArrow.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonGreenCircleArrow.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/android/RoundRectCategory.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/iphone/base.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/form/resources/TriStateCheckBox.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/custom/TextBox-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/custom/TextArea-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/iphone/TabBar-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/grid/enhanced/resources/Pagination.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/blackberry/ListItem.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/custom/common.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/grid/enhanced/resources/DnD_rtl.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/grid/resources/Grid.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/highlight/resources/pygments/borland.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/editor/plugins/resources/css/InsertAnchor.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/blackberry/Slider.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/widget/Wizard/Wizard.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/grid/resources/tundraGrid.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/grid/enhanced/resources/claro/Filter.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/atom/widget/templates/css/HtmlFeedViewerGrouping.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/editor/plugins/resources/css/Blockquote.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/custom/TextBox.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/widget/Dialog/Dialog.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonYellowStar-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/blackberry/Button-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/iphone/ToolBarButton.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/form/resources/FilePickerTextBox.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/grid/resources/Grid_rtl.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/drawing/resources/drawing.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/transitions/swirl.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonCheckboxOff.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/grid/enhanced/resources/claroEnhancedGrid.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/calc/resources/Standard.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/android/IconContainer.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/custom/base-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/iphone/Carousel.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonCheckboxOn-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/grid/resources/nihiloGrid.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/android/TextArea.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/image/resources/Magnifier.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/widget/FilePicker/FilePicker.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/transitions/reveal.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/data/demos/picasaDemo.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/blackberry/RoundRectList.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/custom/RoundRect.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/android/Tooltip-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/custom/RadioButton.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/form/resources/BusyButton.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/iphone/RadioButton-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/custom/TextArea.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/gantt/resources/gantt.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/widget/SortList/SortList.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/custom/Opener-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/android/android.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/IconContainer_keyframes.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonRedCircleMinus.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/blackberry/Tooltip-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/custom/Opener.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/custom/TabBar-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/iphone/EdgeToEdgeList.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/layout/resources/DndGridContainer.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/custom/RoundRectCategory.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/iphone/IconContainer.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/editor/plugins/resources/css/Preview.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/blackberry/base.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/custom/Overlay-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/highlight/resources/pygments/manni.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/dijit/base.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonRedCirclePlus.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonSilverCircleGrayButton-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/custom/EdgeToEdgeCategory.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonRedCircleMinus-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/atom/widget/templates/css/HtmlFeedEntryViewer.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonSilverCircleGreenPlus.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/highlight/resources/pygments/colorful.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/custom/ToolBarButton.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/blackberry/common.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonBlueCircleArrow.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/image/resources/ThumbnailPicker.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/widget/ColorPicker/ColorPicker.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/editor/plugins/resources/css/InsertEntity.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/custom/Button.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonGreenCirclePlus.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/custom/EdgeToEdgeCategory-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/layout/resources/FloatingPane.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/blackberry/ComboBox-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/blackberry/RoundRect.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/editor/plugins/resources/css/FindReplace.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/iphone/RadioButton.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/atom/widget/templates/css/HtmlFeedViewerEntry.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/grid/enhanced/resources/Filter_rtl.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/highlight/resources/pygments/friendly.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/android/CheckBox.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/editor/plugins/resources/editorPlugins.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/blackberry/TextArea-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/android/Overlay.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/custom/base.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/blackberry/base-compat.css; skipped: EdgeToEdgeCategory-compat.css,/home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/blackberry/base-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonGreenCircleMinus.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/transitions/dissolve.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/layout/resources/GridContainer.css; non-relative URLs skipped: data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw%3D%3D,../../mdnd/resources/dnd.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/iphone/TextArea.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonGrayArrow.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/dijit/ColorPicker.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/custom/CheckBox.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/sketch/resources/sketch.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/editor/plugins/resources/css/SpellCheck.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/blackberry/RoundRectCategory.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/blackberry/RadioButton.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonGrayStar-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonWhiteDownArrow.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/android/IconContainer-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/image/resources/Gallery.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonColorButtons-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonGrayArrow-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/android/View.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/iphone/ComboBox-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/custom/IconContainer.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/highlight/resources/pygments/murphy.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/FixedSplitter.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/custom/Heading-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/iphone/RoundRectList-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/iphone/Tooltip.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/blackberry/ProgressIndicator-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonRedBall-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/android/Switch-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/custom/Overlay.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/editor/plugins/resources/css/LocalImage.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/blackberry/Opener.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonWhitePlus.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/iphone/TextArea-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/transitions/fade.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/android/TabBar.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonWhiteSearch-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/android/Tooltip.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/SpinWheel.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/android/Button-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonSilverCircleGreenPlus-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonWhiteSearch.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonBlackCircleCross.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/android/RadioButton.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/editor/plugins/resources/css/AutoSave.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/android/PageIndicator.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonTransparent30.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/android/RoundRect.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/iphone/TabBar.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/av/widget/resources/Player.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/blackberry/RoundRectList-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/SpinWheel-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/android/Overlay-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/iphone/iphone-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonRedBall.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/blackberry/Button.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/highlight/resources/pygments/pastie.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/drawing/resources/toolbar.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/blackberry/RadioButton-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/iphone/iphone-app.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/custom/Tooltip.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/android/CheckBox-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonBlueBall-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/editor/plugins/resources/css/PasteFromWord.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/dijit/dijit-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/highlight/resources/pygments/default.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/iphone/Switch-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/image/resources/SlideShow.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/blackberry/Carousel.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonSilverCircleGrayButton.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/widget/Portlet/Portlet.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/blackberry/Overlay-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/iphone/Button-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/blackberry/Opener-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/highlight/resources/pygments/perldoc.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonBlueBall.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/iphone/CheckBox.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/widget/Calendar/Calendar.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonGrayRoundRect.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mdnd/resources/dnd.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonGreenBall-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/transitions/cover.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/iphone/base-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonSilverCircleOrangeButton.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonRedCirclePlus-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonBlueCirclePlus-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/blackberry/TextBox.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonRedCircleArrow-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/iphone/PageIndicator.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonBlueCircleMinus.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonSilverCircleOrangeButton-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/android/ProgressIndicator-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/android/TextBox-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/iphone/RoundRectList.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/atom/widget/templates/css/HtmlFeedEntryEditor.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/iphone/Overlay.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/blackberry/ComboBox.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/android/Slider-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/highlight/resources/pygments/emacs.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonOrangeBall-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/grid/enhanced/resources/Filter.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/highlight/resources/pygments/native.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/blackberry/TextBox-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/blackberry/blackberry.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/form/resources/UploaderFileList.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/android/Heading.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/custom/EdgeToEdgeList.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonTransparent19.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/widget/Pager/Pager.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/grid/enhanced/resources/DnD.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/android/EdgeToEdgeCategory.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/custom/CheckBox-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/custom/ProgressIndicator-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/grid/enhanced/resources/claro/EnhancedGrid.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/grid/enhanced/resources/Sorter_rtl.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/grid/enhanced/resources/tundra/Filter.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonDarkBlueCheck-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/highlight/resources/pygments/trac.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/android/Switch.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/custom/Switch-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/calc/resources/Common.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/grid/resources/soriaGrid.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/android/ListItem.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/form/resources/Rating.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/android/ToggleButton-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/dijit/Calendar-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/grid/enhanced/resources/tundraEnhancedGrid.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/iphone/Slider-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/android/base-compat.css; skipped: EdgeToEdgeCategory-compat.css,/home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/android/base-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/custom/Heading.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/iphone/ProgressIndicator.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/layout/resources/RadioGroup.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/iphone/Tooltip-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/grid/enhanced/resources/claro/Common.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonWhiteCheck-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/custom/ListItem.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/layout/resources/ExpandoPane.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/android/ListItem-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/grid/enhanced/resources/tundra/EnhancedGrid.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/iphone/Switch.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonBlueCircleMinus-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonGreenCircleMinus-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/custom/PageIndicator.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonWhiteArrow.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/html/resources/ellipsis.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/custom/RoundRectList-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/calc/resources/GraphPro.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/blackberry/TextArea.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonBlueCircleArrow-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/blackberry/IconContainer.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/iphone/ipad-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/android/RoundRectList.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/android/Slider.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/custom/TabBar.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonBlueCirclePlus.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/atom/widget/templates/css/EntryHeader.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonGrayRoundRect-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/wire/demos/TableContainer.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/iphone/ToggleButton.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/widget/FisheyeList/FisheyeList.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/transitions/slidev.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/blackberry/View.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/form/resources/FileInput.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/wire/demos/markup/flickrDemo.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/iphone/RoundRect-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/widget/RollingList/RollingList.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/editor/plugins/resources/css/PageBreak.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/layout/resources/ToggleSplitter.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/transitions/slide.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/iphone/Slider.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonGrayStar.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/iphone/ProgressIndicator-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/custom/RadioButton-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/form/resources/CheckedMultiSelect.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/iphone/EdgeToEdgeCategory.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/widget/UpgradeBar/UpgradeBar.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/dijit/ColorPalette.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/android/android-app-compat.css; skipped: EdgeToEdgeCategory-compat.css,/home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/android/base-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/grid/enhanced/resources/Sorter.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/editor/plugins/resources/css/Save.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/iphone/TextBox-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/blackberry/TabBar-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/grid/enhanced/resources/EnhancedGrid.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/custom/Slider-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/grid/resources/claroGrid.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/android/ProgressIndicator.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/image/resources/image.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/transitions/zoomIn.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/custom/ListItem-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/layout/resources/ResizeHandle.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/grid/enhanced/resources/tundra/Sorter.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/transitions/zoomOut.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/widget/TitleGroup/TitleGroup.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/iphone/View.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/iphone/Heading.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/editor/plugins/resources/css/ShowBlockNodes.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/dijit/Calendar.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/blackberry/IconContainer-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/iphone/ListItem.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonWhiteDownArrow-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/blackberry/ToolBarButton.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/form/resources/RangeSlider.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/editor/plugins/resources/css/StatusBar.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonDarkBlueCheck.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/blackberry/CheckBox-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/blackberry/CheckBox.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/android/Heading-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/blackberry/RoundRect-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/iphone/ipad.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/drawing/resources/GreekPalette.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/android/android-app.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonGreenCirclePlus-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/android/common.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/layout/resources/ScrollPane.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/iphone/EdgeToEdgeCategory-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/blackberry/Tooltip.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonSilverCircleRedCross.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/blackberry/TabBar.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/android/TextBox.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/custom/Button-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/editor/plugins/resources/css/Smiley.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/blackberry/Heading-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/Switch.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/dijit/dijit.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonSilverCircleRedCross-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/grid/enhanced/resources/tundra/Common.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/blackberry/ToggleButton-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/gauges/_Gauge.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/iphone/common.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/custom/Switch.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/iphone/CheckBox-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/custom/RoundRectList.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonWhiteCheck.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/custom/custom.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonBlackCircleCross-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/transitions/scaleIn.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/blackberry/Switch-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/image/resources/Badge.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonGreenCircleArrow-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/custom/ToggleButton-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonWhitePlus-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/android/base.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/iphone/Overlay-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonWhiteUpArrow.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/custom/ProgressIndicator.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/transitions.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonSilverCircleGreenButton-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonYellowStar.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/highlight/resources/pygments/fruity.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonColorButtons.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonWhiteUpArrow-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/transitions/coverv.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/transitions/scaleOut.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/atom/widget/templates/css/HtmlFeedViewer.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/android/Opener.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/blackberry/PageIndicator.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/editor/plugins/resources/css/SafePaste.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/image/resources/Lightbox.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/iphone/IconContainer-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/android/ComboBox-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/layout/resources/RotatorContainer.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/iphone/RoundRectCategory.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/widget/Loader/Loader.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/custom/Slider.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonRedCircleArrow.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/geo/charting/resources/Map.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/iphone/iphone-app-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/highlight/resources/highlight.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/android/TextArea-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/editor/plugins/resources/css/TextColor.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/custom/Tooltip-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonSilverCircleDownArrow-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/android/Opener-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/blackberry/blackberry-compat.css; skipped: EdgeToEdgeCategory-compat.css,/home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/blackberry/base-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/android/Carousel.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonWhiteArrow-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/transitions/revealv.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/iphone/ComboBox.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/iphone/Opener.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/common/domButtons/DomButtonSilverCircleGreenButton.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/blackberry/ListItem-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/custom/IconContainer-compat.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/grid/enhanced/resources/Common_rtl.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojox/mobile/themes/blackberry/Overlay.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/claro/Dialog_rtl.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/tundra/layout/TabContainer.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/claro/layout/AccordionContainer.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/tundra/layout/AccordionContainer.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/claro/form/Slider_rtl.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/tundra/form/Slider_rtl.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/nihilo/form/TimeTextBox.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/nihilo/layout/AccordionContainer.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/soria/soria.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/nihilo/nihilo.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/claro/form/Select_rtl.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/soria/ColorPalette.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/nihilo/Editor.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/claro/form/Common_rtl.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/nihilo/form/Checkbox.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/soria/layout/TabContainer_rtl.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/soria/TimePicker.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/icons/editorIcons.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/nihilo/form/Slider.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/claro/Calendar_rtl.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/claro/form/Slider.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/nihilo/Dialog.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/tundra/Tree.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/tundra/tundra.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/tundra/TitlePane_rtl.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/claro/form/Checkbox.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/nihilo/form/Slider_rtl.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/nihilo/ColorPalette.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/tundra/Editor.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/claro/claro_rtl.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/tundra/Menu.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/nihilo/Toolbar.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/icons/editorIcons_rtl.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/nihilo/Common.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/claro/Menu_rtl.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/tundra/TitlePane.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/tundra/Calendar_rtl.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/soria/TitlePane.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/soria/layout/AccordionContainer_rtl.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/soria/Menu_rtl.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/tundra/Dialog.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/soria/Editor_rtl.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/claro/Toolbar_rtl.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/nihilo/Menu_rtl.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/claro/TitlePane.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/claro/ColorPalette.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/nihilo/Tree.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/soria/form/Button.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/soria/soria_rtl.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/soria/form/Common.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/nihilo/Menu.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/nihilo/layout/TabContainer.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/tundra/TimePicker.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/claro/form/Button_rtl.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/soria/form/TimeTextBox.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/tundra/ColorPalette.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/nihilo/TitlePane_rtl.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/claro/claro.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/soria/ProgressBar.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/soria/form/Button_rtl.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/claro/layout/TabContainer.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/tundra/Common.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/claro/Toolbar.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/nihilo/layout/TabContainer_rtl.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/claro/InlineEditBox.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/tundra/Menu_rtl.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/soria/Dialog_rtl.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/tundra/Editor_rtl.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/tundra/layout/SplitContainer.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/soria/form/Select.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/claro/Editor.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/tundra/form/Common.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/nihilo/layout/BorderContainer.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/soria/layout/TabContainer.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/soria/form/Checkbox.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/claro/layout/ContentPane.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/nihilo/layout/AccordionContainer_rtl.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/nihilo/layout/ContentPane.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/claro/Dialog.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/soria/Tree_rtl.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/claro/layout/TabContainer_rtl.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/dijit_rtl.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/claro/TimePicker_rtl.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/tundra/layout/BorderContainer.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/claro/TitlePane_rtl.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/soria/Calendar.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/tundra/ProgressBar.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/claro/Common.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/tundra/Toolbar.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/claro/ProgressBar.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/soria/Editor.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/nihilo/form/RadioButton.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/nihilo/form/Button_rtl.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/nihilo/form/Button.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/icons/commonIcons_rtl.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/icons/commonIcons.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/claro/document.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/nihilo/TimePicker.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/tundra/tundra_rtl.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/nihilo/form/Common.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/tundra/form/Button.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/claro/Tree.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/claro/form/Button.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/claro/TimePicker.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/claro/form/Common.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/tundra/Dialog_rtl.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/tundra/layout/TabContainer_rtl.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/claro/Menu.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/soria/Dialog.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/soria/layout/ContentPane.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/claro/Calendar.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/nihilo/Tree_rtl.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/nihilo/ProgressBar.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/soria/Tree.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/soria/form/Slider.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/soria/Menu.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/nihilo/Editor_rtl.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/tundra/Tree_rtl.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/nihilo/Calendar.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/claro/Editor_rtl.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/soria/TimePicker_rtl.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/dijit.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/claro/layout/BorderContainer.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/tundra/Calendar.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/soria/layout/AccordionContainer.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/soria/TitlePane_rtl.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/claro/form/NumberSpinner.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/nihilo/form/Select.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/tundra/form/Checkbox.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/tundra/form/Select.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/soria/layout/BorderContainer.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/claro/form/Select.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/soria/Calendar_rtl.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/soria/Common.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/nihilo/nihilo_rtl.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/nihilo/layout/SplitContainer.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/soria/form/Slider_rtl.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/nihilo/TitlePane.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/claro/form/RadioButton.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/nihilo/TimePicker_rtl.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/tundra/TimePicker_rtl.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/soria/layout/SplitContainer.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/tundra/form/Slider.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/tundra/form/RadioButton.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/soria/form/RadioButton.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/nihilo/Dialog_rtl.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/soria/Toolbar.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/nihilo/Calendar_rtl.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dijit/themes/tundra/layout/ContentPane.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojo/_firebug/firebug.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojo/resources/dojo.css
+	file: /home/james/workspaces/treasureHuntApp/js/lib/dojo/resources/dnd.css
+info(107) Package Version:
+	package: dojox; version: 1.7.0dev
+	package: dijit; version: 1.7.0dev
+	package: dojo; version: 1.7.0dev
+info(108) Interning strings.
+	module: dojox/secure/DOM
+	module: dojox/storage
+	module: dojox/jsonPath
+	module: dojox/wire/TreeAdapter
+	module: dojox/wire/demos/WidgetRepeater
+	module: dojox/drawing/stencil/Path
+	module: dojox/widget/DynamicTooltip
+	module: dojox/widget/AnalogGauge
+	module: dojox/widget/Loader
+	module: dojox/storage/AirFileStorageProvider
+	module: dojox/xmpp/sasl
+	module: dojox/lang/aspect/memoizerGuard
+	module: dojox/mobile/app/compat
+	module: dojox/widget/gauge/AnalogArrowIndicator
+	module: dojox/drawing/stencil/Ellipse
+	module: dojox/wire/Wire
+	module: dojox/widget/rotator/ThumbnailController
+	module: dojox/mobile/app/ImageView
+	module: dojox/cometd/HttpChannels
+	module: dojox/drawing/plugins/tools/Zoom
+	module: dojox/data/restListener
+	module: dojox/mobile/app/TextBox
+	module: dojox/storage/CookieStorageProvider
+	module: dojox/mobile/app/AlertDialog
+	module: dojox/lang/oo/mixin
+	module: dojox/editor/plugins/ResizeTableColumn
+	module: dojox/drawing/tools/custom/Vector
+	module: dojox/drawing/manager/Undo
+	module: dojox/drawing/stencil/Text
+	module: dojox/drawing/ui/Button
+	module: dojox/widget/CalendarViews
+	module: dojox/mobile/app/SceneController
+	module: dojox/storage/LocalStorageProvider
+	module: dojox/storage/GearsStorageProvider
+	module: dojox/mobile/app/_event
+	module: dojox/cometd/RestChannels
+	module: dojox/widget/RollingList
+	module: dojox/lang/functional/curry
+	module: dojox/drawing/util/typeset
+	module: dojox/drawing/tools/Arrow
+	module: dojox/widget/rotator/Wipe
+	module: dojox/lang/functional/zip
+	module: dojox/wire/ml/XmlHandler
+	module: dojox/wire/ml/util
+	module: dojox/cometd/ack
+	module: dojox/xmpp/ChatService
+	module: dojox/drawing/tools/Ellipse
+	module: dojox/lang/aspect
+	module: dojox/wire/TextAdapter
+	module: dojox/lang/oo/aop
+	module: dojox/lang/aspect/cflow
+	module: dojox/drawing/defaults
+	module: dojox/drawing/tools/Pencil
+	module: dojox/drawing/plugins/tools/Pan
+	module: dojox/drawing/ui/Toolbar
+	module: dojox/help/_base
+	module: dojox/sql
+	module: dojox/socket/Reconnect
+	module: dojox/storage/AirDBStorageProvider
+	module: dojox/widget/Portlet
+	module: dojox/storage/Provider
+	module: dojox/lang/aspect/counter
+	module: dojox/data/ItemExplorer
+	module: dojox/xmpp/TransportSession
+	module: dojox/lang/functional/listcomp
+	module: dojox/editor/plugins/SpellCheck
+	module: dojox/data/StoreExplorer
+	module: dojox/widget/AutoRotator
+	module: dojox/lang/async/event
+	module: dojox/mobile/app/ImageThumbView
+	module: dojox/gantt/GanttChart
+	module: dojox/data/demos/widgets/PicasaView
+	module: dojox/image/ThumbnailPicker
+	module: dojox/xmpp/util
+	module: dojox/xmpp/widget/ChatSession
+	module: dojox/drawing/plugins/drawing/GreekPalette
+	module: dojox/widget/Pager
+	module: dojox/mobile/app/StageController
+	module: dojox/cometd/timesync
+	module: dojox/widget/BarGauge
+	module: dojox/drawing/manager/Stencil
+	module: dojox/widget/DocTester
+	module: dojox/lang/docs
+	module: dojox/cometd/longPollTransport
+	module: dojox/lang/async/timeout
+	module: dojox/drawing/annotations/BoxShadow
+	module: dojox/rails
+	module: dojox/cometd/_base
+	module: dojox/wire/demos/TableContainer
+	module: dojox/gantt/GanttTaskItem
+	module: dojox/gantt/GanttResourceItem
+	module: dojox/widget/gauge/_Gauge
+	module: dojox/wire/ml/Action
+	module: dojox/lang/functional/util
+	module: dojox/layout/BorderContainer
+	module: dojox/xmpp/PresenceService
+	module: dojox/flash/_base
+	module: dojox/lang/oo/Decorator
+	module: dojox/wire/_base
+	module: dojox/drawing/tools/custom/Axes
+	module: dojox/wire
+	module: dojox/layout/dnd/PlottedDnd
+	module: dojox/drawing/util/oo
+	module: dojox/widget/rotator/PanFade
+	module: dojox/widget/gauge/AnalogNeedleIndicator
+	module: dojox/wire/ml/DataStore
+	module: dojox/storage/BehaviorStorageProvider
+	module: dojox/wire/ml/JsonHandler
+	module: dojox/widget/Iterator
+	module: dojox/xmpp/xmppSession
+	module: dojox/drawing/tools/Rect
+	module: dojox/widget/SortList
+	module: dojox/cometd/longPollTransportFormEncoded
+	module: dojox/lang/functional/tailrec
+	module: dojox/data/demos/widgets/FlickrViewList
+	module: dojox/cometd/timestamp
+	module: dojox/jsonPath/query
+	module: dojox/mobile/app/_base
+	module: dojox/lang/functional/numrec
+	module: dojox/drawing/ui/dom/Pan
+	module: dojox/drawing/stencil/_Base
+	module: dojox/drawing/stencil/Rect
+	module: dojox/lang/oo/Filter
+	module: dojox/xmpp/bosh
+	module: dojox/secure/sandbox
+	module: dojox/storage/WhatWGStorageProvider
+	module: dojox/mobile/app/_FormWidget
+	module: dojox/gantt/GanttProjectItem
+	module: dojox/lang/functional/multirec
+	module: dojox/lang/aspect/memoizer
+	module: dojox/widget/rotator/Slide
+	module: dojox/image/SlideShow
+	module: dojox/cometd
+	module: dojox/data/demos/stores/LazyLoadJSIStore
+	module: dojox/drawing/annotations/Angle
+	module: dojox/secure/fromJson
+	module: dojox/drawing/plugins/tools/Iconize
+	module: dojox/widget/CalendarFx
+	module: dojox/mobile/app/_Widget
+	module: dojox/drawing/util/common
+	module: dojox/mobile/app/SceneAssistant
+	module: dojox/help/console
+	module: dojox/drawing/stencil/Image
+	module: dojox/lang/async/topic
+	module: dojox/drawing/plugins/_Plugin
+	module: dojox/sql/_base
+	module: dojox/drawing/tools/Line
+	module: dojox/lang/observable
+	module: dojox/drawing/manager/Mouse
+	module: dojox/secure/capability
+	module: dojox/widget/FilePicker
+	module: dojox/widget/rotator/Fade
+	module: dojox/drawing/util/positioning
+	module: dojox/lang/async
+	module: dojox/wire/TableAdapter
+	module: dojox/drawing/stencil/Line
+	module: dojox/lang/functional/linrec
+	module: dojox/lang/oo/rearrange
+	module: dojox/drawing/ui/dom/Toolbar
+	module: dojox/wire/ml/Service
+	module: dojox/lang/typed
+	module: dojox/drawing/tools/custom/Equation
+	module: dojox/storage/manager
+	module: dojox/drawing/library/greek
+	module: dojox/widget/Rotator
+	module: dojox/cometd/longPollTransportJsonEncoded
+	module: dojox/widget/FisheyeList
+	module: dojox/wire/ml/Transfer
+	module: dojox/lang/aspect/profiler
+	module: dojox/widget/DataPresentation
+	module: dojox/wire/DataWire
+	module: dojox/drawing
+	module: dojox/drawing/_base
+	module: dojox/widget/Calendar
+	module: dojox/drawing/manager/Canvas
+	module: dojox/lang/oo/general
+	module: dojox/wire/XmlWire
+	module: dojox/drawing/tools/TextBlock
+	module: dojox/drawing/annotations/Label
+	module: dojox/wire/ml/Invocation
+	module: dojox/lang/functional/binrec
+	module: dojox/gantt/TabMenu
+	module: dojox/jq
+	module: dojox/drawing/manager/StencilUI
+	module: dojox/lang/aspect/timer
+	module: dojox/layout/ext-dijit/layout/StackContainer-touch
+	module: dojox/mobile/app/List
+	module: dojox/widget/UpgradeBar
+	module: dojox/layout/dnd/Avatar
+	module: dojox/data/demos/widgets/FileView
+	module: dojox/drawing/annotations/Arrow
+	module: dojox/drawing/manager/Anchors
+	module: dojox/widget/rotator/Pan
+	module: dojox/drawing/library/icons
+	module: dojox/wire/ml/RestHandler
+	module: dojox/drawing/plugins/drawing/Silverlight
+	module: dojox/drawing/plugins/drawing/Grid
+	module: dojox/xmpp/RosterService
+	module: dojox/robot/recorder
+	module: dojox/mobile/app/ListSelector
+	module: dojox/lang/aspect/tracer
+	module: dojox/widget/FeedPortlet
+	module: dojox/drawing/manager/_registry
+	module: dojox/drawing/ui/Tooltip
+	module: dojox/storage/FlashStorageProvider
+	module: dojox/cometd/callbackPollTransport
+	module: dojox/widget/gauge/AnalogArcIndicator
+	module: dojox/drawing/manager/keys
+	module: dojox/flash
+	module: dojox/sql/_crypto
+	module: dojox/wire/CompositeWire
+	module: dojox/widget/rotator/Controller
+	module: dojox/xmpp/UserService
+	module: dojox/storage/AirEncryptedLocalStorageProvider
+	module: dojox/image/Gallery
+	module: dojox/storage/_common
+	module: dojox/data/demos/widgets/PicasaViewList
+	module: dojox/widget/gauge/BarIndicator
+	module: dojox/drawing/tools/Path
+	module: dojox/drawing/Drawing
+	module: dojox/drawing/ui/dom/Zoom
+	module: dojox/wire/ml/Data
+	module: app/controller/Main
+	module: app/views/GeoJSON
+	module: app/views/Setup
+	module: app/views/TaskList
+	module: app/views/ActivityList
+	module: app/views/Map
+	module: app/views/GameStatus
+warn(205) Module not tagged as pure AMD yet it contains AMD API applications.
+	module: app/controller/Main
+	module: app/views/GeoJSON
+	module: app/views/Setup
+	module: app/views/TaskList
+	module: app/views/ActivityList
+	module: app/views/Map
+	module: app/views/GameStatus
+warn(209) Missing or empty package.json.
+	filename: /home/james/workspaces/treasureHuntApp/js/app/package.json
+warn(216) dojo/has plugin resource could not be resolved during build-time.
+	plugin resource id: dom-addeventlistener?:./aspect; reference module id: dojo/on
+Layer Contents:
+app/main:
+	app/views/GeoJSON
+	dojox/mobile/TransitionEvent
+	dojox/mobile/ViewController
+	dojox/mobile/_ItemBase
+	dojox/mobile/ToolBarButton
+	dijit/_Contained
+	dijit/form/_TextBoxMixin
+	app/views/Setup
+	dojox/mobile/scrollable
+	dijit/_Container
+	app/controller/Main
+	dojox/mobile/ScrollableView
+	dojo/selector/_loader
+	dojo/_base/declare
+	dojox/mobile/sniff
+	dojox/mobile/ProgressIndicator
+	dijit/form/_FormWidgetMixin
+	dojo/dom-construct
+	dojox/mobile/Opener
+	dijit/form/_FormValueMixin
+	dojox/mobile/common
+	dojox/mobile/Heading
+	dojox/main
+	dojox/mobile/RoundRectList
+	dojox/mobile/RadioButton
+	app/views/Map
+	dojo/Stateful
+	dojo/touch
+	dojox/mobile/Overlay
+	dojox/mobile/TextBox
+	dojo/dom-prop
+	dojox/gesture/Base
+	dijit/_base/manager
+	app/views/ActivityList
+	dojox/mobile/View
+	dijit/a11y
+	dojox/gesture/tap
+	dojox/mobile/ListItem
+	dijit/place
+	dijit/form/_CheckBoxMixin
+	dojox/mobile/Button
+	dojo/query
+	dojox/mobile/_ScrollableMixin
+	dojox/mobile/Switch
+	dijit/form/_ToggleButtonMixin
+	dojo/dom-class
+	dojo/dom-attr
+	dojox/mobile/TabBar
+	app/views/TaskList
+	dojo/selector/lite
+	dojox/mobile/RoundRect
+	dojox/mobile/TabBarButton
+	dojox/mobile/CheckBox
+	dijit/form/_ButtonMixin
+	dojox/mobile/RoundRectCategory
+	dojox/mobile/transition
+	dojox/mobile/ToggleButton
+	dojo/window
+	dojox/mobile/Tooltip
+	app/main
+	dojox/mobile/EdgeToEdgeList
+	dojox/mobile/uacss
+	dijit/form/_RadioButtonMixin
+	dijit/_WidgetBase
+
+dojo/dojo:
+	dojo/io-query
+	dojo/_base/connect
+	dojo/_base/Deferred
+	dojo/_base/window
+	dojo/_base/lang
+	dojo/has
+	dojo/_base/kernel
+	dojo/dom-geometry
+	dojox/mobile/parser
+	dojo/_base/json
+	dojo/_base/array
+	dojo/json
+	dijit/main
+	dijit/registry
+	dojo/mouse
+	dojo/dom
+	dojo/_base/config
+	dojo/Evented
+	dojo/keys
+	dojo/_base/xhr
+	dojo/_base/sniff
+	dojo/topic
+	dojo/aspect
+	dojo/dom-form
+	dojo/_base/unload
+	dojo/dom-style
+	dojo/on
+	dojo/domReady
+	dojo/_base/event
+	dojo/ready
+
+
+
+Process finished normally
+	errors: 0
+	warnings: 9
+	build time: 141.522 seconds
