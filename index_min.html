@@ -27,14 +27,12 @@
 		parseOnLoad: false,
 		paths:{  
 			"app":"../../release/app"
-		}
-		// deps:["release/main"]
+		},
+		deps:["js/release/app/main.js"]
 	};
   </script>
   <script src="js/release/dojox/mobile/deviceTheme.js"></script>
   <script src="js/release/dojo/dojo.js"></script>
-  <script src="js/release/app/main.js"></script>
-
   <script>
   		viewCache =  [];
   		progressIndicator = null;
@@ -73,32 +71,30 @@
 			<h2 data-dojo-type="dojox.mobile.RoundRectCategory">Find activites near you</h2>
 			<div dojoType="dojox.mobile.RoundRect" shadow="true">
 				<ul id="setup_check_list" dojoType="dojox.mobile.EdgeToEdgeList" select="multiple">
-					<li dojoType="dojox.mobile.ListItem"  icon="img/h/tower_clear-.png" checked="true">
+					<li dojoType="dojox.mobile.ListItem" id="heritage" icon="img/h/HERITAGE.png" checked="true">
 						Heritage
 					</li>
-					<li dojoType="dojox.mobile.ListItem"  icon="img/h/art-museum_clear-.png" checked="true">
+					<li dojoType="dojox.mobile.ListItem"  id="art_centers" icon="img/h/ART_CENTERS.png" checked="true">
 						Art Centres
 					</li>
-					<li dojoType="dojox.mobile.ListItem"  icon="img/h/hiking_clear-.png" checked="true">
+					<li dojoType="dojox.mobile.ListItem"  id="walks" icon="img/h/WALKS.png" checked="true">
 						Walks
 					</li>
-					<li dojoType="dojox.mobile.ListItem"  icon="img/h/flowers_clear-.png" checked="true">
-						Parks
+					<li dojoType="dojox.mobile.ListItem"  id="museums" icon="img/h/MUSEUMS.png" checked="true">
+						Museums
 					</li>
 				</ul>
 			</div>
-			<div class="setupbutton">
-				<div id="startGameBtn" data-dojo-type="dojox.mobile.Button">
-					Start Exploring!
-				</div>
+			<div>
+				<div style="width:90%; margin:5px auto"><button id="startGameBtn" data-dojo-type="dojox.mobile.Button">Start Exploring !</button></div>
 			</div>
     	</div>
 
 		<div data-dojo-type="dojox.mobile.ScrollableView" id="activityListView">
 			<h1 data-dojo-type="dojox.mobile.Heading" id ="activityListHeading" back="New Game" moveTo="setupView" data-dojo-props="fixed: 'top'">Activities
-				<div data-dojo-type="dojox.mobile.ToolBarButton" label="Score" moveTo="scoreView" style="float:right" id="ScoreButtonInActivityListView">
-    </div>
+				<div data-dojo-type="dojox.mobile.ToolBarButton" label="Score" moveTo="scoreView" style="float:right" id="ScoreButtonInActivityListView"></div>
 			</h1>
+			<div id="progressSpinnerDiv"></div>
 			<ul data-dojo-type="dojox.mobile.RoundRectList" id="activityList"></ul>
 			
 			<h1 dojoType="dojox.mobile.Heading" fixed="bottom" style="">
@@ -111,7 +107,7 @@
 		
 		<div data-dojo-type="dojox.mobile.View"  id="mapView">
 			<h1 data-dojo-type="dojox.mobile.Heading"  back="New Game" moveTo="setupView"  data-dojo-props="fixed: 'top'">Map</h1>
-			<div id="map_canvas" style=""></div>
+			<div id="map_canvas"></div>
 		
 			<h1 dojoType="dojox.mobile.Heading" fixed="bottom" style="bottom:0;position: absolute;">
 	    		<ul data-dojo-type="dojox.mobile.TabBar"  class="tabBar"  barType="segmentedControl">
@@ -131,15 +127,16 @@
 		<div data-dojo-type="dojox.mobile.ScrollableView" id="activityDetailView"  >
 	    	<h1 data-dojo-type="dojox.mobile.Heading" data-dojo-props="fixed: 'top'" back="Back" moveTo="activityListView" >Explore Fingal Challenge</h1>
 			<img src="" alt="" style="padding: 10px; float: left;" id="taskListViewImage"/>
-			<h2 id="taskListViewTitle">Initial, change.</h2>
-			<div id="taskListViewTaskContainer"></div>
-			<div data-dojo-type="dojox.mobile.ListItem" data-dojo-props="moveTo:'setupView'"></div>
-			<!--<h1 dojoType="dojox.mobile.Heading" fixed="bottom">
+			<h2 id="taskListViewTitle">Loading task list...</h2>
+			<div dojoType="dojox.mobile.ScrollableView">
+				<ul id="taskList" data-dojo-type="dojox.mobile.RoundRectList"></ul>
+			</div>
+			<h1 dojoType="dojox.mobile.Heading" fixed="bottom">
 	    		<ul data-dojo-type="dojox.mobile.TabBar" class="tabBar" data-dojo-props="barType:'segmentedControl'">
 					<li data-dojo-type="dojox.mobile.TabBarButton" id="taskListView_listBtn" data-dojo-props="selected:'true'">List</li>
 					<li data-dojo-type="dojox.mobile.TabBarButton" id="taskListView_mapBtn">Map</li>
 				</ul>
-			</h1>-->
+			</h1>
 		</div>
     </div>
 </body>

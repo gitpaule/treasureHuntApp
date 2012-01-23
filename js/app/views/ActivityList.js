@@ -133,6 +133,10 @@ define(['dojo/_base/declare',
 			localStorage.removeItem("itemsFinished");
 			localStorage.removeItem("itemsViewed");
 			localStorage.removeItem("pointsAccumulated");
+			//destroy task list views
+			for (var i=0; i < viewCache.activityDetailViews.length; i++) {
+			  viewCache.activityDetailViews[i].destroy();
+			};
 		},
 		
 		// summary:
