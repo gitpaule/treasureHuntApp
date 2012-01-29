@@ -453,7 +453,7 @@ define(['dojo/_base/declare',
 		
 		_set_list_tab_to_on: function()
 		{
-			var selLi = query("#dojox_mobile_Heading_5 .mblTabButtonSelected");
+			var selLi = query("#activityDetail_tab_bar .mblTabButtonSelected");
     		if(selLi.length){
     			domClass.remove(selLi[0], "mblTabButtonSelected");
     		}

@@ -179,8 +179,8 @@ define(['dojo/_base/declare',
 				}
 				
 				return xhr.get({
-					//url : ""http://192.168.1.29:8080/TreasureHuntWeb/rest/tasks"/js/dummydata/tasks_"+activity.id+".json",
-					url : "/TreasureHuntWeb/rest/tasks",
+					url : "http://localhost/js/dummydata/tasks_"+activity.id+".json",
+					//url : "/TreasureHuntWeb/rest/tasks",
 					content: {facilityid: activity.id},
 					handleAs : "json",
 					load : lang.hitch(this, function(activityData) {
@@ -209,7 +209,7 @@ define(['dojo/_base/declare',
 		//
 		show : function() {
 			this.view.show();
-			registry.byId('dojox_mobile_Heading_3').resize();
+			registry.byId('map_tab_bar').resize();
 			
 		},
 		
