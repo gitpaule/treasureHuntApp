@@ -24,7 +24,7 @@ define(['dojo/_base/declare',
 		previousView: null,
 		infowindow: null,
 		pageType: null,
-		
+		map_overlays:null,
         	
 
 		constructor: function() {
@@ -41,7 +41,12 @@ define(['dojo/_base/declare',
 			
 			this.infowindow = new google.maps.InfoWindow();
 			
-			
+			this.map_overlays  = {current_map_type: '', 
+    							activity:{},
+    							activityDetails:{}
+    							};
+    		this.map_overlays.activityDetails.overlay_arr = new Array();
+    							
 			// dojo.connect(null, (dojo.global.onorientationchange !== undefined && !dojo.isAndroid)
 					// ? "onorientationchange" : "onresize", null, this.fixHeight);
 		},
@@ -54,7 +59,7 @@ define(['dojo/_base/declare',
 	        this.fixHeight(this);
 	        
 	        
-        	var selLi = query("#dojox_mobile_Heading_2 .mblTabButtonSelected");
+        	var selLi = query("#map_tab_bar .mblTabButtonSelected");
         	domClass.remove(selLi[0], "mblTabButtonSelected");
         	domClass.add("mapBtn_map", "mblTabButtonSelected");
 	        
@@ -143,96 +148,115 @@ define(['dojo/_base/declare',
 		
 		displayActivityMarkers: function(geoJSON){
 			
-			var parser = new GeoJSON(geoJSON);
-			var googleMarkers = parser.parse();
-			var latlngbounds = new google.maps.LatLngBounds( );
-			if (googleMarkers.length){
-				for (var i = 0; i < googleMarkers.length; i++){
-					googleMarkers[i].setMap(this.map);
-					latlngbounds.extend( googleMarkers[i].getPosition() );
-					if (googleMarkers[i].geojsonProperties) {
-						this.setInfoWindow(googleMarkers[i]);
-					}
-				}
-			}else{
-				googleMarkers.setMap(this.map);
-				latlngbounds.extend( googleMarkers.getPosition() );
-				if (googleMarkers.geojsonProperties) {
-					this.setInfoWindow(googleMarkers);
-				}
+			if(this.map_overlays.current_map_type == 'activityList')
+			{
+				// do nothing
 			}
-			this.map.fitBounds( latlngbounds );
+			else
+			{
+				var parser = new GeoJSON(geoJSON);
+				var googleMarkers = parser.parse();
+				var latlngbounds = new google.maps.LatLngBounds( );
+				if (googleMarkers.length){
+					for (var i = 0; i < googleMarkers.length; i++){
+						googleMarkers[i].setMap(this.map);
+						latlngbounds.extend( googleMarkers[i].getPosition() );
+						if (googleMarkers[i].geojsonProperties) {
+							this.setInfoWindow(googleMarkers[i]);
+						}
+					}
+					this.map_overlays.activityDetails.overlay_arr = googleMarkers;
+				}
+				else
+				{
+					googleMarkers.setMap(this.map);
+					latlngbounds.extend( googleMarkers.getPosition() );
+					if (googleMarkers.geojsonProperties) {
+						this.setInfoWindow(googleMarkers);
+					}
+					this.map_overlays.activityDetails.overlay_arr.push(googleMarkers);
+				}
+				this.map.fitBounds( latlngbounds );
+			}
 		},
 		
-		displayActivityDetailMarkers: function(){
+		displayActivityDetailMarkers: function(activity_detail_id){
 			
-			var walkW, googleMapStuff, geoJSON; 
-			var currentTasks = viewCache.activityDetail.activityData.tasks;
-			
-			var latlngbounds = new google.maps.LatLngBounds( );
-			
-			var line_options = {
-				"strokeColor": "#CC33FF",
-			    "strokeWeight": 7,
-			    "strokeOpacity": 0.75
-			};
-			
-			var walk_start_marker_options = {
-			    "icon": new google.maps.MarkerImage('/img/map_icons/footprint_start.png')
-			};
-			
-			var walk_end_marker_options = {
-			    "icon": new google.maps.MarkerImage('/img/map_icons/footprint_end.png')
-			};
-			
-			var location_marker_options = {
-			    "icon": ""
-			};
-			
-			for(var task_key in currentTasks)
+			if(	this.map_overlays.current_map_type == 'activityDetail' && 
+				this.map_overlays.activityDetail.current_activity_detail_id == activity_detail_id)
 			{
-				if(currentTasks[task_key].walk)
-				{
-					geoJSON = {id:currentTasks[task_key].id+'_walkpath', 
-								properties:{},
-								type: 'Feature',
-								geometry:currentTasks[task_key].walk.walkPath};
-					walkW = new GeoJSON(geoJSON, line_options);
-					googleMapStuff = walkW.parse();
-					googleMapStuff.setMap(this.map);
-					
-					geoJSON = {id:currentTasks[task_key].id+'_walkstart', 
-								properties:{},
-								type: 'Feature',
-								geometry:currentTasks[task_key].walk.start.location};
-					walkW = new GeoJSON(geoJSON, walk_start_marker_options);
-					googleMapStuff = walkW.parse();
-					latlngbounds.extend( googleMapStuff.getPosition() );
-					googleMapStuff.setMap(this.map);
-					
-					geoJSON = {id:currentTasks[task_key].id+'_walkend', 
-								properties:{},
-								type: 'Feature',
-								geometry:currentTasks[task_key].walk.end.location};
-					walkW = new GeoJSON(geoJSON, walk_end_marker_options);
-					googleMapStuff = walkW.parse();
-					latlngbounds.extend( googleMapStuff.getPosition() );
-					googleMapStuff.setMap(this.map);
-			    }
-			    else
-			    {
-			    	geoJSON = {id:currentTasks[task_key].id+'_location', 
-								properties:{},
-								type: 'Feature',
-								geometry:currentTasks[task_key].location};
-					location = new GeoJSON(geoJSON, location_marker_options);
-					googleMapStuff = location.parse();
-					this.map.setCenter(googleMapStuff.getPosition());
-					this.map.setZoom(15);
-					googleMapStuff.setMap(this.map);
-			    }
+				// do nothing
+			}
+			else
+			{
+				var walkW, googleMapStuff, geoJSON; 
+				var currentTasks = viewCache.activityDetail.activityData.tasks;
 				
-				this.map.fitBounds( latlngbounds );
+				var latlngbounds = new google.maps.LatLngBounds( );
+				
+				var line_options = {
+					"strokeColor": "#CC33FF",
+				    "strokeWeight": 7,
+				    "strokeOpacity": 0.75
+				};
+				
+				var walk_start_marker_options = {
+				    "icon": new google.maps.MarkerImage('/img/map_icons/footprint_start.png')
+				};
+				
+				var walk_end_marker_options = {
+				    "icon": new google.maps.MarkerImage('/img/map_icons/footprint_end.png')
+				};
+				
+				var location_marker_options = {
+				    "icon": ""
+				};
+				
+				for(var task_key in currentTasks)
+				{
+					if(currentTasks[task_key].walk)
+					{
+						geoJSON = {id:currentTasks[task_key].id+'_walkpath', 
+									properties:{},
+									type: 'Feature',
+									geometry:currentTasks[task_key].walk.walkPath};
+						walkW = new GeoJSON(geoJSON, line_options);
+						googleMapStuff = walkW.parse();
+						googleMapStuff.setMap(this.map);
+						
+						geoJSON = {id:currentTasks[task_key].id+'_walkstart', 
+									properties:{},
+									type: 'Feature',
+									geometry:currentTasks[task_key].walk.start.location};
+						walkW = new GeoJSON(geoJSON, walk_start_marker_options);
+						googleMapStuff = walkW.parse();
+						latlngbounds.extend( googleMapStuff.getPosition() );
+						googleMapStuff.setMap(this.map);
+						
+						geoJSON = {id:currentTasks[task_key].id+'_walkend', 
+									properties:{},
+									type: 'Feature',
+									geometry:currentTasks[task_key].walk.end.location};
+						walkW = new GeoJSON(geoJSON, walk_end_marker_options);
+						googleMapStuff = walkW.parse();
+						latlngbounds.extend( googleMapStuff.getPosition() );
+						googleMapStuff.setMap(this.map);
+				    }
+				    else
+				    {
+				    	geoJSON = {id:currentTasks[task_key].id+'_location', 
+									properties:{},
+									type: 'Feature',
+									geometry:currentTasks[task_key].location};
+						location = new GeoJSON(geoJSON, location_marker_options);
+						googleMapStuff = location.parse();
+						this.map.setCenter(googleMapStuff.getPosition());
+						this.map.setZoom(15);
+						googleMapStuff.setMap(this.map);
+				    }
+					
+					this.map.fitBounds( latlngbounds );
+				}
 			}
 		},
 		
