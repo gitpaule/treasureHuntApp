@@ -94,7 +94,7 @@ define(['dojo/_base/declare'], function(declare) {
 					}
 					break;
 
-				case "LineString":
+				case "LINESTRING":
 					var path = [];
 					for(var i = 0; i < geojsonGeometry.coordinates.length; i++) {
 						var coord = geojsonGeometry.coordinates[i];
@@ -130,7 +130,7 @@ define(['dojo/_base/declare'], function(declare) {
 					}
 					break;
 
-				case "Polygon":
+				case "POLYGON":
 					var paths = [];
 					for(var i = 0; i < geojsonGeometry.coordinates.length; i++) {
 						var path = [];

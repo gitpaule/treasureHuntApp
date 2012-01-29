@@ -179,7 +179,8 @@ define(['dojo/_base/declare',
 				}
 				
 				return xhr.get({
-					url : "/TreasureHuntWeb/rest/tasks",
+					//url : "http://192.168.1.29:8080/TreasureHuntWeb/rest/tasks",
+					url : "/js/dummydata/tasks_"+activity.id+".json",
 					content: {facilityid: activity.id},
 					handleAs : "json",
 					load : lang.hitch(this, function(activityData) {
@@ -214,13 +215,11 @@ define(['dojo/_base/declare',
 		
 		_setupEventHandlers : function(view) {
 			var listBtn = registry.byId('activListBtn_actList');
-			var listBtn_map = registry.byId('listBtn_map');
 			var mapBtn = registry.byId('activMapBtn_actList');
 			if(!viewCache.mapView) {
 				viewCache.mapView = new Map();
 			}
 			listBtn.on('Click', lang.hitch(this, this.show));
-			listBtn_map.on('Click', lang.hitch(this, this.show));
 			mapBtn.on('Click', lang.hitch(this, this._showMapView));
 			
 			
