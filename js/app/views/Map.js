@@ -42,10 +42,12 @@ define(['dojo/_base/declare',
 			this.infowindow = new google.maps.InfoWindow();
 			
 			this.map_overlays  = {current_map_type: '', 
-    							activity:{},
+    							activityList:{},
     							activityDetails:{}
     							};
-    		this.map_overlays.activityDetails.overlay_arr = new Array();
+    		this.map_overlays.activityList.overlay_arr = new Array();
+    		this.map_overlays.activityDetails.byID = {};
+    		this.map_overlays.activityDetails.current_activity_detail_id = '';
     							
 			// dojo.connect(null, (dojo.global.onorientationchange !== undefined && !dojo.isAndroid)
 					// ? "onorientationchange" : "onresize", null, this.fixHeight);
@@ -154,41 +156,64 @@ define(['dojo/_base/declare',
 			}
 			else
 			{
-				var parser = new GeoJSON(geoJSON);
-				var googleMarkers = parser.parse();
-				var latlngbounds = new google.maps.LatLngBounds( );
-				if (googleMarkers.length){
-					for (var i = 0; i < googleMarkers.length; i++){
-						googleMarkers[i].setMap(this.map);
-						latlngbounds.extend( googleMarkers[i].getPosition() );
-						if (googleMarkers[i].geojsonProperties) {
-							this.setInfoWindow(googleMarkers[i]);
-						}
-					}
-					this.map_overlays.activityDetails.overlay_arr = googleMarkers;
+				this._hideActivityDetailOverlays(this.map_overlays.activityDetails.current_activity_detail_id);
+				
+				if(this.map_overlays.activityList.overlay_arr.length)
+				{
+					this._showAllActivityOverlays();
 				}
 				else
 				{
-					googleMarkers.setMap(this.map);
-					latlngbounds.extend( googleMarkers.getPosition() );
-					if (googleMarkers.geojsonProperties) {
-						this.setInfoWindow(googleMarkers);
+					var parser = new GeoJSON(geoJSON);
+					var googleMarkers = parser.parse();
+					var latlngbounds = new google.maps.LatLngBounds( );
+					if (googleMarkers.length){
+						for (var i = 0; i < googleMarkers.length; i++){
+							googleMarkers[i].setMap(this.map);
+							latlngbounds.extend( googleMarkers[i].getPosition() );
+							if (googleMarkers[i].geojsonProperties) {
+								this.setInfoWindow(googleMarkers[i]);
+							}
+						}
+						this.map_overlays.activityList.overlay_arr = googleMarkers;
 					}
-					this.map_overlays.activityDetails.overlay_arr.push(googleMarkers);
+					else
+					{
+						googleMarkers.setMap(this.map);
+						latlngbounds.extend( googleMarkers.getPosition() );
+						if (googleMarkers.geojsonProperties) {
+							this.setInfoWindow(googleMarkers);
+						}
+						this.map_overlays.activityList.overlay_arr.push(googleMarkers);
+					}
+					this.map.fitBounds( latlngbounds );
 				}
-				this.map.fitBounds( latlngbounds );
+				this.map_overlays.current_map_type = 'activityList';
 			}
 		},
 		
-		displayActivityDetailMarkers: function(activity_detail_id){
+		displayActivityDetailMarkers: function(){
+			
+			var activity_detail_id = viewCache.activityDetail.activityData.id;
+			
+			if(	this.map_overlays.current_map_type == 'activityList')
+			{
+				this._hideAllActivityOverlays();
+			}
 			
 			if(	this.map_overlays.current_map_type == 'activityDetail' && 
-				this.map_overlays.activityDetail.current_activity_detail_id == activity_detail_id)
+				this.map_overlays.activityDetails.current_activity_detail_id == activity_detail_id)
 			{
 				// do nothing
 			}
+			else if(this.map_overlays.activityDetails.byID[activity_detail_id])
+			{
+				this._showActivityDetailOverlays(activity_detail_id);
+			}
 			else
 			{
+				this.map_overlays.activityDetails.byID[activity_detail_id] = {'overlay_arr': new Array()};
+				
 				var walkW, googleMapStuff, geoJSON; 
 				var currentTasks = viewCache.activityDetail.activityData.tasks;
 				
@@ -212,6 +237,7 @@ define(['dojo/_base/declare',
 				    "icon": ""
 				};
 				
+				
 				for(var task_key in currentTasks)
 				{
 					if(currentTasks[task_key].walk)
@@ -223,6 +249,7 @@ define(['dojo/_base/declare',
 						walkW = new GeoJSON(geoJSON, line_options);
 						googleMapStuff = walkW.parse();
 						googleMapStuff.setMap(this.map);
+						this.map_overlays.activityDetails.byID[activity_detail_id].overlay_arr.push(googleMapStuff);
 						
 						geoJSON = {id:currentTasks[task_key].id+'_walkstart', 
 									properties:{},
@@ -232,6 +259,7 @@ define(['dojo/_base/declare',
 						googleMapStuff = walkW.parse();
 						latlngbounds.extend( googleMapStuff.getPosition() );
 						googleMapStuff.setMap(this.map);
+						this.map_overlays.activityDetails.byID[activity_detail_id].overlay_arr.push(googleMapStuff);
 						
 						geoJSON = {id:currentTasks[task_key].id+'_walkend', 
 									properties:{},
@@ -241,6 +269,7 @@ define(['dojo/_base/declare',
 						googleMapStuff = walkW.parse();
 						latlngbounds.extend( googleMapStuff.getPosition() );
 						googleMapStuff.setMap(this.map);
+						this.map_overlays.activityDetails.byID[activity_detail_id].overlay_arr.push(googleMapStuff);
 				    }
 				    else
 				    {
@@ -253,13 +282,72 @@ define(['dojo/_base/declare',
 						this.map.setCenter(googleMapStuff.getPosition());
 						this.map.setZoom(15);
 						googleMapStuff.setMap(this.map);
+						this.map_overlays.activityDetails.byID[activity_detail_id].overlay_arr.push(googleMapStuff);
 				    }
 					
 					this.map.fitBounds( latlngbounds );
+					
+				}
+			}
+			this.map_overlays.current_map_type = 'activityDetail';
+			this.map_overlays.activityDetails.current_activity_detail_id = activity_detail_id;
+		},
+		
+		
+		_hideAllActivityOverlays: function()
+		{
+			if(this.map_overlays.activityList.overlay_arr.length)
+			{
+				for(var i in this.map_overlays.activityList.overlay_arr)
+				{
+					this.map_overlays.activityList.overlay_arr[i].setMap(null);
 				}
 			}
 		},
 		
+		_showAllActivityOverlays: function()
+		{
+			if(this.map_overlays.activityList.overlay_arr.length)
+			{
+				var latlngbounds = new google.maps.LatLngBounds( );
+				var el;
+				for(var i in this.map_overlays.activityList.overlay_arr)
+				{
+					el = this.map_overlays.activityList.overlay_arr[i];
+					el.setMap(this.map);
+					latlngbounds.extend( el.getPosition() );
+				}
+				this.map.fitBounds( latlngbounds );
+			}
+		},
+		
+		
+		_hideActivityDetailOverlays: function(activity_detail_id)
+		{
+			if(this.map_overlays.activityDetails.byID[activity_detail_id].overlay_arr.length)
+			{
+				for(var i in this.map_overlays.activityDetails.byID[activity_detail_id].overlay_arr)
+				{
+					this.map_overlays.activityDetails.byID[activity_detail_id].overlay_arr[i].setMap(null);
+				}
+			}
+		},
+		
+		_showActivityDetailOverlays: function(activity_detail_id)
+		{
+			if(this.map_overlays.activityDetails.byID[activity_detail_id].overlay_arr.length)
+			{
+				var latlngbounds = new google.maps.LatLngBounds( );
+				var el;
+				for(var i in this.map_overlays.activityDetails.byID[activity_detail_id].overlay_arr)
+				{
+					el = this.map_overlays.activityDetails.byID[activity_detail_id].overlay_arr[i];
+					el.setMap(this.map);
+					if(typeof(el.getPosition)== 'function')latlngbounds.extend( el.getPosition() );
+				}
+				this.map.fitBounds( latlngbounds );
+			}
+		},
 		
 		setInfoWindow: function  (feature) {
 			google.maps.event.addListener(feature, "click", lang.hitch(this, function(feature, event) {

@@ -74,6 +74,7 @@ define(['dojo/_base/declare',
 			} else {
 				console.log("navigator not supported so use default location");
 				xhr.get({
+					//url : "http://localhost/js/dummydata/sampleActivityData.json",
 					url : "/TreasureHuntWeb/rest/game/",
 					content: {categories: gameSetupForm},
 					handleAs : "json",
@@ -86,6 +87,7 @@ define(['dojo/_base/declare',
 			}
 			Deferred.when(geoPromise, lang.hitch(this, function(currentLocation){
 				xhr.get({
+					//url : "http://localhost/js/dummydata/sampleActivityData.json",
 					url : "/TreasureHuntWeb/rest/game/"+currentLocation.longitude+' '+currentLocation.latitude,
 					content: {categories: gameSetupForm},
 					handleAs : "json",
@@ -179,8 +181,8 @@ define(['dojo/_base/declare',
 				}
 				
 				return xhr.get({
-					url : "http://localhost/js/dummydata/tasks_"+activity.id+".json",
-					//url : "/TreasureHuntWeb/rest/tasks",
+					//url : "http://localhost/js/dummydata/tasks_"+activity.id+".json",
+					url : "/TreasureHuntWeb/rest/tasks",
 					content: {facilityid: activity.id},
 					handleAs : "json",
 					load : lang.hitch(this, function(activityData) {
