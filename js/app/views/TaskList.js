@@ -16,7 +16,9 @@ define(['dojo/_base/declare',
  		'dojo/_base/event',
  		'dojo/_base/Deferred',
  		'dojox/gesture/tap',
-		'dojo/dom-class'], function(declare, on, registry, RadioButton, Button, RoundRect, ListItem, domConstruct, dom, lang, xhr, Map, domAttr, domGeom, query, event, Deferred, tap, domClass) {
+		'dojo/dom-class'], 
+		function(declare, on, registry, RadioButton, Button, RoundRect, ListItem, domConstruct, dom, lang, xhr, Map, domAttr, domGeom, query, event, Deferred, tap, domClass) {
+
 
 	// module:
 	//		views/TaskList
@@ -32,8 +34,6 @@ define(['dojo/_base/declare',
 		
 		identifier : null,
 
-		iMAGE_DOM_ID : "taskListViewImage",
-
 		tITLE_DOM_ID : "taskListViewTitle",
 
 		view : null,
@@ -45,16 +45,21 @@ define(['dojo/_base/declare',
 		taskData : null,
 		
 		taskList : null,
+		
+		WALK_RADIUS: 20,
+		VISIT_RADIUS: 100,
 				
 		taskIcons: {
 			MULTIPLE_CHOICE : '/img/taskIcons/question.png',
 			PICTURE : '/img/taskIcons/camera.png',
-			ACTION : '/img/taskIcons/location.png',
+			VISIT : '/img/taskIcons/camera.png',
+			ACTION : '/img/taskIcons/location.png'
 		},
 		taskCompletedIcons: {
 			MULTIPLE_CHOICE : '/img/taskIcons/question_done.png',
 			PICTURE : '/img/taskIcons/camera_done.png',
-			ACTION : '/img/taskIcons/location_done.png',
+			VISIT : '/img/taskIcons/camera.png',
+			ACTION : '/img/taskIcons/location_done.png'
 		},
 		
 		/**
@@ -163,35 +168,9 @@ define(['dojo/_base/declare',
 		// summary:
 		//		Initialise the store
 		//
-		//this.activityData = {
-		//	title: "title string",
-		//	imgSource: "URL to image",
-		//	tasks: [
-		//		{
-		//			title: "Who is the guy who founded this place?",
-		//			type: "radio",
-		//			options: [
-		//				"Peter Frampton",
-		//				"Peter Farmleigh",
-		//				"Thomas Farmleigh"
-		//			],
-		//			correct: "Peter Farmleigh"
-		//		},
-		//		{
-		//			title: "What year was this place founded?",
-		//			type: "textbox",
-		//			correct: 1922
-		//		}
-		//]};
-
-
 		populateData : function() {
 			var taskData = this.activityData;
 			this.identifier = this.activityData.title;
-			//Set title and image
-			this.imageNode = dom.byId(this.iMAGE_DOM_ID);
-			this.imageNode.src = taskData.imgSource;
-			this.imageNode.alt = taskData.title;
 
 			if(!this.titleNode) {
 				this.titleNode = dom.byId(this.tITLE_DOM_ID);
@@ -199,6 +178,7 @@ define(['dojo/_base/declare',
 			this.titleNode.innerHTML = taskData.title;
 
 			this.taskList.destroyDescendants();
+			var _this = this;
 
 			for(var taskIndex = 0; taskIndex < taskData.tasks.length; taskIndex++) {
 				// add list of tasks
@@ -212,28 +192,31 @@ define(['dojo/_base/declare',
 					variableHeight : true,
 					rightIcon2 : 'mblDomButtonSilverCircleDownArrow',
 					variableHeight : true,
-					clickable : false
+					clickable : true,
+					onClick : function(evt) {
+						/* problem with the click event being called twice -- need to debounce */
+						var d = new Date();
+						if(d - _this.lastClickTime < 500) {
+							console.log("returning early ", d - _this.lastClickTime);
+							return false;
+						}
+						event.stop(evt);
+						_this.lastClickTime = d;
+						for(var i = 0; i < taskData.tasks.length; i++) {
+							if(this.id != taskData.tasks[i].id) {
+								_this._hideTaskDetails(taskData.tasks[i]);
+								console.log("hide", this);
+							} else {
+								_this._showTaskDetails(taskData.tasks[i], i);
+								console.log("show", taskData.tasks[i].id);
+							}
+						}
+					}
 				});
 				li.doneIcon = this.taskCompletedIcons[task.type];
 				this.taskList.addChild(li);
 			}
-			li.doneIcon = this.taskCompletedIcons[task.type];
-			this.taskList.addChild(li);
-			var _this = this;
-			on(li.domNode, tap, function(evt, item) {
-				event.stop(evt);
-				for(var i = 0; i < taskData.tasks.length; i++) {
-					if(this.id != taskData.tasks[i].id) {
-						_this._hideTaskDetails(taskData.tasks[i]);
-						console.log("hide", this);
-					} else {
-						_this._showTaskDetails(taskData.tasks[i], i);
-						console.log("show", taskData.tasks[i].id);
-					}
-				};
-			});
 		},
-
 		
 		/*
 		 * Shows task details
@@ -253,10 +236,12 @@ define(['dojo/_base/declare',
 			
 			if(task.type === "MULTIPLE_CHOICE") {
 				this._createQuestionOptions(task, taskIndex);
-			} else if(task.type === "PICTURE") {
+			}else if(task.type === "PICTURE") {
 				this._createCameraDetails(task, taskIndex);
-			} else {
+			}else if(task.type === "ACTION"){
 				this._createWalkDetails(task, taskIndex);
+			}else{
+				this._createVisitDetails(task, taskIndex);
 			}
 		},
 		
@@ -270,14 +255,7 @@ define(['dojo/_base/declare',
 			if(taskDetailsArr.length == 0){
 				return;
 			}
-			
-			if(task.type === "MULTIPLE_CHOICE") {
-				this._destroyQuestionOptions(task);
-			} else if(task.type === "PICTURE") {
-				this._destroyCameraDetails(task);
-			} else {
-				this._destroyWalkDetails(task);
-			}
+			this._destroyTaskDetails(task);
 			domConstruct.destroy(taskDetailsArr[0]);
 		},
 		
@@ -319,22 +297,9 @@ define(['dojo/_base/declare',
 			}
 		},
 		
-		_destroyQuestionOptions: function(task){
-			var listItem = registry.byId("" + task.id);
-			var radioWidgets = registry.findWidgets(listItem.domNode);
-			for(var i = 0; i < radioWidgets.length; i++) {
-				radioWidgets[i].destroy();
-			};
-		},
-
 		_createCameraDetails : function(taskDiv, task, taskIndex){
 			console.error("not implemented yet");
 		},
-		
-		_destroyCameraDetails : function(taskDiv, task, taskIndex){
-			console.error("not implemented yet");
-		},
-		
 		
 		_createWalkDetails : function(task, taskIndex) {
 			var listItem = registry.byId("" + task.id);
@@ -354,7 +319,7 @@ define(['dojo/_base/declare',
 							label : "Verify I am at "+start_end+" location",
 							onClick : lang.hitch(this, function(task, start_end, evt) {
 								event.stop(evt);
-								this.checkLocationProximity(task, start_end).then(
+								this.checkLocationProximity(task, task.walk[start_end].location.coordinates, this.WALK_RADIUS).then(
 									lang.hitch(this, function(response){
 										if(response.result){
 											domConstruct.empty(checkpointDiv);
@@ -385,16 +350,53 @@ define(['dojo/_base/declare',
 			}
 		},
 
-		
-		_destroyWalkDetails : function(task, taskIndex){
+		_createVisitDetails: function(task, taskIndex){
 			var listItem = registry.byId("" + task.id);
-			var buttonWidgets = registry.findWidgets(listItem.domNode);
-			for(var i = 0; i < buttonWidgets.length; i++) {
-				buttonWidgets[i].destroy();
+			var taskDetailsDiv = query('.taskDetails', listItem.domNode)[0];
+			var checkpointDiv = domConstruct.create("div", {
+						'class' : 'checkpoint'
+					});
+			if(task.reached) {
+				domConstruct.place("<div class='reached'>Visited location</div>", checkpointDiv);
+			}else {
+				var verifyBtn = new Button({
+					label : "Verify I am at location",
+					onClick : lang.hitch(this, 
+						function(task, evt) {
+							event.stop(evt);
+							this.checkLocationProximity(task, task.location.coordinates,  this.VISIT_RADIUS).then(
+								lang.hitch(this, 
+									function(response){
+										if(response.result){
+											domConstruct.empty(checkpointDiv);
+											task.reached = true;
+											alert("Task completed!");
+											var listItem = registry.byId("" + task.id);
+											this.setTaskDisplayToCompleted("Visited location", listItem);
+										}else{
+											alert("Not there yet!");
+										}
+								}),
+								function(error){
+									console.error("request to check proximity failed ", error);
+								}
+							);
+						}, task)
+				});
+				domConstruct.place(verifyBtn.domNode, checkpointDiv);
+			}
+			domConstruct.place(checkpointDiv, taskDetailsDiv);
+		},
+		
+		_destroyTaskDetails : function(task){
+			var listItem = registry.byId("" + task.id);
+			var childWidgets = registry.findWidgets(listItem.domNode);
+			for(var i = 0; i < childWidgets.length; i++) {
+				childWidgets[i].destroy();
 			};
 		},
 		
-		checkLocationProximity: function(task, start_end){
+		checkLocationProximity: function(task, coords, bufferRadius){
 			var geoPromise = new Deferred();
 			var serverReqPromise = new Deferred();
 			
@@ -407,19 +409,19 @@ define(['dojo/_base/declare',
 				return false;
 			}
 			geoPromise.then(function(currentLocation){
-				var checkpoint = task.walk[start_end].location.coordinates[0]+' '+task.walk[start_end].location.coordinates[1];
+				var checkpoint = coords[0]+' '+coords[1];
 				var currentLocation = currentLocation.longitude+' '+currentLocation.latitude;
 				return xhr.get({
 					url : "/TreasureHuntWeb/rest/game/proximity/"+checkpoint+"/"+currentLocation,
+					content: {radius: bufferRadius},
 					handleAs : "json",
 					load: function(atLocation){
-						serverReqPromise.resolve({result: atLocation, type: start_end});
+						serverReqPromise.resolve({result: atLocation});
 					}
 				});
 			});
 			return serverReqPromise;
 		},
-		
 		
 		show : function() {
 			
@@ -438,15 +440,13 @@ define(['dojo/_base/declare',
         	domClass.add("activityDetailView_listBtn", "mblTabButtonSelected");
 		},
 		
-		
 		destroy : function(){
 			localStorage.removeItem("activityDetails_"+this.identifier);
-			
 			this.taskWidgetsClasswide = [];
 			this.activityScore = null;
 			this.tasksAndTriesMap = null;
 			this.identifier = null;
-			this.view = null;
+			this.view.destroy();
 			this.imageNode = null;
 			this.titleNode = null;
 			this.activityData = null;
