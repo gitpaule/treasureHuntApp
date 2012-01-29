@@ -324,7 +324,9 @@ define(['dojo/_base/declare',
 		
 		_hideActivityDetailOverlays: function(activity_detail_id)
 		{
-			if(this.map_overlays.activityDetails.byID[activity_detail_id].overlay_arr.length)
+			if(activity_detail_id != '' && 
+			   typeof(this.map_overlays.activityDetails.byID[activity_detail_id]) != 'undefined' &&
+			   this.map_overlays.activityDetails.byID[activity_detail_id].overlay_arr.length )
 			{
 				for(var i in this.map_overlays.activityDetails.byID[activity_detail_id].overlay_arr)
 				{
@@ -335,7 +337,9 @@ define(['dojo/_base/declare',
 		
 		_showActivityDetailOverlays: function(activity_detail_id)
 		{
-			if(this.map_overlays.activityDetails.byID[activity_detail_id].overlay_arr.length)
+			if(activity_detail_id != '' &&
+			   typeof(this.map_overlays.activityDetails.byID[activity_detail_id]) != 'undefined' &&
+			   this.map_overlays.activityDetails.byID[activity_detail_id].overlay_arr.length )
 			{
 				var latlngbounds = new google.maps.LatLngBounds( );
 				var el;
