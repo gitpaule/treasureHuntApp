@@ -179,8 +179,8 @@ define(['dojo/_base/declare',
 				}
 				
 				return xhr.get({
-					//url : "http://192.168.1.29:8080/TreasureHuntWeb/rest/tasks",
-					url : "/js/dummydata/tasks_"+activity.id+".json",
+					//url : ""http://192.168.1.29:8080/TreasureHuntWeb/rest/tasks"/js/dummydata/tasks_"+activity.id+".json",
+					url : "/TreasureHuntWeb/rest/tasks",
 					content: {facilityid: activity.id},
 					handleAs : "json",
 					load : lang.hitch(this, function(activityData) {
