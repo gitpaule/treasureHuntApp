@@ -15,7 +15,8 @@ define(['dojo/_base/declare',
  		'dojo/query',
  		'dojo/_base/event',
  		'dojo/_base/Deferred',
- 		'dojox/gesture/tap'], function(declare, on, registry, RadioButton, Button, RoundRect, ListItem, domConstruct, dom, lang, xhr, Map, domAttr, domGeom, query, event, Deferred, tap) {
+ 		'dojox/gesture/tap',
+		'dojo/dom-class'], function(declare, on, registry, RadioButton, Button, RoundRect, ListItem, domConstruct, dom, lang, xhr, Map, domAttr, domGeom, query, event, Deferred, tap, domClass) {
 
 	// module:
 	//		views/TaskList
@@ -66,8 +67,13 @@ define(['dojo/_base/declare',
 			this.activityScore = 0;
 			this.tasksAndTriesMap = {};
 			this.view = view;
+			
+			viewCache.activityDetail = this;
+			
 			//persist the task data
 			this.activityData = activityData;
+			
+			this._setupEventHandlers();
 			
 			this.taskList = registry.byId("taskList");
 						
@@ -76,6 +82,15 @@ define(['dojo/_base/declare',
 			console.debug(activityData.tasks.length);
 			var previousViewed = parseInt(localStorage.getItem("itemsViewed"));
 			localStorage.setItem("itemsViewed",(previousViewed + activityData.tasks.length));
+		},
+		
+		_setupEventHandlers: function(){
+			var mapBtn = registry.byId('activityDetailView_mapBtn');
+			
+			mapBtn.on('Click', lang.hitch(this, function (){
+				this._showMapView();
+			}));
+			
 		},
 		
 		addToGlobalAccumulatedPoints: function(increment){
@@ -407,8 +422,20 @@ define(['dojo/_base/declare',
 		
 		
 		show : function() {
+			
+			this._set_list_tab_to_on();
+			
 			this.populateData();
 			this.view.show();
+		},
+		
+		_set_list_tab_to_on: function()
+		{
+			var selLi = query("#dojox_mobile_Heading_5 .mblTabButtonSelected");
+    		if(selLi.length){
+    			domClass.remove(selLi[0], "mblTabButtonSelected");
+    		}
+        	domClass.add("activityDetailView_listBtn", "mblTabButtonSelected");
 		},
 		
 		
@@ -426,8 +453,7 @@ define(['dojo/_base/declare',
 		},
 		
 		_showMapView : function() {
-			viewCache.mapView.populateData(this);
-			viewCache.mapView.show();
+			viewCache.mapView.show(this.activityStore, 'activityDetail', this);
 		}
 	});
 });
