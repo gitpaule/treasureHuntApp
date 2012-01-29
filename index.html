@@ -98,7 +98,7 @@
 			<div id="progressSpinnerDiv"></div>
 			<ul data-dojo-type="dojox.mobile.RoundRectList" id="activityList"></ul>
 			
-			<h1 dojoType="dojox.mobile.Heading" fixed="bottom" style="">
+			<h1 dojoType="dojox.mobile.Heading" fixed="bottom" style=""  id="activity_tab_bar">
 	    		<ul data-dojo-type="dojox.mobile.TabBar"  class="tabBar"  barType="segmentedControl">
 						<li data-dojo-type="dojox.mobile.TabBarButton" moveTo="activityListView" selected="true" id="activListBtn_actList">List</li>
 						<li data-dojo-type="dojox.mobile.TabBarButton" moveTo="mapView" id="activMapBtn_actList">Map</li>
@@ -110,7 +110,7 @@
 			<h1 data-dojo-type="dojox.mobile.Heading"  back="New Game" moveTo="setupView"  data-dojo-props="fixed: 'top'">Map</h1>
 			<div id="map_canvas"></div>
 		
-			<h1 dojoType="dojox.mobile.Heading" fixed="bottom" style="bottom:0;position: absolute;">
+			<h1 dojoType="dojox.mobile.Heading" fixed="bottom" style="bottom:0;position: absolute;" id="map_tab_bar">
 	    		<ul data-dojo-type="dojox.mobile.TabBar"  class="tabBar"  barType="segmentedControl">
 						<li data-dojo-type="dojox.mobile.TabBarButton" moveTo="activityListView" id="listBtn_map">List</li>
 						<li data-dojo-type="dojox.mobile.TabBarButton" moveTo="mapView" selected="true" id="mapBtn_map">Map</li>
@@ -131,7 +131,7 @@
 			<div dojoType="dojox.mobile.ScrollableView">
 				<ul id="taskList" data-dojo-type="dojox.mobile.RoundRectList"></ul>
 			</div>
-			<h1 dojoType="dojox.mobile.Heading" fixed="bottom">
+			<h1 dojoType="dojox.mobile.Heading" fixed="bottom" id="activityDetail_tab_bar">
 	    		<ul data-dojo-type="dojox.mobile.TabBar" class="tabBar" data-dojo-props="barType:'segmentedControl'">
 					<li data-dojo-type="dojox.mobile.TabBarButton" id="taskListView_listBtn" data-dojo-props="selected:'true'">List</li>
 					<li data-dojo-type="dojox.mobile.TabBarButton" id="taskListView_mapBtn">Map</li>
