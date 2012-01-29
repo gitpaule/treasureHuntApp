@@ -1,0 +1,216 @@
+{
+	"features": [
+		{
+			"id": "2491",
+			"properties": {
+				"street": null,
+				"locality": null,
+				"guided_tours": null,
+				"opening_hours": null,
+				"admission": null,
+				"name": "Farmleigh House",
+				"postcode": null,
+				"phone": null,
+				"website": null,
+				"description": null,
+				"email": null,
+				"cafe": null,
+				"category": "HERITAGE"
+			},
+			"geometry": {
+				"coordinates": [-6.34830536294109, 53.3641241251006],
+				"type": "POINT"
+			}
+		}, {
+			"id": "772",
+			"properties": {
+				"street": null,
+				"locality": null,
+				"guided_tours": null,
+				"opening_hours": null,
+				"admission": null,
+				"name": "Phoenix Park Visitor Centre",
+				"postcode": null,
+				"phone": null,
+				"website": null,
+				"description": null,
+				"email": null,
+				"cafe": null,
+				"category": "HERITAGE"
+			},
+			"geometry": {
+				"coordinates": [-6.3309550629754, 53.366084875538],
+				"type": "POINT"
+			}
+		}, {
+			"id": "721",
+			"properties": {
+				"street": null,
+				"locality": null,
+				"guided_tours": null,
+				"opening_hours": null,
+				"admission": null,
+				"name": "Aras An Uachtarain",
+				"postcode": null,
+				"phone": null,
+				"website": null,
+				"description": null,
+				"email": null,
+				"cafe": null,
+				"category": "HERITAGE"
+			},
+			"geometry": {
+				"coordinates": [-6.3172977530811, 53.359585446444],
+				"type": "POINT"
+			}
+		}, {
+			"id": "764",
+			"properties": {
+				"street": null,
+				"locality": null,
+				"guided_tours": null,
+				"opening_hours": null,
+				"admission": null,
+				"name": "Kilmainham Gaol",
+				"postcode": null,
+				"phone": null,
+				"website": null,
+				"description": null,
+				"email": null,
+				"cafe": null,
+				"category": "HERITAGE"
+			},
+			"geometry": {
+				"coordinates": [-6.3095910899492, 53.341748860065],
+				"type": "POINT"
+			}
+		}, {
+			"id": "773",
+			"properties": {
+				"street": null,
+				"locality": null,
+				"guided_tours": null,
+				"opening_hours": null,
+				"admission": null,
+				"name": "Royal Hospital Kilmainham",
+				"postcode": null,
+				"phone": null,
+				"website": null,
+				"description": null,
+				"email": null,
+				"cafe": null,
+				"category": "HERITAGE"
+			},
+			"geometry": {
+				"coordinates": [-6.2996629547358, 53.343305890299],
+				"type": "POINT"
+			}
+		}, {
+			"id": "812",
+			"properties": {
+				"street": null,
+				"locality": null,
+				"guided_tours": null,
+				"opening_hours": null,
+				"admission": null,
+				"name": "Drimnagh Castle",
+				"postcode": null,
+				"phone": null,
+				"website": null,
+				"description": null,
+				"email": null,
+				"cafe": null,
+				"category": "HERITAGE"
+			},
+			"geometry": {
+				"coordinates": [-6.3325747063745, 53.325009818931],
+				"type": "POINT"
+			}
+		}, {
+			"id": "759",
+			"properties": {
+				"street": null,
+				"locality": null,
+				"guided_tours": null,
+				"opening_hours": null,
+				"admission": null,
+				"name": "Guinness Storehouse",
+				"postcode": null,
+				"phone": null,
+				"website": null,
+				"description": null,
+				"email": null,
+				"cafe": null,
+				"category": "HERITAGE"
+			},
+			"geometry": {
+				"coordinates": [-6.2867189070467, 53.34178183133],
+				"type": "POINT"
+			}
+		}, {
+			"id": "770",
+			"properties": {
+				"street": null,
+				"locality": null,
+				"guided_tours": null,
+				"opening_hours": null,
+				"admission": null,
+				"name": "Old Jameson Distillery",
+				"postcode": null,
+				"phone": null,
+				"website": null,
+				"description": null,
+				"email": null,
+				"cafe": null,
+				"category": "HERITAGE"
+			},
+			"geometry": {
+				"coordinates": [-6.2764163310703, 53.348129619368],
+				"type": "POINT"
+			}
+		}, {
+			"id": "778",
+			"properties": {
+				"street": null,
+				"locality": null,
+				"guided_tours": null,
+				"opening_hours": null,
+				"admission": null,
+				"name": "Saint Michan's Parish Church",
+				"postcode": null,
+				"phone": null,
+				"website": null,
+				"description": null,
+				"email": null,
+				"cafe": null,
+				"category": "HERITAGE"
+			},
+			"geometry": {
+				"coordinates": [-6.2753323937592, 53.347449046913],
+				"type": "POINT"
+			}
+		}, {
+			"id": "2532",
+			"properties": {
+				"street": null,
+				"locality": null,
+				"guided_tours": null,
+				"opening_hours": null,
+				"admission": null,
+				"name": "The Four Courts",
+				"postcode": null,
+				"phone": null,
+				"website": null,
+				"description": null,
+				"email": null,
+				"cafe": null,
+				"category": "HERITAGE"
+			},
+			"geometry": {
+				"coordinates": [-6.27349377264404, 53.345980007246],
+				"type": "POINT"
+			}
+		}
+	],
+	"type": "FeatureCollection"
+}

@@ -1,29 +1,31 @@
 [
 	{
-		"id": 2337,
-		"headline": "Where is the Magazine Fort located?",
+		"id": 4232,
+		"headline": "Walk Howth strand",
 		"description": null,
-		"type": "MULTIPLE_CHOICE",
-		"duration": 10,
-		"question": {
-			"id": 0,
-			"text": "Where is the Magazine Fort located?",
-			"correctAnswer": "South east of the Park",
-			"options": ["Nowhere near the Park", "South east of the Park", "North east of the Park"]
+		"type": "ACTION",
+		"question": null,
+		"walk": {
+			"start": {
+				"location": {
+					"coordinates": [-6.08545848515276, 53.3921564939252],
+					"type": "POINT"
+				},
+				"reached": false
+			},
+			"end": {
+				"location": {
+					"coordinates": [-6.10969915784188, 53.393818217411],
+					"type": "POINT"
+				},
+				"reached": false
+			},
+			"walkPath": {
+				"coordinates": [[-6.08545848515276, 53.3921564939252],[-6.08736432346461, 53.3923072649499],[-6.08897307485281, 53.3926020731815],[-6.09249078028584, 53.3924837270224],[-6.09633065060305, 53.3924541208577],[-6.10055815611062, 53.3923830235234],[-6.10633400834879, 53.3933045652504],[-6.10969915784188, 53.393818217411]
+				],
+				"type": "LINESTRING"
+			}
 		},
-		"locations": null
-	}, {
-		"id": 23373,
-		"headline": "For which ocasion was the Papal cross erected?",
-		"description": null,
-		"type": "MULTIPLE_CHOICE",
-		"duration": 10,
-		"question": {
-			"id": 0,
-			"text": "How many steps to top of bell tower",
-			"correctAnswer": "For the visit of Pope John Paul II",
-			"options": ["For Easter celebrations in 1987.", "For the visit of Pope Benedikt XVI", "For the visit of Pope John Paul II"]
-		},
-		"locations": null
+		"facility": "772"
 	}
 ]
