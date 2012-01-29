@@ -72,13 +72,22 @@ define(['dojo/_base/declare',
 					geoPromise.resolve(position.coords);
 				}); 
 			} else {
-				console.log("navigator not supported");
-				return false;
+				console.log("navigator not supported so use default location");
+				xhr.get({
+					url : "/TreasureHuntWeb/rest/game/",
+					content: {categories: gameSetupForm},
+					handleAs : "json",
+					load : lang.hitch(this, function(data) {
+						this._populateData(data);
+						localStorage.setItem("game_activities", dojo.toJson(data));
+						getActivitiesPromise.resolve();
+					})
+				});
 			}
 			Deferred.when(geoPromise, lang.hitch(this, function(currentLocation){
 				xhr.get({
-					url : "/TreasureHuntWeb/rest/game",
-					content: {categories: gameSetupForm, lon_lat : currentLocation.longitude+' '+currentLocation.latitude},
+					url : "/TreasureHuntWeb/rest/game/"+currentLocation.longitude+' '+currentLocation.latitude,
+					content: {categories: gameSetupForm},
 					handleAs : "json",
 					load : lang.hitch(this, function(data) {
 						this._populateData(data);

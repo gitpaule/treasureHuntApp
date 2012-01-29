@@ -113,6 +113,7 @@ define(['dojo/_base/declare',
 				var listItem = registry.byId("" + taskId);
 				var taskDiv = query('.taskDetails', listItem.domNode)[0];
 				this.setTaskDisplayToCompleted(correctAnswer, listItem);
+				this._checkIfActivityTasksComplete();
 			} else {
 				//Wrong answer tracking
 				if(!this.activityData.tasks[taskIndex].question.givenWrongAnswers) {
@@ -292,6 +293,7 @@ define(['dojo/_base/declare',
 				//If answered correctly, show only right answer and checkbox
 				this.setTaskDisplayToCompleted("walk completed", listItem);
 			} else {
+				domConstruct.place("<div>Check out the route in the map view</div>", checkpointDiv);
 				dojo.forEach(['start', 'end'], lang.hitch(this, function(task, start_end){
 					var checkpointDiv = domConstruct.create("div", {
 						'class' : 'checkpoint'
@@ -311,9 +313,12 @@ define(['dojo/_base/declare',
 											task.walk[start_end].reached = true;
 											
 											if(task.walk["start"].reached && task.walk["end"].reached){
-												alert("Task completed!");
 												var listItem = registry.byId("" + task.id);
 												this.setTaskDisplayToCompleted("Walk Completed", listItem);
+												this.addToGlobalAccumulatedPoints(100);
+												alert("Task completed!");
+												//check if all tasks complete
+												this._checkIfActivityTasksComplete();
 											}
 											
 										}else{
@@ -343,6 +348,7 @@ define(['dojo/_base/declare',
 			if(task.reached) {
 				domConstruct.place("<div class='reached'>Visited location</div>", checkpointDiv);
 			}else {
+				domConstruct.place("<div>Check location the map view</div>", checkpointDiv);
 				var verifyBtn = new Button({
 					label : "Verify I am at location",
 					onClick : lang.hitch(this, 
@@ -405,6 +411,20 @@ define(['dojo/_base/declare',
 				});
 			});
 			return serverReqPromise;
+		},
+		
+		_checkIfActivityTasksComplete: function(){
+			//check if all tasks complete
+			for (var i=0; i < this.taskList.children.length; i++) {
+			  if(!this.taskList.children[i].completed){
+			  	return false;
+			  }
+			}
+			//go to score view if all tasks are complete
+			if(!viewCache.scoreView){
+				viewCache.scoreView = registry.byId('scoreView');
+			}
+			viewCache.scoreView.show();
 		},
 		
 		show : function() {
