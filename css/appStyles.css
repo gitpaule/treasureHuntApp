@@ -73,4 +73,14 @@ img.taskTitleImage{
 	color : green;
 }
 	
+#taskListViewTitle{
+	margin-left: 9px;
+}
+
+.map_view_prompt{
+	margin:5px;
+}
+
+.activity_completed{
+	text-decoration:line-through
 }
