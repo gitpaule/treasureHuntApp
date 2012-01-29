@@ -46,11 +46,8 @@ define(['dojo/_base/declare',
 			on(dom.byId("ScoreButtonInActivityListView"), "click", function(){
 				dom.byId("scoreViewAmountViewed").innerHTML = localStorage.getItem("itemsViewed");
 				dom.byId("scoreViewAmountDone").innerHTML = localStorage.getItem("itemsFinished");
-			});
-			on(dom.byId("ScoreButtonInActivityListView"), "click", lang.hitch(this,function(){
 				dom.byId("scoreViewScoreSpan").innerHTML = localStorage.getItem("pointsAccumulated");
-			}));
-			
+			});
 		},
 		
 		startProgressSpinner: function(){
@@ -170,7 +167,6 @@ define(['dojo/_base/declare',
 							{
 								id: activity.id,
 								title : activity.properties.name,
-								imgSource : activity.properties.imgSource,
 								tasks : activityInLocalStorage.tasks
 							}
 						);
@@ -179,8 +175,8 @@ define(['dojo/_base/declare',
 				}
 				
 				return xhr.get({
-					url : "http://localhost/js/dummydata/tasks_"+activity.id+".json",
-					//url : "/TreasureHuntWeb/rest/tasks",
+					// url : "http://localhost/js/dummydata/tasks_"+activity.id+".json",
+					url : "/TreasureHuntWeb/rest/tasks",
 					content: {facilityid: activity.id},
 					handleAs : "json",
 					load : lang.hitch(this, function(activityData) {
@@ -237,6 +233,16 @@ define(['dojo/_base/declare',
 		//
 		_showMapView : function() {
 			viewCache.mapView.show(this.activityStore, 'activityList', this);
+		},
+		
+		markActivityCompleted: function(activityId){
+			for (var i=0; i < this.activityRectList.getChildren().length; i++) {
+			  if(this.activityRectList.getChildren()[i].id === activityId){
+			  	domStyle.set(this.activityRectList.getChildren()[i].domNode, 'text-decoration', 'line-through');
+			  	// domClass.add(this.activityRectList.getChildren()[i].domNode, "activity_completed");
+			  }
+			}
+			
 		}
 	});
 });

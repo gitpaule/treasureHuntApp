@@ -309,7 +309,7 @@ define(['dojo/_base/declare',
 				//If answered correctly, show only right answer and checkbox
 				this.setTaskDisplayToCompleted("walk completed", listItem);
 			} else {
-				domConstruct.place("<div>Check out the route in the map view</div>", checkpointDiv);
+				domConstruct.place("<h5 class='map_view_prompt'>Check out the route in the map view</h5>", checkpointDiv);
 				dojo.forEach(['start', 'end'], lang.hitch(this, function(task, start_end){
 					var checkpointDiv = domConstruct.create("div", {
 						'class' : 'checkpoint'
@@ -364,7 +364,7 @@ define(['dojo/_base/declare',
 			if(task.reached) {
 				domConstruct.place("<div class='reached'>Visited location</div>", checkpointDiv);
 			}else {
-				domConstruct.place("<div>Check location the map view</div>", checkpointDiv);
+				domConstruct.place("<h5 class='map_view_prompt'>View location in map view</h5>", checkpointDiv);
 				var verifyBtn = new Button({
 					label : "Verify I am at location",
 					onClick : lang.hitch(this, 
@@ -431,8 +431,8 @@ define(['dojo/_base/declare',
 		
 		_checkIfActivityTasksComplete: function(){
 			//check if all tasks complete
-			for (var i=0; i < this.taskList.children.length; i++) {
-			  if(!this.taskList.children[i].completed){
+			for (var i=0; i < this.taskList.getChildren().length; i++) {
+			  if(!this.taskList.getChildren()[i].completed){
 			  	return false;
 			  }
 			}
@@ -440,6 +440,12 @@ define(['dojo/_base/declare',
 			if(!viewCache.scoreView){
 				viewCache.scoreView = registry.byId('scoreView');
 			}
+			
+			viewCache.activityList.markActivityCompleted(this.activityData.id);
+								
+			dom.byId("scoreViewAmountViewed").innerHTML = localStorage.getItem("itemsViewed");
+			dom.byId("scoreViewAmountDone").innerHTML = localStorage.getItem("itemsFinished");
+			dom.byId("scoreViewScoreSpan").innerHTML = localStorage.getItem("pointsAccumulated");
 			viewCache.scoreView.show();
 		},
 		
