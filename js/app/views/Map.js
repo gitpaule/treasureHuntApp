@@ -237,7 +237,6 @@ define(['dojo/_base/declare',
 				    "icon": ""
 				};
 				
-				
 				for(var task_key in currentTasks)
 				{
 					if(currentTasks[task_key].walk)
@@ -277,17 +276,21 @@ define(['dojo/_base/declare',
 									properties:{},
 									type: 'Feature',
 									geometry:currentTasks[task_key].location};
-						location = new GeoJSON(geoJSON, location_marker_options);
-						googleMapStuff = location.parse();
-						this.map.setCenter(googleMapStuff.getPosition());
-						this.map.setZoom(15);
+						var loc = new GeoJSON(geoJSON, location_marker_options);
+						googleMapStuff = loc.parse();
+						latlngbounds.extend(googleMapStuff.getPosition());
 						googleMapStuff.setMap(this.map);
 						this.map_overlays.activityDetails.byID[activity_detail_id].overlay_arr.push(googleMapStuff);
 				    }
 					
-					this.map.fitBounds( latlngbounds );
-					
+				}	
+				this.map.fitBounds( latlngbounds );
+				
+				if(this.map.getZoom() > 14)
+				{
+					this.map.setZoom(14);
 				}
+				
 			}
 			this.map_overlays.current_map_type = 'activityDetail';
 			this.map_overlays.activityDetails.current_activity_detail_id = activity_detail_id;
