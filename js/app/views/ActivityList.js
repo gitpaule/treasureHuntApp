@@ -177,6 +177,7 @@ define(['dojo/_base/declare',
 				}
 				
 				return xhr.get({
+					//url : "http://localhost/js/dummydata/tasks_"+activity.id+".json",
 					url : "/TreasureHuntWeb/rest/tasks",
 					content: {facilityid: activity.id},
 					handleAs : "json",
