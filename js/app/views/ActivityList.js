@@ -7,10 +7,8 @@ define(['dojo/_base/declare',
   		'dojo/_base/xhr',
   		'dojo/_base/json',
 		'dojox/mobile/ListItem',
-		'app/views/TaskList', 
-		'app/views/Map',
 		'dojo/dom',
- 		'dojo/dom-style'], function(declare, registry, lang, on, Deferred, ProgressIndicator,  xhr, dojo, ListItem, TaskList, Map, dom, domStyle) {
+ 		'dojo/dom-style'], function(declare, registry, lang, on, Deferred, ProgressIndicator,  xhr, dojo, ListItem, dom, domStyle) {
 
 	// module:
 	//		views/ActivityList
@@ -162,40 +160,44 @@ define(['dojo/_base/declare',
 				if(!viewCache.activityDetailViews){
 					viewCache.activityDetailViews = {};
 				}
-				var activityInLocalStorageJson = localStorage.getItem("activityDetails_"+activity.id);
-				if(activityInLocalStorageJson){
-					var activityInLocalStorage = dojo.fromJson(activityInLocalStorageJson);
-					viewCache.activityDetailViews[activity.id] = new TaskList(registry.byId("activityDetailView"), 
-							{
-								id: activity.id,
-								title : activity.properties.name,
-								tasks : activityInLocalStorage.tasks
-							}
-						);
-						viewCache.activityDetailViews[activity.id].show();
-						return null;
-				}
-				
-				return xhr.get({
-					//url : "http://localhost/js/dummydata/tasks_"+activity.id+".json",
-					url : "/TreasureHuntWeb/rest/tasks",
-					content: {facilityid: activity.id},
-					handleAs : "json",
-					load : lang.hitch(this, function(activityData) {
+				//load TaskList on demand to improve the startup time of the application
+				require(['app/views/TaskList'], lang.hitch(this, function(TaskList){
+					var activityInLocalStorageJson = localStorage.getItem("activityDetails_"+activity.id);
+					if(activityInLocalStorageJson){
+						var activityInLocalStorage = dojo.fromJson(activityInLocalStorageJson);
 						viewCache.activityDetailViews[activity.id] = new TaskList(registry.byId("activityDetailView"), 
-							{
-								id : activity.id,
-								title : activity.properties.name,
-								imgSource : activity.properties.imgSource,
-								tasks : activityData
-							}
-						);
-						viewCache.activityDetailViews[activity.id].show();
-					}),
-					error : function(error) {
-						console.error("Error retrieving activity data ", error);
+								{
+									id: activity.id,
+									title : activity.properties.name,
+									tasks : activityInLocalStorage.tasks
+								}
+							);
+							viewCache.activityDetailViews[activity.id].show();
+							return null;
 					}
-				});
+					
+					return xhr.get({
+						//url : "http://localhost/js/dummydata/tasks_"+activity.id+".json",
+						url : "/TreasureHuntWeb/rest/tasks",
+						content: {facilityid: activity.id},
+						handleAs : "json",
+						load : lang.hitch(this, function(activityData) {
+							viewCache.activityDetailViews[activity.id] = new TaskList(registry.byId("activityDetailView"), 
+								{
+									id : activity.id,
+									title : activity.properties.name,
+									imgSource : activity.properties.imgSource,
+									tasks : activityData
+								}
+							);
+							viewCache.activityDetailViews[activity.id].show();
+						}),
+						error : function(error) {
+							console.error("Error retrieving activity data ", error);
+						}
+					});
+						
+				}));
 			}
 		},
 		
@@ -214,9 +216,7 @@ define(['dojo/_base/declare',
 		_setupEventHandlers : function(view) {
 			var listBtn = registry.byId('activListBtn_actList');
 			var mapBtn = registry.byId('activMapBtn_actList');
-			if(!viewCache.mapView) {
-				viewCache.mapView = new Map();
-			}
+			
 			listBtn.on('Click', lang.hitch(this, this.show));
 			mapBtn.on('Click', lang.hitch(this, this._showMapView));
 			
@@ -234,7 +234,13 @@ define(['dojo/_base/declare',
 		//
 		//
 		_showMapView : function() {
-			viewCache.mapView.show(this.activityStore, 'activityList', this);
+			//load map javascript ascyncronously to improve boot time for application
+			require(['app/views/Map'], lang.hitch(this, function(Map){
+				if(!viewCache.mapView) {
+					viewCache.mapView = new Map();
+				}
+				viewCache.mapView.show(this.activityStore, 'activityList', this);
+			}));
 		},
 		
 		markActivityCompleted: function(activityId){

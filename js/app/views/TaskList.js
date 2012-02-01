@@ -309,7 +309,7 @@ define(['dojo/_base/declare',
 				//If answered correctly, show only right answer and checkbox
 				this.setTaskDisplayToCompleted("walk completed", listItem);
 			} else {
-				domConstruct.place("<h5 class='map_view_prompt'>Check out the route in the map view</h5>", checkpointDiv);
+				domConstruct.place("<h5 class='map_view_prompt'>Check out the route in the map view</h5>", taskDetailsDiv);
 				dojo.forEach(['start', 'end'], lang.hitch(this, function(task, start_end){
 					var checkpointDiv = domConstruct.create("div", {
 						'class' : 'checkpoint'
@@ -479,6 +479,9 @@ define(['dojo/_base/declare',
 		},
 		
 		_showMapView : function() {
+			if(!viewCache.mapView) {
+					viewCache.mapView = new Map();
+			}
 			viewCache.mapView.show(this.activityStore, 'activityDetail', this);
 		}
 	});

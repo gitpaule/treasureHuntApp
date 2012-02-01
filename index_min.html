@@ -27,12 +27,14 @@
 		parseOnLoad: false,
 		paths:{  
 			"app":"../../release/app"
-		},
-		deps:["js/release/app/main.js"]
+		}
 	};
   </script>
   <script src="js/release/dojox/mobile/deviceTheme.js"></script>
   <script src="js/release/dojo/dojo.js"></script>
+  <script src="js/release/app/main.js"></script>
+  <!-- tasklist layer contains TaskList and Map modules - defer execution until body is parsed to speed up boot time -->
+  <script src="js/release/app/tasklist.js" defer="defer"></script>
   <script>
   		viewCache =  [];
   		progressIndicator = null;
